@@ -2,7 +2,7 @@ require "test_helper"
 
 describe ProductsController do
   let (:seller) {
-    Seller.create username: "kittin mittin seller"
+    Seller.create username: "kittin mittin seller", email: "Kitty@email.com"
   }
   let (:product) {
     Product.create name: "kittin mittins", description: "paw warmers", price: 1200, seller_id: seller.id
@@ -61,21 +61,21 @@ describe ProductsController do
       must_redirect_to product_path(new_product.id)
     end
 
-    # it "sends a bad_request status if given bad data" do
-    #   product_hash = {
-    #     product: {
-    #       name: " ",
-    #     },
-    #   }
-    #   expect(Product.new(product_hash[:product])).wont_be :valid?
+    it "sends a bad_request status if given bad data" do
+      product_hash = {
+        product: {
+          name: " ",
+        },
+      }
+      expect(Product.new(product_hash[:product])).wont_be :valid?
 
-    #   expect {
-    #     post products_path, params: product_hash
-    #   }.wont_change "product.count"
+      expect {
+        post products_path, params: product_hash
+      }.wont_change "Product.count"
 
-    #   must_respond_with :bad_request
+      must_respond_with :bad_request
 
-    #   check_flash(:warning)
-    # end
+      # check_flash(:warning)
+    end
   end
 end
