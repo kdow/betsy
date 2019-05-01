@@ -7,7 +7,7 @@ require 'faker'
   )
 end
 
-100.times do
+20.times do
   Product.create(
     name: Faker::Commerce.product_name,
     price: Faker::Commerce.price, 
