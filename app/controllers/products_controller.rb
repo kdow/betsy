@@ -29,6 +29,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find_by(id: params[:id])
+    unless @product
+      head :not_found
+      return
+    end
+  end
+
   private
 
   def product_params

@@ -78,4 +78,16 @@ describe ProductsController do
       # check_flash(:warning)
     end
   end
+
+  describe "Edit" do
+    it "can get the edit page for an existing product" do
+      get edit_product_path(product.id)
+      must_respond_with :success
+    end
+
+    it "will respond with not found when attempting to edit with a bad product id" do
+      get edit_product_path(-1)
+      must_respond_with :not_found
+    end
+  end
 end
