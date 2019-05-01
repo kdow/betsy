@@ -10,9 +10,9 @@ end
 20.times do
   Product.create(
     name: Faker::Commerce.product_name,
-    price: Faker::Commerce.price, 
-    seller_id: Faker::Number.between(1, 20),
-    description: Faker::Lorem.words(4)
+    price: Faker::Number.between(1, 20),
+    seller_id: Faker::Number.between(10, 80),
+    description: "Super fun cat product."
   )
 end
 
