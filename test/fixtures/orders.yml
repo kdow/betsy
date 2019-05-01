@@ -9,6 +9,7 @@ one:
   city: Los Angeles
   state: CA
   zip: 90020
+  status: 
 
 two:
   name: Jean Dupont
@@ -19,3 +20,4 @@ two:
   city: Seattle
   state: WA
   zip: 98119
+  status: 
