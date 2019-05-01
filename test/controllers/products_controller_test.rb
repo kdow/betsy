@@ -90,4 +90,49 @@ describe ProductsController do
       must_respond_with :not_found
     end
   end
+  describe "update" do
+    let(:product_data) {
+      {
+        product: {
+          name: "Catnip",
+          price: 600,
+          description: "crazy kitty fun time",
+          quantity: 10,
+          seller_id: seller.id,
+        },
+      }
+    }
+
+    it "changes the data on the model" do
+      product.assign_attributes(product_data[:product])
+      expect(product).must_be :valid?
+      product.reload
+
+      patch product_path(product), params: product_data
+
+      must_respond_with :redirect
+      must_redirect_to product_path(product)
+
+      product.reload
+      expect(product.name).must_equal(product_data[:product][:name])
+    end
+    it "responds with not_found if givin an invalid id" do
+      fake_id = -1
+
+      patch product_path(fake_id), params: product_data
+
+      must_respond_with :not_found
+    end
+    it "responds with BAD REQUEST for bad data" do
+      product_data[:product][:name] = " "
+
+      product.assign_attributes(product_data[:product])
+      expect(product).wont_be :valid?
+      product.reload
+
+      patch product_path(product), params: product_data
+
+      must_respond_with :bad_request
+    end
+  end
 end
