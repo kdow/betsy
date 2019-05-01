@@ -11,4 +11,8 @@ class ProductsController < ApplicationController
       return
     end
   end
+
+  def new
+    @product = Product.new
+  end
 end

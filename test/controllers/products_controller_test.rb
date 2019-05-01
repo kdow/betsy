@@ -25,4 +25,11 @@ describe ProductsController do
       must_respond_with :not_found
     end
   end
+  describe "new" do
+    it "can get the new product page" do
+      get new_product_path
+
+      must_respond_with :success
+    end
+  end
 end
