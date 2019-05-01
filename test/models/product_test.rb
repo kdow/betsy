@@ -3,12 +3,6 @@ require "test_helper"
 # describe Product do
 #   let(:product) { Product.new }
 
-<<<<<<< HEAD
-#   it "must be valid" do
-#     value(product).must_be :valid?
-#   end
-# end
-=======
   it "must be valid" do
     value(product).must_be :valid?
   end
@@ -33,4 +27,3 @@ require "test_helper"
     end
   end
 end
->>>>>>> d40f013654073a3cd48250d1389de2de9699774f
