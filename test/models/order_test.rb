@@ -9,8 +9,9 @@ describe Order do
   describe "relations" do
     it "has a list of order_products" do
       order = orders(:one)
-      order.must_respond_to :OrderProducts
-      order.orderproducts.each do |product|
+      # order.must_respond_to :OrderProducts
+      expect(order.order_products.length).must_equal 2
+      order.order_products.each do |product|
         product.must_be_kind_of OrderProduct
       end
     end
@@ -22,12 +23,10 @@ describe Order do
     end
   end
 
-  describe "validations" do
-    it "update the status befor saving the order" do
+  describe "calculate total" do
+    it "can calculate the total price for the order" do
       order = orders(:one)
-      order.status.must_equal nil
-      order.save
-      expect(order.status).must_equal "In progress"
+      expect(order.calculate_total).must_equal 12000
     end
   end
 end
