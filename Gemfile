@@ -80,8 +80,4 @@ group :test do
   gem 'minitest-reporters'
 end
 
-<<<<<<< HEAD
-gem "faker"
-=======
 gem 'faker'
->>>>>>> origin
