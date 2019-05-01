@@ -9,7 +9,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-    <%= link_to("Login with GitHub", github_login_path) %>
+    <% if session[:seller_id] %>
+      <%= link_to "Log out", logout_path, method: "delete" %>
+    <% else %>
+      <%= link_to "Login with Github", github_login_path %>
+    <% end %>
   </header>
   <body>
     <%= yield %>
