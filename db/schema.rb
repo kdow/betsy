@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_214304) do
     t.string "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
   end
 
   create_table "products", force: :cascade do |t|

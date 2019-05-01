@@ -85,3 +85,4 @@ gem 'faker'
 
 gem "omniauth"
 gem "omniauth-github"
+
