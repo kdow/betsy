@@ -73,6 +73,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -81,3 +82,7 @@ group :test do
 end
 
 gem 'faker'
+
+gem "omniauth"
+gem "omniauth-github"
+

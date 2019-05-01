@@ -7,7 +7,11 @@
 kelly: 
   username: kelly
   email: kelly@cats.com
+  provider: github
+  uid: 12345
 
 sarah: 
   username: sarah
   email: sarah@cats.com
+  provider: github
+  uid: 13371337
