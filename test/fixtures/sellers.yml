@@ -7,11 +7,11 @@
 kelly: 
   username: kelly
   email: kelly@cats.com
-  oauth_provider: github
-  oauth_uid: 12345
+  provider: github
+  uid: 12345
 
 sarah: 
   username: sarah
   email: sarah@cats.com
-  oauth_provider: github
-  oauth_uid: 13371337
+  provider: github
+  uid: 13371337
