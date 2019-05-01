@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyString
-  price: 1
-  quantity: 1
+crown:
+  name: Crown
+  description: A lovely crown for your majestic beast
+  price: 8000
+  quantity: 3
   photo_url: MyString
-  seller_id: 1
+  seller: kelly
 
-two:
-  name: MyString
-  description: MyString
-  price: 1
-  quantity: 1
+bouquet:
+  name: Bouquet of flowers
+  description: A bouquet of flowers for your favorite pal
+  price: 2000
+  quantity: 10
   photo_url: MyString
-  seller_id: 1
+  seller: sarah
