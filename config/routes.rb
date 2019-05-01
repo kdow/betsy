@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create]
 
   get "/auth/github", as: "github_login"
+  get "/auth/:provider/callback", to: "sellers#create"
 end
