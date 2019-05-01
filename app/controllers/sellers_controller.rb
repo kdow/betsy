@@ -1,12 +1,12 @@
 class SellersController < ApplicationController
-<<<<<<< HEAD
   def show
     @seller = Seller.find_by(id: params[:id])
 
     unless @seller
       head :not_found
     end
-=======
+  end
+
   def create
     auth_hash = request.env["omniauth.auth"]
 
@@ -33,6 +33,5 @@ class SellersController < ApplicationController
     flash[:success] = "Successfully logged out!"
 
     redirect_to root_path
->>>>>>> 04cebd6ce873052b07f554a1e48acc17c8e03440
   end
 end

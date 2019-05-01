@@ -1,6 +1,5 @@
 require "test_helper"
 
-<<<<<<< HEAD
 describe "SellersController" do
   let (:seller) { sellers.first }
 
@@ -15,8 +14,9 @@ describe "SellersController" do
       get seller_path(-1)
 
       must_respond_with :not_found
-=======
-describe SellersController do
+    end
+  end
+
   describe "auth_callback" do
     it "logs in an existing seller and redirects to the root route" do
       start_count = Seller.count
@@ -61,7 +61,6 @@ describe SellersController do
       Seller.count.must_equal start_count
 
       session[:seller_id].must_be_nil
->>>>>>> 04cebd6ce873052b07f554a1e48acc17c8e03440
     end
   end
 end
