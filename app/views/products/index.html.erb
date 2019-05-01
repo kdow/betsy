@@ -1,6 +1,10 @@
-
-<ul></ul>
+<ul>
   <% @products.each do |product| %>
-    <li><%= link_to product.name, product_path(product) %></li>
+    <li><%= link_to product.name, product_path(product) %> | <%= number_to_currency product.price %></li>
+    <%= form_for @order_product do |f| %>
+    <%= f.hidden_field :product_id, value: product.id %>
+    <%= f.number_field :quantity %>
+    <%= f.submit "Add to cart" %>
+    <% end %></p>
   <% end %>
 </ul>
