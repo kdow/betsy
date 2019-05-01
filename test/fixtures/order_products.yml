@@ -2,6 +2,15 @@
 
 one:
   quantity: 1
+  order: one
+  product: crown
 
 two:
+  quantity: 2
+  order: one
+  product: bouquet
+
+three: 
   quantity: 1
+  order: two
+  product: bouquet
