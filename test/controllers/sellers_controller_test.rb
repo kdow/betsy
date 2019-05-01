@@ -1,5 +1,22 @@
 require "test_helper"
 
+
+describe "SellersController" do
+  let (:seller) { sellers.first }
+
+  describe "show" do
+    it "Can get a product with a valid id" do
+      get seller_path(seller.id)
+
+      must_respond_with :success
+    end
+
+    it "Will redirect if given an invalid product ID" do
+      get seller_path(-1)
+
+      must_respond_with :not_found
+    end 
+
 describe SellersController do
   describe "auth_callback" do
     it "logs in an existing seller and redirects to the root route" do
@@ -45,6 +62,7 @@ describe SellersController do
       Seller.count.must_equal start_count
 
       session[:seller_id].must_be_nil
+
     end
   end
 end
