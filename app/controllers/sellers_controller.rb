@@ -4,12 +4,12 @@ class SellersController < ApplicationController
 
     seller = Seller.find_by(uid: auth_hash[:uid], provider: "github")
     if seller
-      flash[:success] = "Logged in as returning seller #{seller.name}"
+      flash[:success] = "Logged in as returning seller #{seller.username}"
     else
-      seller = seller.build_from_github(auth_hash)
+      seller = Seller.build_from_github(auth_hash)
 
       if seller.save
-        flash[:success] = "Logged in as new seller #{user.name}"
+        flash[:success] = "Logged in as new seller #{seller.username}"
       else
         flash[:error] = "Could not create new seller account: #{seller.errors.messages}"
         return redirect_to root_path

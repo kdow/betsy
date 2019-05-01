@@ -8,7 +8,7 @@ class Seller < ApplicationRecord
     seller = Seller.new
     seller.uid = auth_hash[:uid]
     seller.provider = "github"
-    seller.username = auth_hash["info"]["username"]
+    seller.username = auth_hash["info"]["name"]
     seller.email = auth_hash["info"]["email"]
 
     return seller
