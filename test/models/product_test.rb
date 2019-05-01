@@ -2,12 +2,6 @@ require "test_helper"
 
 describe Product do
   let(:product) { Product.new }
-<<<<<<< HEAD
-=======
-
-  it "must be valid" do
-    value(product).must_be :valid?
-  end
 
   describe "relations" do
     it "has a seller" do
@@ -28,5 +22,4 @@ describe Product do
       expect(product_one.order_products).must_include order_prod
     end
   end
->>>>>>> 47d88a71b9b97852cfa15d0de5e57cf42c188bb2
 end

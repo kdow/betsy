@@ -3,15 +3,6 @@ require "test_helper"
 describe OrderProduct do
   let(:order_product) { OrderProduct.new }
 
-<<<<<<< HEAD
-  # it "must be valid" do
-  #   value(order_product).must_be :valid?
-  # end
-=======
-  it "must be valid" do
-    value(order_product).must_be :valid?
-  end
-
   describe "relations" do
     it "has an order" do
       order_prod = order_products(:two)
@@ -35,5 +26,4 @@ describe OrderProduct do
       order_prod.product_id.must_equal products(:crown).id
     end
   end
->>>>>>> 47d88a71b9b97852cfa15d0de5e57cf42c188bb2
 end
