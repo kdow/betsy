@@ -1,7 +1,7 @@
 require "test_helper"
 
-describe OrderProduct do
-  let(:order_product) { OrderProduct.new }
+# describe OrderProduct do
+#   let(:order_product) { OrderProduct.new }
 
   describe "relations" do
     it "has an order" do
