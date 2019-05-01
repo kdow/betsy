@@ -19,4 +19,11 @@ class SellersController < ApplicationController
     session[:seller_id] = seller.id
     return redirect_to root_path
   end
+
+  def destroy
+    session[:seller_id] = nil
+    flash[:success] = "Successfully logged out!"
+
+    redirect_to root_path
+  end
 end
