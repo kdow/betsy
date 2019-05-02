@@ -121,7 +121,7 @@ describe ProductsController do
         expect(product).must_be :valid?
         product.reload
 
-        patch product_path(product), params: good_data
+        patch seller_product_path(seller.id, product), params: good_data
 
         must_respond_with :redirect
         must_redirect_to product_path(product)
@@ -132,7 +132,7 @@ describe ProductsController do
       it "responds with not_found if givin an invalid id" do
         fake_id = -1
 
-        patch product_path(fake_id), params: good_data
+        patch seller_product_path(seller.id, fake_id), params: good_data
 
         must_respond_with :not_found
       end
@@ -143,7 +143,7 @@ describe ProductsController do
         expect(product).wont_be :valid?
         product.reload
 
-        patch product_path(product), params: good_data
+        patch seller_product_path(seller.id, product), params: good_data
 
         must_respond_with :bad_request
       end
@@ -171,7 +171,7 @@ describe ProductsController do
     it "requires login for update" do
       first_name = Product.first.name
 
-      patch product_path(Product.first), params: good_data
+      patch seller_product_path(seller.id, Product.first), params: good_data
 
       expect(Product.first.name).must_equal first_name
       must_redirect_to products_path
