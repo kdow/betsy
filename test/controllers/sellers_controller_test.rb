@@ -4,7 +4,7 @@ describe "SellersController" do
   let (:seller) { sellers.first }
   describe "logged in seller" do
     describe "show" do
-      it "Can get a product with a valid id" do
+      it "Can get a seller with a valid id" do
         perform_login
         get seller_path(seller.id)
 
