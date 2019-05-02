@@ -1,0 +1,29 @@
+<section class="seller">
+
+    <h2><%= @seller.username %></h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Edit</th>
+          <th>Retire</th>
+          <th>Edit Categories</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @seller.products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.quantity %></td>
+          <td><%= link_to "Edit" %></td>
+          <td><%= link_to "Retire" %></td>
+          <td><%= link_to "Edit Categories" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+
+</section>
