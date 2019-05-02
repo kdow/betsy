@@ -15,10 +15,12 @@ category_list = [
 ]
 
 20.times do
-  Product.create(
+  product = Product.create(
     name: Faker::Commerce.product_name,
     price: Faker::Number.between(1, 20),
-    seller_id: Faker::Number.between(10, 80),
+    seller_id: Faker::Number.between(1, 20),
     description: "Super fun cat product.",
   )
+  product.categories << category_list.sample
+  product.save
 end
