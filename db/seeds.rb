@@ -1,4 +1,4 @@
-require 'faker'
+require "faker"
 
 20.times do
   Seller.create(
@@ -12,8 +12,6 @@ end
     name: Faker::Commerce.product_name,
     price: Faker::Number.between(1, 20),
     seller_id: Faker::Number.between(10, 80),
-    description: "Super fun cat product."
+    description: "Super fun cat product.",
   )
 end
-
-
