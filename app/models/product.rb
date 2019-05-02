@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :seller
   has_many :order_products
-  has_and_belongs_to_mandy :categories
+  has_and_belongs_to_many :categories
 
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true
