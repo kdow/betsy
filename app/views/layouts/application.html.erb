@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Betsy</title>
+    <title>CATsy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,16 +13,19 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <h1>
-      <%= link_to "CATSY", root_path  %>
+      <%= link_to "CATsy", root_path  %>
     </h1>
       <div class="collapse navbar-collapse flex-grow-1 text-right">
 
       <ul class="navbar-nav ml-auto flex-nowrap">
         <li class="nav-item">
-          <%= link_to "Products", products_path, class: "nav-link" %>
+          <%= link_to "CATegories", categories_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Cart", cart_path, class: "nav-link" %>
+          <%= link_to "Purrducts", products_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Shopping Cat", cart_path, class: "nav-link" %>
         </li>        
         <% if session[:seller_id] %>
           <li class="nav-item">
@@ -30,7 +33,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login with Github", github_login_path, class: "nav-link" %>
+            <%= link_to "Login with Cathub", github_login_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
