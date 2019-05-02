@@ -1,15 +1,15 @@
 <%= form_with model: @order, class: 'order-form' do |f| %>
   <p>Payment Details</p>
   <div>
-    <%= f.label :name, "Please enter your name" %>
+    <%= f.label :name, "Name on credit card" %>
     <%= f.text_field :name, placeholder: "Cat lover" %>
   </div>
   <div>
-    <%= f.label :email, "Please enter your email" %>
+    <%= f.label :email %>
     <%= f.text_field :email, placeholder: "Cat_lover@catsy.com" %>
   </div>
   <div>
-    <%= f.label :address, "Please enter your address" %>
+    <%= f.label :address, "address" %>
     <%= f.text_field :address, placeholder: "12th ne" %>
   </div>
   <div>
@@ -18,7 +18,7 @@
   </div>
   <div>
     <%= f.label :state, "State" %>
-    <%= f.input :state, as: :select, collection: Order::STATES %>
+    <%= f.select :state, Order::STATES %>
   </div>
   <div>
     <%= f.label :zip, "Zip code" %>
@@ -32,5 +32,6 @@
     <%= f.label :cc_exp %>
     <%= f.text_field :cc_exp, placeholder: "000" %>
   </div>
-  <%= f.submit button_text, class: "btn btn-success btn-block" %>
+  <%= f.submit button_text, class: "btn btn-success" %>
+  <%= link_to "Continue Shopping", products_path, class: "btn btn-success" %>
 <% end %>
