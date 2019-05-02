@@ -7,6 +7,9 @@ describe ProductsController do
   let (:product) {
     Product.create name: "kittin mittins", description: "paw warmers", price: 1200, seller_id: seller.id
   }
+  before do
+    @perform_login
+  end
 
   describe "index" do
     it "can get the index page" do

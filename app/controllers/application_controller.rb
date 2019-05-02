@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_order
+  before_action :require_login
 
   def current_order
     if session[:order_id]
