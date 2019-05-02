@@ -62,7 +62,7 @@ describe ProductsController do
           },
         }
         expect {
-          post products_path, params: product_hash
+          post seller_products_path(seller.id), params: product_hash
         }.must_change "Product.count", 1
 
         # check_flash
@@ -83,7 +83,7 @@ describe ProductsController do
         expect(Product.new(product_hash[:product])).wont_be :valid?
 
         expect {
-          post products_path, params: product_hash
+          post seller_products_path(seller.id), params: product_hash
         }.wont_change "Product.count"
 
         must_respond_with :bad_request
@@ -157,7 +157,7 @@ describe ProductsController do
 
     it "requires login for create" do
       expect {
-        post products_path, params: good_data
+        post seller_products_path(seller.id), params: good_data
       }.wont_change "Product.count"
 
       must_redirect_to products_path
