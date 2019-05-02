@@ -1,0 +1,36 @@
+<%= form_with model: @order, class: 'order-form' do |f| %>
+  <p>Payment Details</p>
+  <div>
+    <%= f.label :name, "Please enter your name" %>
+    <%= f.text_field :name, placeholder: "Cat lover" %>
+  </div>
+  <div>
+    <%= f.label :email, "Please enter your email" %>
+    <%= f.text_field :email, placeholder: "Cat_lover@catsy.com" %>
+  </div>
+  <div>
+    <%= f.label :address, "Please enter your address" %>
+    <%= f.text_field :address, placeholder: "12th ne" %>
+  </div>
+  <div>
+    <%= f.label :city %>
+    <%= f.text_field :city, placeholder: "Redmond" %>
+  </div>
+  <div>
+    <%= f.label :state, "State" %>
+    <%= f.input :state, as: :select, collection: Order::STATES %>
+  </div>
+  <div>
+    <%= f.label :zip, "Zip code" %>
+    <%= f.text_field :zip, placeholder: "98052" %>
+  </div>
+  <div>
+    <%= f.label :last_four, "Credit card number" %>
+    <%= f.text_field :last_four, placeholder: "123456" %>
+  </div>
+  <div>
+    <%= f.label :cc_exp %>
+    <%= f.text_field :cc_exp, placeholder: "000" %>
+  </div>
+  <%= f.submit button_text, class: "btn btn-success btn-block" %>
+<% end %>
