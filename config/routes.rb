@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   resources :order_products
   resource :cart, only: [:show]
 
-  resources :products, only: [:index, :show, :new, :edit, :update]
+  resources :products, only: [:index, :show, :edit, :update]
   resources :sellers, only: [:show]
 
   resources :sellers do
-    resources :products, only: [:create]
+    resources :products, only: [:create, :new]
   end
 
   get "/auth/github", as: "github_login"

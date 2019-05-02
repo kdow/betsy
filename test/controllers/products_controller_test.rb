@@ -44,7 +44,7 @@ describe ProductsController do
     end
     describe "new" do
       it "can get the new product page" do
-        get new_product_path
+        get new_seller_product_path(seller.id)
 
         must_respond_with :success
       end
@@ -151,7 +151,7 @@ describe ProductsController do
   end
   describe "Guest user" do
     it "requires login for new" do
-      get new_product_path
+      get new_seller_product_path(seller.id)
       must_redirect_to products_path
     end
 
