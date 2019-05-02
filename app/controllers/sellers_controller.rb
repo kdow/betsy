@@ -1,5 +1,5 @@
 class SellersController < ApplicationController
-  skip_before_action :require_login
+  skip_before_action :require_login, only: [:create]
 
   def show
     @seller = Seller.find_by(id: params[:id])

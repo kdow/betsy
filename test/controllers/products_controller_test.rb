@@ -8,7 +8,7 @@ describe ProductsController do
     Product.create name: "kittin mittins", description: "paw warmers", price: 1200, seller_id: seller.id
   }
   before do
-    @perform_login
+    @seller = perform_login
   end
 
   describe "index" do

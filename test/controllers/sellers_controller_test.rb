@@ -5,12 +5,14 @@ describe "SellersController" do
 
   describe "show" do
     it "Can get a product with a valid id" do
+      perform_login
       get seller_path(seller.id)
 
       must_respond_with :success
     end
 
     it "Will redirect if given an invalid product ID" do
+      perform_login
       get seller_path(-1)
 
       must_respond_with :not_found
