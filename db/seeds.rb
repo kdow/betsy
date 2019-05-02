@@ -7,6 +7,13 @@ require "faker"
   )
 end
 
+category_list = [
+  Category.create(name: "accessories"),
+  Category.create(name: "toys"),
+  Category.create(name: "plants"),
+  Category.create(name: "food"),
+]
+
 20.times do
   Product.create(
     name: Faker::Commerce.product_name,
