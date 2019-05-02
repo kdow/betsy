@@ -21,6 +21,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new product_params
+    @product.seller_id = session[:seller_id]
     @successful = @product.save
     if @successful
       redirect_to product_path(@product.id)
