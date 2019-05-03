@@ -11,6 +11,7 @@ accessories = Category.create(name: "accessories")
 toys = Category.create(name: "toys")
 food = Category.create(name: "food")
 baskets = Category.create(name: "baskets")
+furniture = Category.create(name: "furniture")
 
 puff = Product.create(
   name: "Puff ball on a string",
@@ -93,7 +94,7 @@ tree = Product.create(
   quantity: 2,
 )
 
-tree.categories << accessories
+tree.categories << furniture
 tree.save
 
 neckerchief = Product.create(
@@ -263,3 +264,15 @@ flowers = Product.create(
 
 flowers.categories << accessories
 flowers.save
+
+lounger = Product.create(
+  name: "Cat lounger",
+  price: 5999,
+  seller_id: Faker::Number.between(1, 20),
+  description: "Lounge in style with this white and black spotted lounge bed.",
+  photo_url: "https://live.staticflickr.com/65535/32822903717_156d8e26f6_q.jpg",
+  quantity: 3,
+)
+
+lounger.categories << furniture
+lounger.save
