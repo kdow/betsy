@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   resource :cart, only: [:show]
   resources :order, only: [:new, :update, :show]
 
-  resources :products, only: [:index, :show, :new, :create, :edit, :update]
+  resources :products, only: [:index, :show]
   resources :sellers, only: [:show]
 
+  resources :sellers do
+    resources :products, only: [:create, :new, :edit, :update]
+  end
   resources :categories do
     resources :products, only: [:index, :new]
   end

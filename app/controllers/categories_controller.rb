@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+  skip_before_action :require_login
+  skip_before_action :auth_seller
+
   def index
     @categories = Category.all
   end
