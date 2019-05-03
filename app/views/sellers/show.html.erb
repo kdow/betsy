@@ -2,6 +2,10 @@
 
     <h2><%= @seller.username %></h2>
 
+    <section>
+      <%= link_to "Add Product", new_seller_product_path(@seller), class: "btn btn-primary" %>
+    </section>
+
     <table class="table">
       <thead>
         <tr>
