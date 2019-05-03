@@ -10,7 +10,7 @@ class OrderProductsController < ApplicationController
   def update
     @order = current_order
     @item = @order.order_products.find(params[:id])
-    @item.update_attributes(product_params)
+    @item.update_attributes(order_product_params)
     @items = @order.order_products
     redirect_to cart_path
   end
