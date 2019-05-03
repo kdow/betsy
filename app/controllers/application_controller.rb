@@ -1,4 +1,6 @@
 
+require "pry"
+
 class ApplicationController < ActionController::Base
   helper_method :current_order
   before_action :require_login
@@ -26,9 +28,6 @@ class ApplicationController < ActionController::Base
   end
 
   def auth_seller
-    unless current_seller.id == params[:id].to_i
-      flash[:error] = "You dont have permission to view this page"
-      redirect_to seller_path(current_seller)
-    end
+    raise NotImplementedError
   end
 end

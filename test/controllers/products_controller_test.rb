@@ -44,7 +44,7 @@ describe ProductsController do
     end
     describe "new" do
       it "can get the new product page" do
-        get new_seller_product_path(seller.id)
+        get new_seller_product_path(@seller.id)
 
         must_respond_with :success
       end
@@ -58,11 +58,12 @@ describe ProductsController do
             price: 1300,
             description: "Kitty fun tower",
             quantity: 5,
-            seller_id: seller.id,
+            seller_id: @seller.id,
           },
         }
+
         expect {
-          post seller_products_path(seller.id), params: product_hash
+          post seller_products_path(@seller.id), params: product_hash
         }.must_change "Product.count", 1
 
         # check_flash
