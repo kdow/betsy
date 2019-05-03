@@ -5,7 +5,7 @@ describe ProductsController do
     Seller.create username: "kittin mittin seller", email: "Kitty@email.com"
   }
   let (:product) {
-    Product.create name: "kittin mittins", description: "paw warmers", price: 1200, seller_id: seller.id
+    Product.create name: "kittin mittins", description: "paw warmers", price: 1200, seller_id: seller.id, photo_url: "https://live.staticflickr.com/65535/47745224121_36f9a5ce73_q.jpg"
   }
   let (:good_data) {
     { product: {

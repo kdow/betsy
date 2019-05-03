@@ -22,52 +22,51 @@ describe "SellersController" do
     describe "destroy" do
       ### TODO
     end
+  end
 
-    describe "auth_callback" do
-      it "logs in an existing seller and redirects to the root route" do
-        start_count = Seller.count
-        seller = sellers(:sarah)
+  describe "auth_callback" do
+    it "logs in an existing seller and redirects to the root route" do
+      start_count = Seller.count
+      seller = sellers(:sarah)
 
-        perform_login(seller)
-        must_redirect_to root_path
-        session[:seller_id].must_equal seller.id
+      perform_login(seller)
+      must_redirect_to root_path
+      session[:seller_id].must_equal seller.id
+      Seller.count.must_equal start_count
+    end
 
-        Seller.count.must_equal start_count
-      end
+    it "creates a new seller and redirects to the root route" do
+      start_count = Seller.count
+      seller = Seller.new(provider: "github", uid: 99999, username: "test_seller", email: "test@seller.com")
 
-      it "creates a new seller and redirects to the root route" do
-        start_count = Seller.count
-        seller = Seller.new(provider: "github", uid: 99999, username: "test_seller", email: "test@seller.com")
+      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(seller))
 
-        OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(seller))
+      seller.save
 
-        seller.save
+      get auth_callback_path(:github)
 
-        get auth_callback_path(:github)
+      must_redirect_to root_path
 
-        must_redirect_to root_path
+      Seller.count.must_equal start_count + 1
 
-        Seller.count.must_equal start_count + 1
+      session[:seller_id].must_equal Seller.last.id
+    end
 
-        session[:seller_id].must_equal Seller.last.id
-      end
+    it "redirects to the login route if given invalid seller data" do
+      start_count = Seller.count
+      seller = Seller.new()
 
-      it "redirects to the login route if given invalid seller data" do
-        start_count = Seller.count
-        seller = Seller.new()
+      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(seller))
 
-        OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(seller))
+      seller.save
 
-        seller.save
+      get auth_callback_path(:github)
 
-        get auth_callback_path(:github)
+      must_redirect_to root_path
 
-        must_redirect_to root_path
+      Seller.count.must_equal start_count
 
-        Seller.count.must_equal start_count
-
-        session[:seller_id].must_be_nil
-      end
+      session[:seller_id].must_be_nil
     end
   end
   describe "Guest user" do
@@ -81,6 +80,8 @@ describe "SellersController" do
         delete logout_path(Seller.first)
       }.wont_change "Seller.count"
       must_redirect_to products_path
+
+      session[:seller_id].must_be_nil
     end
   end
 end

@@ -5,7 +5,7 @@ crown:
   description: A lovely crown for your majestic beast
   price: 8000
   quantity: 3
-  photo_url: MyString
+  photo_url: https://live.staticflickr.com/65535/47745224121_36f9a5ce73_q.jpg
   seller: kelly
 
 bouquet:
@@ -13,5 +13,5 @@ bouquet:
   description: A bouquet of flowers for your favorite pal
   price: 2000
   quantity: 10
-  photo_url: MyString
+  photo_url: https://live.staticflickr.com/65535/47745224121_36f9a5ce73_q.jpg
   seller: sarah

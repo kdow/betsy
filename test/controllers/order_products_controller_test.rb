@@ -1,16 +1,32 @@
 require "test_helper"
 
-# describe OrderProductsController do
-# let(:existing_order_product) {order_products(:one)}
-# it "create an order product with valid data for a real product" do
-#   new_order_product = {order_product: {quantity: 3, product_id: 2}}
-#   expect {
-#     post order_products_path, params: new_order_products
-# }.must_change "OrderProduct.count", 1
+describe OrderProductsController do
+  let (:seller) {
+    Seller.create username: "kittin mittin seller", email: "Kitty@email.com"
+  }
+  let (:product) {
+    Product.create name: "kittin mittins", description: "paw warmers", price: 1200, seller_id: seller.id
+  }
 
-# new_order_product_id = OrderProduct.find_by(product_id: 2).id
+  let(:order_product) {
+    Order_product.create(quantity: 2, product_id: product.id)
+  }
+  describe "create" do
+    it "can make a new order product " do
+      product = products(:bouquet)
+      order_product_hash = {
+        order_product: {
+          quantity: 2,
+          product_id: product.id,
+        },
+      }
+      expect {
+        post order_products_path, params: order_product_hash
+      }.must_change "Order_product.count", 1
 
-# must_respond_with :redirect
-# must_redirect_to work_path(new_work_id)
-
-# end
+      new_order_product = Product.find_by(product_id: order_product_hash[:order_product][:product_id])
+      expect(new_order_product.product.name).must_equal "bouquet"
+      expect(new_order_product.quantity).must_equal 2
+    end
+  end
+end
