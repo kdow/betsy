@@ -1,5 +1,6 @@
 <ul>
   <% @products.each do |product| %>
+    <%= link_to(image_tag(product.photo_url, :alt => "cat", :width => 150, :height => 150), product_path(product)) %>
     <li><%= link_to product.name, product_path(product) %> | <%= number_to_currency product.price %></li>
     <%= form_for @order_product do |f| %>
     <%= f.hidden_field :product_id, value: product.id %>
