@@ -1,7 +1,6 @@
-
 <ul>
   <li><%= @product.name %></li>
-  <li><%= image_tag(@product.photo_url) %></li>
-  <li><%= @product.price %></li>
+  <li><%= image_tag(@product.photo_url, :alt => "Photo of ""#{product.name}") %></li>
+  <li><%= "$""#{'%.2f' % (@product.price / 100.00)}" %></li>
   <li><%= @product.description %></li>
 </ul>
