@@ -1,5 +1,9 @@
+
+require "pry"
+
 class SellersController < ApplicationController
   skip_before_action :require_login, only: [:create]
+  before_action :auth_seller, except: [:create]
 
   def show
     @seller = Seller.find_by(id: params[:id])
@@ -35,5 +39,15 @@ class SellersController < ApplicationController
     flash[:success] = "Successfully logged out!"
 
     redirect_to root_path
+  end
+
+  private
+
+  def auth_seller
+    unless current_seller.id == params[:id].to_i
+      flash[:error] = "You dont have permission to view this page"
+
+      redirect_to seller_path(current_seller)
+    end
   end
 end

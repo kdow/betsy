@@ -2,20 +2,28 @@ require "test_helper"
 
 describe "SellersController" do
   let (:seller) { sellers.first }
+  let (:last_seller) { sellers.last }
   describe "logged in seller" do
     describe "show" do
-      it "Can get a product with a valid id" do
-        perform_login
-        get seller_path(seller.id)
+      it "Can get a seller with a valid current seller id" do
+        perform_login(seller)
+        get seller_path(seller)
 
         must_respond_with :success
       end
 
-      it "Will redirect if given an invalid product ID" do
-        perform_login
+      it "Will redirect if given an invalid seller ID" do
+        perform_login(seller)
         get seller_path(-1)
 
-        must_respond_with :not_found
+        must_respond_with :redirect
+      end
+
+      it "Will redirect if given a seller id other than current_seller id" do
+        perform_login(seller)
+        get seller_path(:last_seller)
+
+        must_respond_with :redirect
       end
     end
 
@@ -75,13 +83,11 @@ describe "SellersController" do
       must_redirect_to products_path
     end
 
-    it "requires login for delete (logout)" do
-      expect {
-        delete logout_path(Seller.first)
-      }.wont_change "Seller.count"
-      must_redirect_to products_path
-
-      session[:seller_id].must_be_nil
-    end
+    # it "requires login for delete" do
+    #   expect {
+    #     delete logout_path(Seller.first)
+    #   }.wont_change "Seller.count"
+    #   must_redirect_to products_path
+    # end
   end
 end
