@@ -5,7 +5,13 @@ class ProductsController < ApplicationController
   before_action :auth_seller, only: [:create, :edit, :update]
 
   def index
-    @products = Product.all
+    if params[:category_id]
+      category = Category.find_by(id: paramd[:category_id])
+      @products = category.products
+    else
+      @products = Product.all
+    end
+
     @order_product = current_order.order_products.new
   end
 
@@ -19,7 +25,12 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    if params[:category_id]
+      category = Category.find_by(id: params[:category_id])
+      @products = category.products.new
+    else
+      @products = Product.new
+    end
   end
 
   def create
@@ -64,6 +75,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    return params.require(:product).permit(:name, :price, :quantity, :seller_id, :description)
+    return params.require(:product).permit(:name, :price, :quantity, :seller_id, :description, category_ids: [])
   end
 end

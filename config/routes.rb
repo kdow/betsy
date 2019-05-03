@@ -8,8 +8,13 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :sellers, only: [:show]
 
+<<<<<<< HEAD
   resources :sellers do
     resources :products, only: [:create, :new, :edit, :update]
+=======
+  resources :categories do
+    resources :products, only: [:index, :new]
+>>>>>>> master
   end
 
   get "/auth/github", as: "github_login"
