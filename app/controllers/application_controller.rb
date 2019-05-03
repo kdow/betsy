@@ -1,6 +1,10 @@
+
 class ApplicationController < ActionController::Base
   helper_method :current_order
   before_action :require_login
+  before_action :auth_seller
+
+  private
 
   def current_order
     if session[:order_id]
@@ -18,6 +22,13 @@ class ApplicationController < ActionController::Base
     if current_seller.nil?
       flash[:error] = "You must be logged in to view this section"
       redirect_to products_path
+    end
+  end
+
+  def auth_seller
+    unless current_seller.id == params[:id].to_i
+      flash[:error] = "You dont have permission to view this page"
+      redirect_to seller_path(current_seller)
     end
   end
 end
