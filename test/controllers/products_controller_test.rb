@@ -84,12 +84,18 @@ describe ProductsController do
         expect(Product.new(product_hash[:product])).wont_be :valid?
 
         expect {
-          post seller_products_path(seller.id), params: product_hash
+          post seller_products_path(@seller.id), params: product_hash
         }.wont_change "Product.count"
 
         must_respond_with :bad_request
 
         # check_flash(:warning)
+      end
+      it "responds with a redirect if given a different seller id" do
+        diff_seller_id = seller.id
+        post seller_products_path(diff_seller_id), params: good_data
+
+        must_respond_with :redirect
       end
     end
 
