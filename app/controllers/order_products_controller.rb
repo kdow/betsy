@@ -1,4 +1,7 @@
 class OrderProductsController < ApplicationController
+  skip_before_action :require_login
+  skip_before_action :auth_seller
+
   def create
     @order = current_order
     @product = @order.order_products.new(product_params)
