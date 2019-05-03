@@ -2,7 +2,7 @@
 
 class ProductsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
-  before_action :auth_seller, only: [:create]
+  before_action :auth_seller, only: [:create, :edit]
 
   def index
     @products = Product.all

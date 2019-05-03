@@ -101,13 +101,19 @@ describe ProductsController do
 
     describe "Edit" do
       it "can get the edit page for an existing product" do
-        get edit_seller_product_path(seller.id, product.id)
+        get edit_seller_product_path(@seller.id, product.id)
         must_respond_with :success
       end
 
       it "will respond with not found when attempting to edit with a bad product id" do
-        get edit_seller_product_path(seller.id, -1)
+        get edit_seller_product_path(@seller.id, -1)
         must_respond_with :not_found
+      end
+
+      it "will respong with redirect if given a different sellers id" do
+        diff_seller_id = seller.id
+        get edit_seller_product_path(diff_seller_id, product.id)
+        must_respond_with :redirect
       end
     end
     describe "update" do
