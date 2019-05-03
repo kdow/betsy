@@ -1,10 +1,40 @@
-<% if @order_products.any? %>
-  <% @order_products.each do |item| %>
-    <p><%= item.product.name %> | <%= link_to "Delete", order_product_path(item), :data => {:confirm => "Are you sure?", :method => "delete"} %></p>
-    <p> Unit Price: <%= number_to_currency item.product.price %> | Quantity: <%= item.quantity %> | Total Price: <%= number_to_currency (item.product.price * item.quantity) %></p>
-  <% end %>
-  <p>Your Total: <%= number_to_currency current_order.total_price %></p>
-<% else %>
-  <p>Your shopping cart is empty.</p>
-<% end %>
-<%= link_to "Proceed to checkout", new_order_path %>
+<main>
+  <section>
+    <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Product Name</th>
+        <th>Item Price</th>
+        <th>Quantity</th>
+        <th>Remove from Cart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @order_products.any? %>
+        <% @order_products.each do |item| %>
+        <tr>
+          <td></td>
+          <td><%= item.product.name %></td>
+          <td><%= number_to_currency item.product.price %></td>
+          <td>
+            <%= form_for item do |f| %>
+            <%= f.hidden_field :product_id, value: item.product.id %>
+            <%= f.number_field :quantity %>
+            <%= f.submit "Update cart" %>
+            <% end %>
+          </td>
+          <td><%= link_to "Delete", order_product_path(item), :data => {:confirm => "Are you sure?", :method => "delete"} %></td>
+        </tr>
+        <% end %> 
+        <tr>
+          <td></td>
+          <td>Order Total: <%= number_to_currency @order_products.collect { |item| item.product.price * item.quantity }.sum %></td>
+        <tr>
+      <% else %>
+        <p>Your shopping cart is empty.</p>
+      <% end %>
+    </tbody>
+  </table>
+  </section>
+</main>
