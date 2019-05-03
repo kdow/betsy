@@ -17,8 +17,8 @@ describe "SellersController" do
       must_respond_with :not_found
     end 
 
-describe SellersController do
-  describe "auth_callback" do
+  
+    describe "auth_callback" do
     it "logs in an existing seller and redirects to the root route" do
       start_count = Seller.count
       seller = sellers(:sarah)
@@ -65,4 +65,5 @@ describe SellersController do
 
     end
   end
+
 end
