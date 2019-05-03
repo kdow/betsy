@@ -4,6 +4,9 @@ describe ProductsController do
   let (:seller) {
     Seller.create username: "kittin mittin seller", email: "Kitty@email.com"
   }
+  let (:diff_seller) {
+    Seller.create username: "kittynip", email: "KittyNip@email.com"
+  }
   let (:product) {
     Product.create name: "kittin mittins", description: "paw warmers", price: 1200, seller_id: seller.id
   }
@@ -92,10 +95,10 @@ describe ProductsController do
         # check_flash(:warning)
       end
       it "responds with a redirect if given a different seller id" do
-        diff_seller_id = seller.id
-        post seller_products_path(diff_seller_id), params: good_data
+        # diff_seller_id = seller.id
+        post seller_products_path(diff_seller), params: good_data
 
-        must_respond_with :redirect
+        must_redirect_to seller_path(@seller)
       end
     end
 
@@ -111,9 +114,8 @@ describe ProductsController do
       end
 
       it "will respong with redirect if given a different sellers id" do
-        diff_seller_id = seller.id
-        get edit_seller_product_path(diff_seller_id, product.id)
-        must_respond_with :redirect
+        get edit_seller_product_path(diff_seller, product.id)
+        must_redirect_to seller_path(@seller)
       end
     end
     describe "update" do
@@ -134,7 +136,7 @@ describe ProductsController do
         expect(product).must_be :valid?
         product.reload
 
-        patch seller_product_path(seller.id, product), params: good_data
+        patch seller_product_path(@seller.id, product), params: good_data
 
         must_respond_with :redirect
         must_redirect_to product_path(product)
@@ -145,7 +147,7 @@ describe ProductsController do
       it "responds with not_found if givin an invalid id" do
         fake_id = -1
 
-        patch seller_product_path(seller.id, fake_id), params: good_data
+        patch seller_product_path(@seller.id, fake_id), params: good_data
 
         must_respond_with :not_found
       end
@@ -156,9 +158,14 @@ describe ProductsController do
         expect(product).wont_be :valid?
         product.reload
 
-        patch seller_product_path(seller.id, product), params: good_data
+        patch seller_product_path(@seller.id, product), params: good_data
 
         must_respond_with :bad_request
+      end
+      it "responds with a redirect if given a different seller_id" do
+        patch seller_product_path(diff_seller, product), params: good_data
+
+        must_redirect_to seller_path(@seller)
       end
     end
   end
