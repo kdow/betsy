@@ -1,6 +1,8 @@
 <h2><%= @category.name %>
-  <ul>
-    <% @category.products.each do |product| %>
-      <li><%= link_to product.name, product_path(product) %> | <%= number_to_currency product.price %></li>
-    <% end %>
-  </ul>
+<ul>
+  <% @category.products.each do |product| %>
+    <li><%= image_tag(product.photo_url, :alt => "Photo of ""#{product.name}") %></li>
+    <li><%= link_to product.name, product_path(product) %> | <%= "$""#{'%.2f' % (product.price / 100.00)}" %></li>
+  <% end %>
+</ul>
+
