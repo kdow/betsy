@@ -16,7 +16,9 @@ describe "SellersController" do
 
       must_respond_with :not_found
     end 
-
+  end
+end
+ 
 describe SellersController do
   describe "auth_callback" do
     it "logs in an existing seller and redirects to the root route" do

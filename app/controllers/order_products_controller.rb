@@ -7,6 +7,14 @@ class OrderProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def update
+    @order = current_order
+    @item = @order.order_products.find(params[:id])
+    @item.update_attributes(product_params)
+    @items = @order.order_products
+    redirect_to cart_path
+  end
+
   def destroy
     @order = current_order
     @item = @order.order_products.find(params[:id])
