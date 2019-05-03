@@ -18,6 +18,7 @@ puff = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Your cat will love playing with this fluffy puff ball.",
   photo_url: "https://live.staticflickr.com/65535/47745224121_36f9a5ce73_q.jpg",
+  quantity: 20,
 )
 
 puff.categories << toys
@@ -29,6 +30,7 @@ bowtie = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Your cat will be the hit of the holiday party with this classy red starred bowtie.",
   photo_url: "https://live.staticflickr.com/65535/46828525745_35d4075877_q.jpg",
+  quantity: 10,
 )
 
 bowtie.categories << accessories
@@ -40,6 +42,7 @@ cupcake = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Celebrate your cat's birthday with this delicious cupcake.",
   photo_url: "https://live.staticflickr.com/65535/40778594773_29b2ae56fe_q.jpg",
+  quantity: 3,
 )
 
 cupcake.categories << food
@@ -51,6 +54,7 @@ crown = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Treat your cat like royalty with this golden crown.",
   photo_url: "https://live.staticflickr.com/65535/46955779884_e13401bd56_q.jpg",
+  quantity: 2,
 )
 
 crown.categories << accessories
@@ -62,6 +66,7 @@ basket = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Transport your kittens with this handcrafted brown basket.",
   photo_url: "https://live.staticflickr.com/65535/47745224261_c5751b775d_q.jpg",
+  quantity: 5,
 )
 
 basket.categories << baskets
@@ -73,6 +78,7 @@ garland = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "This garland is made from four different types of flowers",
   photo_url: "https://live.staticflickr.com/65535/46955780024_c77fce1ffa_q.jpg",
+  quantity: 4,
 )
 
 garland.categories << accessories
@@ -84,6 +90,7 @@ tree = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "This cat tree has four different platforms for your cat to lounge on.",
   photo_url: "https://live.staticflickr.com/65535/46828525885_376f0403f6_q.jpg",
+  quantity: 2,
 )
 
 tree.categories << accessories
@@ -95,6 +102,7 @@ neckerchief = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Add some flair to your cat with this jaunty neckerchief.",
   photo_url: "https://live.staticflickr.com/65535/40778594993_2aa1379e0a_q.jpg",
+  quantity: 8,
 )
 
 neckerchief.categories << accessories
@@ -106,6 +114,7 @@ strmousie = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Keep your cat entertained with this mousie on a string.",
   photo_url: "https://live.staticflickr.com/65535/47745224481_3a615be75c_q.jpg",
+  quantity: 12,
 )
 
 strmousie.categories << toys
@@ -117,6 +126,7 @@ balloon = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Pink balloon",
   photo_url: "https://live.staticflickr.com/65535/40778595283_42c2520070_q.jpg",
+  quantity: 25,
 )
 
 balloon.categories << toys
@@ -128,6 +138,7 @@ cone = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Cone shaped, red striped, party hat, purrfect for any occasion.",
   photo_url: "https://live.staticflickr.com/65535/47745224621_02094e3287_q.jpg",
+  quantity: 9,
 )
 
 cone.categories << accessories
@@ -139,6 +150,7 @@ treat = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Tasty treats for your special feline.",
   photo_url: "https://live.staticflickr.com/65535/46828526275_b3b7d00a46_q.jpg",
+  quantity: 42,
 )
 
 treat.categories << food
@@ -150,6 +162,7 @@ oats = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Treat your cat to some delicious overnight oats",
   photo_url: "https://live.staticflickr.com/65535/47745224771_7ac0f37b01_q.jpg",
+  quantity: 4,
 )
 
 oats.categories << food
@@ -161,6 +174,7 @@ clown = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Send in the clowns for your fun-loving feline",
   photo_url: "https://live.staticflickr.com/65535/47745224801_e3dc98fcc5_q.jpg",
+  quantity: 1,
 )
 
 clown.categories << toys
@@ -172,6 +186,7 @@ pink = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Give your cat some exercise with this fluffy pink string toy.",
   photo_url: "https://live.staticflickr.com/65535/40778595443_e71a75d680_q.jpg",
+  quantity: 29,
 )
 
 pink.categories << toys
@@ -183,6 +198,7 @@ ornament = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Set of 4 golden ornaments adorned with red snowflakes.",
   photo_url: "https://live.staticflickr.com/65535/46955780684_258c532e6e_q.jpg",
+  quantity: 16,
 )
 
 ornament.categories << toys
@@ -194,6 +210,7 @@ mousie = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Your cat will love playing with this gray felt mousie.",
   photo_url: "https://live.staticflickr.com/65535/47697876262_57db4c5058_q.jpg",
+  quantity: 39,
 )
 
 mousie.categories << toys
@@ -205,6 +222,7 @@ blackbasket = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Beautiful black and white basket, suitable for one kitten.",
   photo_url: "https://live.staticflickr.com/65535/46833977585_725e2822b3_q.jpg",
+  quantity: 7,
 )
 
 blackbasket.categories << baskets
@@ -216,6 +234,7 @@ orangebasket = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Sturdy orange basket for your cat to accompany you on bike rides.",
   photo_url: "https://live.staticflickr.com/65535/46833978835_ac32b0a243_q.jpg",
+  quantity: 6,
 )
 
 orangebasket.categories << baskets
@@ -227,6 +246,7 @@ kittenbasket = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Lovely rustic basket will hold a litter of kittens.",
   photo_url: "https://live.staticflickr.com/65535/46833981635_ae0bdc4c5b_q.jpg",
+  quantity: 4,
 )
 
 kittenbasket.categories << baskets
@@ -238,6 +258,7 @@ flowers = Product.create(
   seller_id: Faker::Number.between(1, 20),
   description: "Every cat deserves a bouquet of flowers.",
   photo_url: "https://live.staticflickr.com/65535/32807149837_443ae0dba0_q.jpg",
+  quantity: 9,
 )
 
 flowers.categories << accessories
