@@ -3,9 +3,13 @@
     <%= link_to(image_tag(product.photo_url, :alt => "Photo of ""#{product.name}"), product_path(product)) %>
     <li><%= link_to product.name, product_path(product) %> | <%= "$""#{'%.2f' % (product.price / 100.00)}" %></li>
     <%= form_for @order_product do |f| %>
-    <%= f.hidden_field :product_id, value: product.id %>
-    <%= f.number_field :quantity %>
-    <%= f.submit "Add to cart" %>
+      <% if product.quantity < 1 %>
+        <% "Sorry, this item is out of stock." %>
+      <% else %>
+      <%= f.hidden_field :product_id, value: product.id %>
+      <%= f.number_field :quantity %>
+      <%= f.submit "Add to cart" %>
+      <% end %>
     <% end %>
   <% end %>
 </ul>
