@@ -3,8 +3,6 @@ class OrderController < ApplicationController
     @order = current_order
   end
 
- 
-
   def update
     @order = current_order
     if @order.update(order_params)
