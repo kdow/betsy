@@ -2,8 +2,8 @@
 require "pry"
 
 class SellersController < ApplicationController
-  skip_before_action :require_login, only: [:create]
-  before_action :auth_seller, except: [:create]
+  before_action :require_login, only: [:show]
+  before_action :auth_seller, only: [:show]
 
   def show
     @seller = Seller.find_by(id: params[:id])
