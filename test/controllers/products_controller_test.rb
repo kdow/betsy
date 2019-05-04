@@ -55,24 +55,14 @@ describe ProductsController do
 
     describe "create" do
       it "can create a new product" do
-        product_hash = {
-          product: {
-            name: "Kitty tower",
-            price: 1300,
-            description: "Kitty fun tower",
-            quantity: 5,
-            seller_id: @seller.id,
-          },
-        }
-
         expect {
-          post seller_products_path(@seller.id), params: product_hash
+          post seller_products_path(@seller.id), params: good_data
         }.must_change "Product.count", 1
 
         # check_flash
 
-        new_product = Product.find_by(name: product_hash[:product][:name])
-        expect(new_product.name).must_equal product_hash[:product][:name]
+        new_product = Product.find_by(name: good_data[:product][:name])
+        expect(new_product.name).must_equal good_data[:product][:name]
 
         must_respond_with :redirect
         must_redirect_to product_path(new_product.id)
@@ -119,18 +109,6 @@ describe ProductsController do
       end
     end
     describe "update" do
-      # let(:product_data) {
-      #   {
-      #     product: {
-      #       name: "Catnip",
-      #       price: 600,
-      #       description: "crazy kitty fun time",
-      #       quantity: 10,
-      #       seller_id: seller.id,
-      #     },
-      #   }
-      # }
-
       it "changes the data on the model" do
         product.assign_attributes(good_data[:product])
         expect(product).must_be :valid?
