@@ -12,8 +12,13 @@ Rails.application.routes.draw do
   resources :sellers do
     resources :products, only: [:create, :new, :edit, :update]
   end
+
   resources :categories do
     resources :products, only: [:index, :new]
+  end
+
+  resources :products do
+    resources :reviews, only: [:new, :create]
   end
 
   get "/auth/github", as: "github_login"
