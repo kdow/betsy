@@ -18,7 +18,7 @@ class Seller < ApplicationRecord
     # products = self.products.map { |product| product.id }
     order_products = []
     self.products.each do |product|
-      order_products += OrderProducts.where(product_id: product.id)
+      order_products += OrderProduct.where(product_id: product.id)
     end
     return order_products
   end
