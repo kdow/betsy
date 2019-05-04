@@ -13,6 +13,13 @@ class SellersController < ApplicationController
     end
   end
 
+  def product_index
+    @seller = Seller.find_by(id: params[:seller_id])
+    unless @seller
+      head :not_found
+    end
+  end
+
   def create
     auth_hash = request.env["omniauth.auth"]
 

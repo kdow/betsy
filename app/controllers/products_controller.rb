@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
     else
       @products = Product.all
     end
-
     @order_product = current_order.order_products.new
   end
 

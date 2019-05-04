@@ -5,6 +5,9 @@ describe "SellersController" do
   let (:last_seller) { sellers.last }
   describe "logged in seller" do
     describe "show" do
+      before do
+        perform_login(seller)
+      end
       it "Can get a seller with a valid current seller id" do
         perform_login(seller)
         get seller_path(seller)
@@ -24,6 +27,14 @@ describe "SellersController" do
         get seller_path(:last_seller)
 
         must_respond_with :redirect
+      end
+    end
+
+    describe "product_index" do
+      it "can get to seller products" do
+        get seller_products_path(seller.id)
+
+        must_respond_with :success
       end
     end
 

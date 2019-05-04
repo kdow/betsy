@@ -1,35 +1,3 @@
 <h2>Create new product</h2>
 
-<%= form_with model: @product, url: seller_products_path(session[:seller_id]) do |f| %>
-
-  <div class="form-group">
-    <%= f.label :name, "Product" %>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%=f.label :price, "Price" %>
-    <%= f.text_field :price, class: "form-control"  %>
-  </div>
-  <div class="form-group">
-    <%=f.label :quantity, "Quantity" %>
-    <%= f.text_field :quantity, class: "form-control"  %>
-  </div>
-    <div class="form-group">
-    <%=f.label :photo_url, "Photo_url" %>
-    <%= f.text_field :photo_url, class: "form-control"  %>
-  </div>
-    <div class="form-group">
-    <%=f.label :description, "Description" %>
-    <%= f.text_area :description, class: "form-control", rows: "2"  %>
-  </div>
-    <div>
-    <%= f.label :category %>
-    <%# <%= collection_check_boxes(:product, :category_ids, Category.all, :id, :name) %> %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit "Submit", class: "btn btn-primary"%>
-  </div>
-
-<%= render "form" %>
-<% end %>
+<%= render "form", url: seller_products_path(session[:seller_id]) %>
