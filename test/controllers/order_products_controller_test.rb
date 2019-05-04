@@ -1,36 +1,26 @@
 require "test_helper"
 
 describe OrderProductsController do
-  let (:seller) {
-    Seller.create username: "kittin mittin seller", email: "Kitty@email.com"
-  }
-  let (:product) {
-    Product.create name: "kittin mittins", description: "paw warmers", price: 1200, seller_id: seller.id
-  }
 
-  let(:order_product) {
-    order_product.create(quantity: 2, product_id: product.id)
-  }
-  describe "create" do
-    # it "can make a new order product " do
-    #   product = products(:bouquet)
-    #   order_product_hash = {
-    #     order_product: {
-    #       quantity: 2,
-    #       product_id: product.id,
-    #     },
-    #   }
-    #   expect {
-    #     post order_products_path, params: order_product_hash
-    #   }.must_change "order_product.count", 1
+  it "refuses order if quantity greater than inventory" do
 
-    #   new_order_product = Product.find_by(product_id: order_product_hash[:order_product][:product_id])
-    #   expect(new_order_product.product.name).must_equal "bouquet"
-    #   expect(new_order_product.quantity).must_equal 2
-    # end
-  end
+    order_product_data = {
+      order_product: {
+        quantity: 10000,
+        product_id: Product.first.id,
+      }
+    }
 
-  describe "update" do
+    test_item = OrderProduct.new(order_product_data[:order_product])
+    before_inventory = test_item.quantity
+    
+    post order_products_path(order_product_data)
+
+    expect {
+      post order_products_path, params: order_product_data
+    }.wont_change('Order.count')
+
+    expect(test_item.quantity).must_equal before_inventory
     
   end
 end
