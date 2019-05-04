@@ -3,6 +3,7 @@
         <tr>
           <th>Product</th>
           <th>Quantity</th>
+          <th>Order ID</th>
           <th>Status</th>
 
         </tr>
@@ -12,6 +13,7 @@
         <tr>
           <td><%= link_to order_product.product.name, product_path(order_product.product) %></td>
           <td><%= order_product.quantity %></td>
+          <td><%= order_product.order_id%></td>
           <td><%= order_product.order.status %></td>
 
         </tr>

@@ -55,6 +55,7 @@ class Order < ApplicationRecord
       ["Wyoming", "WY"],
     ]
   has_many :order_products
+  has_many :products, through: :order_products
   before_save :update_total
   before_create :update_status
 

@@ -67,6 +67,9 @@
       "/Users/sarah/ada/projects/betsy/app/controllers/order_controller.rb": [
         1,
         1,
+        1,
+        null,
+        1,
         0,
         null,
         null,
@@ -311,6 +314,7 @@
         1,
         1,
         1,
+        1,
         null,
         1,
         10,
@@ -330,6 +334,7 @@
         null
       ],
       "/Users/sarah/ada/projects/betsy/app/models/product.rb": [
+        1,
         1,
         1,
         1,
@@ -449,6 +454,6 @@
         null
       ]
     },
-    "timestamp": 1557007486
+    "timestamp": 1557010027
   }
 }
