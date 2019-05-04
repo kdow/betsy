@@ -4,6 +4,7 @@ require "pry"
 class SellersController < ApplicationController
   before_action :require_login, only: [:show]
   before_action :auth_seller, only: [:show]
+  before_action :find_seller, only: [:product_index, :order_product_index]
 
   def show
     @seller = Seller.find_by(id: params[:id])
@@ -14,17 +15,9 @@ class SellersController < ApplicationController
   end
 
   def product_index
-    @seller = Seller.find_by(id: params[:seller_id])
-    unless @seller
-      head :not_found
-    end
   end
 
   def order_product_index
-    @seller = Seller.find_by(id: params[:seller_id])
-    unless @seller
-      head :not_found
-    end
   end
 
   def create
@@ -56,6 +49,13 @@ class SellersController < ApplicationController
   end
 
   private
+
+  def find_seller
+    @seller = Seller.find_by(id: params[:seller_id])
+    unless @seller
+      head :not_found
+    end
+  end
 
   def auth_seller
     unless current_seller.id == params[:id].to_i
