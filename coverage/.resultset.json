@@ -358,6 +358,15 @@
         null,
         1,
         null,
+        null,
+        1,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
         null
       ],
       "/Users/sarah/ada/projects/betsy/app/models/review.rb": [
@@ -393,6 +402,11 @@
         null,
         null,
         1,
+        2,
+        2,
+        2,
+        1,
+        null,
         null,
         null,
         1,
@@ -435,6 +449,6 @@
         null
       ]
     },
-    "timestamp": 1557004728
+    "timestamp": 1557006476
   }
 }

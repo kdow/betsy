@@ -49,11 +49,11 @@ describe "SellersController" do
 
         must_respond_with :success
       end
-      # it "Will respond with not_found if given an invalid seller ID" do
-      #   get seller_products_path(-1)
+      it "Will respond with not_found if given an invalid seller ID" do
+        get seller_order_products_path(-1)
 
-      #   must_respond_with :not_found
-      # end
+        must_respond_with :not_found
+      end
     end
 
     describe "destroy" do

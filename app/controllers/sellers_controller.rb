@@ -20,7 +20,11 @@ class SellersController < ApplicationController
     end
   end
 
-  def order_products_index
+  def order_product_index
+    @seller = Seller.find_by(id: params[:seller_id])
+    unless @seller
+      head :not_found
+    end
   end
 
   def create
