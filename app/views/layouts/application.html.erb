@@ -19,9 +19,24 @@
       <div class="collapse navbar-collapse flex-grow-1 text-right">
 
       <ul class="navbar-nav ml-auto flex-nowrap">
-        <li class="nav-item">
-          <%= link_to "CATegories", categories_path, class: "nav-link" %>
+        <li class="dropdown">
+          <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">CATegories<span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <% Category.all.each do |c|%>
+              <li><%= link_to c.name, category_path(c.id), class:"button" %></li>
+            <% end %>
+          </ul>
         </li>
+
+        <li class="dropdown nav-item">
+          <button class="btn dropdown-toggle nav-item navbar-dark" type="button" data-toggle="dropdown">ReTAILers<span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <% Seller.all.each do |s|%>
+              <li><%= link_to s.username, seller_path(s.id), class:"button" %></li>
+            <% end %>
+          </ul>
+        </li>
+        
         <li class="nav-item">
           <%= link_to "Purrducts", products_path, class: "nav-link" %>
         </li>
@@ -42,6 +57,16 @@
     </nav>
   </header>
   <body>
+
+    <section class="alert__container">
+      <% flash.each do |type, message| %>
+        <div class="alert <%= bootstrap_class_for(type) %> alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= message %>
+        </div>
+      <% end %>
+    </section>
+
     <%= yield %>
   </body>
 </html>

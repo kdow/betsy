@@ -13,9 +13,14 @@ class OrderProductsController < ApplicationController
   def update
     @order = current_order
     @item = @order.order_products.find(params[:id])
-    @item.update_attributes(product_params)
-    @items = @order.order_products
-    redirect_to cart_path
+    if @item.quantity < 1
+      flash[:message] = "Sorry, this item is out of stock."
+      redirect_to cart_path
+    else
+      @item.update_attributes(order_product_params)
+      @items = @order.order_products
+      redirect_to cart_path
+    end
   end
 
   def destroy
