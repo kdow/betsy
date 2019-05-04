@@ -1,4 +1,3 @@
-require "pry"
 
 class ProductsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
@@ -66,13 +65,12 @@ class ProductsController < ApplicationController
       head :not_found
       return
     end
-
-    if params[:product]
-      successful = @product.update(product_params)
-    else
-      successful = @product.update(no_product_params)
-    end
-
+    # if params[:product]
+    #   successful = @product.update(product_params)
+    # else
+    #   successful = @product.update(no_product_params)
+    # end
+    successful = @product.update(product_params)
     if successful
       redirect_to product_path(@product)
     else
@@ -96,9 +94,5 @@ class ProductsController < ApplicationController
 
   def no_product_params
     return params.permit(:name, :price, :quantity, :seller_id, :description, :photo_url)
-  end
-
-  def category_params
-    return params.require(:product).permit(category_ids: [])
   end
 end
