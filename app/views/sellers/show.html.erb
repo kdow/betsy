@@ -17,9 +17,9 @@
         <tr>
           <td><%= product.name %></td>
           <td><%= product.quantity %></td>
-          <td><%= link_to "Edit" %></td>
-          <td><%= link_to "Retire" %></td>
-          <td><%= link_to "Edit Categories" %></td>
+          <td><%= link_to "Edit", edit_seller_product_path(@seller.id, product.id), class: "btn btn-primary" %></td>
+          <td><%= link_to "Retire", class: "btn btn-primary"  %></td>
+          <td><%= link_to "Edit Categories", class: "btn btn-primary"  %></td>
         </tr>
         <% end %>
       </tbody>

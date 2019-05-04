@@ -1,4 +1,9 @@
+
+require "pry"
+
 class SellersController < ApplicationController
+  before_action :require_login, only: [:show]
+  before_action :auth_seller, only: [:show]
 
   def show
     @seller = Seller.find_by(id: params[:id])
@@ -7,7 +12,7 @@ class SellersController < ApplicationController
       head :not_found
     end
   end
-  
+
   def create
     auth_hash = request.env["omniauth.auth"]
 
@@ -34,5 +39,15 @@ class SellersController < ApplicationController
     flash[:success] = "Successfully logged out!"
 
     redirect_to root_path
+  end
+
+  private
+
+  def auth_seller
+    unless current_seller.id == params[:id].to_i
+      flash[:error] = "You dont have permission to view this page"
+
+      redirect_to seller_path(current_seller)
+    end
   end
 end

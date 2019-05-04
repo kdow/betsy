@@ -2,18 +2,33 @@ require "test_helper"
 
 describe "SellersController" do
   let (:seller) { sellers.first }
+  let (:last_seller) { sellers.last }
+  describe "logged in seller" do
+    describe "show" do
+      it "Can get a seller with a valid current seller id" do
+        perform_login(seller)
+        get seller_path(seller)
 
-  describe "show" do
-    it "Can get a product with a valid id" do
-      get seller_path(seller.id)
+        must_respond_with :success
+      end
 
-      must_respond_with :success
+      it "Will redirect if given an invalid seller ID" do
+        perform_login(seller)
+        get seller_path(-1)
+
+        must_respond_with :redirect
+      end
+
+      it "Will redirect if given a seller id other than current_seller id" do
+        perform_login(seller)
+        get seller_path(:last_seller)
+
+        must_respond_with :redirect
+      end
     end
 
-    it "Will redirect if given an invalid product ID" do
-      get seller_path(-1)
-
-      must_respond_with :not_found
+    describe "destroy" do
+      ### TODO
     end
   end
 
@@ -25,7 +40,6 @@ describe "SellersController" do
       perform_login(seller)
       must_redirect_to root_path
       session[:seller_id].must_equal seller.id
-
       Seller.count.must_equal start_count
     end
 
@@ -62,5 +76,18 @@ describe "SellersController" do
 
       session[:seller_id].must_be_nil
     end
+  end
+  describe "Guest user" do
+    it "requires login for show" do
+      get seller_path(Seller.first)
+      must_redirect_to products_path
+    end
+
+    # it "requires login for delete" do
+    #   expect {
+    #     delete logout_path(Seller.first)
+    #   }.wont_change "Seller.count"
+    #   must_redirect_to products_path
+    # end
   end
 end
