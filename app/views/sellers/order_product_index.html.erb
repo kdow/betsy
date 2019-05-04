@@ -21,3 +21,13 @@
       </tbody>
 
     </table>
+
+<% @orders.each do |order| %>
+
+  <ul>
+    <li>Order Number: <%= order.id %></li>
+    <li>Purchace Details:</li>
+  </ul>
+        
+        
+<% end %>

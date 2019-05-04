@@ -1,6 +1,8 @@
 class Seller < ApplicationRecord
   has_many :products
 
+  has_many :orders, through: :products
+
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
 
@@ -21,5 +23,13 @@ class Seller < ApplicationRecord
       order_products += OrderProduct.where(product_id: product.id)
     end
     return order_products
+  end
+
+  def get_unique_orders
+    unique_orders = self.orders.uniq { |order| order.id }
+    return unique_orders
+  end
+
+  def total_revenue
   end
 end
