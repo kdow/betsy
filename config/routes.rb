@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :sellers do
     resources :products, only: [:create, :new, :edit, :update]
     get "/products/", to: "sellers#product_index"
+    get "/order_products/", to: "sellers#order_product_index"
   end
   resources :categories do
     resources :products, only: [:index, :new]

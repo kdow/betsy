@@ -20,6 +20,9 @@ class SellersController < ApplicationController
     end
   end
 
+  def order_products_index
+  end
+
   def create
     auth_hash = request.env["omniauth.auth"]
 

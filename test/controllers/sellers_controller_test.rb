@@ -43,6 +43,19 @@ describe "SellersController" do
       end
     end
 
+    describe "order_product_index" do
+      it "can get to seller products" do
+        get seller_order_products_path(seller.id)
+
+        must_respond_with :success
+      end
+      # it "Will respond with not_found if given an invalid seller ID" do
+      #   get seller_products_path(-1)
+
+      #   must_respond_with :not_found
+      # end
+    end
+
     describe "destroy" do
       ### TODO
     end
