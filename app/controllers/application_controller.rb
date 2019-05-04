@@ -1,6 +1,3 @@
-
-require "pry"
-
 class ApplicationController < ActionController::Base
   helper_method :current_order
   before_action :require_login
