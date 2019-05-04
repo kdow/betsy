@@ -1,11 +1,11 @@
 require "test_helper"
 
 describe ReviewsController do
-  let (:product) { products.first }
+  let (:product) { products(:crown) }
 
   describe "new" do
     it "can get the new review page" do
-      get new_product_review_path(product)
+      get new_product_review_path(product.id)
 
       must_respond_with :success
     end
@@ -24,9 +24,6 @@ describe ReviewsController do
       expect {
         post product_reviews_path(product), params: review_hash
       }.must_change "Review.count", 1
-
-      new_review = Review.find_by(product: review_hash[:review][:product])
-      expect(new_review.product).must_equal review_hash[:review][:product]
 
       must_respond_with :redirect
       must_redirect_to product_path(product)
