@@ -2,21 +2,22 @@ class OrderController < ApplicationController
   skip_before_action :require_login
   skip_before_action :auth_seller
   before_action :find_order, only: [:edit, :update]
-  # def new
-  #   @order = current_order
-  # end
 
-  # def show
-  #   id = params[:id]
-  #   if session[:order_id] == id.to_i
-  #     @order = Order.find_by(id: session[:order_id])
-  #     if @order
-  #       @order_products = @order.order_products.order(created_at: :desc)
-  #     else
-  #       head :not_found
-  #     end
-  #   end
-  # end
+  def new
+    @order = current_order
+  end
+
+  def show
+    id = params[:id]
+    if session[:order_id] == id.to_i
+      @order = Order.find_by(id: session[:order_id])
+      if @order
+        @order_products = @order.order_products.order(created_at: :desc)
+      else
+        head :not_found
+      end
+    end
+  end
 
   # def create
   #   @order = Order.new(order_params)
@@ -38,7 +39,8 @@ class OrderController < ApplicationController
   end
 
   def update
-    @order_products = OrderProduct.where(order_id: @order.id)
+    @order = current_order
+    @order_products = current_order.order_products
     Product.adjust_quantity(@order_products)
     @order.status = "completed"
     if @order.update(order_params)
