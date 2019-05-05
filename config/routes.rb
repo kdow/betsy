@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :sellers do
     resources :products, only: [:create, :new, :edit, :update]
     get "/products/", to: "sellers#product_index"
+    get "/products/:id/categories", to: "sellers#product_categories_edit", as: "product_categories"
+    patch "/products/:id/categories", to: "sellers#product_categories_edit"
     get "/order_products/", to: "sellers#order_product_index"
     get "/order/:order_id", to: "sellers#order_show", as: "order"
   end
