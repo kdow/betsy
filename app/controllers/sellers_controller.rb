@@ -16,7 +16,6 @@ class SellersController < ApplicationController
   end
 
   def order_product_index
-    @order_products = @seller.get_order_products
     @orders = @seller.get_unique_orders
   end
 

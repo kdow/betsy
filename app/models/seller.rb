@@ -16,14 +16,14 @@ class Seller < ApplicationRecord
     return seller
   end
 
-  def get_order_products
-    # products = self.products.map { |product| product.id }
-    order_products = []
-    self.products.each do |product|
-      order_products += OrderProduct.where(product_id: product.id)
-    end
-    return order_products
-  end
+  # def get_order_products
+  #   # products = self.products.map { |product| product.id }
+  #   order_products = []
+  #   self.products.each do |product|
+  #     order_products += OrderProduct.where(product_id: product.id)
+  #   end
+  #   return order_products
+  # end
 
   def get_unique_orders
     unique_orders = self.orders.uniq { |order| order.id }
