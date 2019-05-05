@@ -4,10 +4,10 @@ describe "SellersController" do
   let (:seller) { sellers(:sarah) }
   let (:last_seller) { sellers(:kelly) }
   describe "logged in seller" do
+    before do
+      perform_login(seller)
+    end
     describe "show" do
-      before do
-        perform_login(seller)
-      end
       it "Can get a seller with a valid current seller id" do
         perform_login(seller)
         get seller_path(seller)
