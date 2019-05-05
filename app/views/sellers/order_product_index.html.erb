@@ -23,7 +23,7 @@
       <tr>
         <td><%= link_to order_product.product.name, product_path(order_product.product) %></td>
         <td><%= order_product.quantity %></td>
-        <td><%= order_product.line_item_subtotal %></td>
+        <td>$<%= "#{'%.2f' % (order_product.line_item_subtotal / 100.00)}"%></td>
       </tr>
     <% end %>
   <% end %>
