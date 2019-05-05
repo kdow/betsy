@@ -79,13 +79,13 @@ class ProductsController < ApplicationController
 
   private
 
-  def auth_seller
-    @current_seller ||= Seller.find(session[:seller_id]) if session[:seller_id]
-    unless current_seller.id == params[:seller_id].to_i
-      flash[:error] = "You dont have permission to view this page"
-      redirect_to seller_path(current_seller)
-    end
-  end
+  # def auth_seller
+  #   @current_seller ||= Seller.find(session[:seller_id]) if session[:seller_id]
+  #   unless current_seller.id == params[:seller_id].to_i
+  #     flash[:error] = "You dont have permission to view this page"
+  #     redirect_to seller_path(current_seller)
+  #   end
+  # end
 
   def product_params
     return params.require(:product).permit(:name, :price, :quantity, :seller_id, :description, :photo_url, category_ids: [])

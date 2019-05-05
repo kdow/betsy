@@ -1,7 +1,8 @@
 
 class SellersController < ApplicationController
   before_action :require_login, only: [:show, :product_index, :order_product_index, :order_show]
-  before_action :auth_seller, only: [:show]
+  before_action :auth_seller_by_id, only: [:show]
+  before_action :auth_seller, only: []
   before_action :find_seller, only: [:product_index, :order_product_index, :order_show]
 
   def show
@@ -68,7 +69,7 @@ class SellersController < ApplicationController
     end
   end
 
-  def auth_seller
+  def auth_seller_by_id
     unless current_seller.id == params[:id].to_i
       flash[:error] = "You dont have permission to view this page"
 
