@@ -1,5 +1,7 @@
 class OrderController < ApplicationController
   skip_before_action :require_login
+  skip_before_action :auth_seller
+  before_action :find_order, only: [:edit, :update]
   # def new
   #   @order = current_order
   # end
@@ -36,22 +38,19 @@ class OrderController < ApplicationController
   end
 
   def update
-    @order = current_order
     @order_products = OrderProduct.where(order_id: @order.id)
-    if Product.check_quantity(@order_producs)
-      Product.adjust_quantity(@order_products)
-      @order.status = "completed"
-      if @order.update(order_params)
-        # flash[:status] = :success
-        # flash[:message] = "Successfully placed the order"
-        redirect_to order_path(@order)
-      else
-        flash.now[:status] = :error
-        flash.now[:message] = "Could not complete the order"
-        render :edit, status: :bad_request
-      end
-      session[:order_id] = nil
+    Product.adjust_quantity(@order_products)
+    @order.status = "completed"
+    if @order.update(order_params)
+      flash[:status] = :success
+      # flash[:message] = "Successfully placed the order"
+      #redirect_to order_path(@order)
+    else
+      flash.now[:status] = :error
+      flash.now[:message] = "Could not complete the order"
+      render :new, status: :bad_request
     end
+    session[:order_id] = nil
   end
 
   private

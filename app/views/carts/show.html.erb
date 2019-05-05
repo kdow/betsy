@@ -37,6 +37,6 @@
           </tbody>
         </table>
       </section>
-      <%= link_to "Proceed to checkout", new_order_path, class: "btn btn-success" %>
+      <%= link_to "Proceed to checkout", edit_order_path(@order), class: "btn btn-success" %>
       <%= link_to "Continue shopping", products_path, class: "btn btn-success" %>
     </main>
