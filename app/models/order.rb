@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   has_many :order_products
-  has_many:products, through: :order_products
+  has_many :products, through: :order_products
   validates :name, presence: true
   validates :email, presence: true
   validates :last_four, presence: true

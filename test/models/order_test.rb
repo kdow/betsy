@@ -6,6 +6,8 @@ describe Order do
   # it "must be valid" do
   #   value(order).must_be :valid?
   # end
+  describe "validations" do
+  end
   describe "relations" do
     it "has a list of order_products" do
       order = orders(:one)
