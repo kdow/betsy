@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-05-05T11:37:07-07:00">2019-05-05T11:37:07-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-05-05T11:49:18-07:00">2019-05-05T11:49:18-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.36
+         2.34
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>18</td>
         <td>16</td>
         <td>2</td>
-        <td>5.8</td>
+        <td>6.4</td>
       </tr>
       
       <tr>
@@ -117,7 +117,7 @@
         <td>43</td>
         <td>38</td>
         <td>5</td>
-        <td>5.6</td>
+        <td>5.2</td>
       </tr>
       
       <tr>
@@ -334,8 +334,8 @@
           <code class="ruby">  def current_seller</code>
         </li>
       
-        <li class="covered" data-hits="45" data-linenumber="20">
-          <span class="hits">45</span>
+        <li class="covered" data-hits="48" data-linenumber="20">
+          <span class="hits">48</span>
           
           <code class="ruby">    @current_seller ||= Seller.find(session[:seller_id]) if session[:seller_id]</code>
         </li>
@@ -358,20 +358,20 @@
           <code class="ruby">  def require_login</code>
         </li>
       
-        <li class="covered" data-hits="27" data-linenumber="24">
-          <span class="hits">27</span>
+        <li class="covered" data-hits="30" data-linenumber="24">
+          <span class="hits">30</span>
           
           <code class="ruby">    if current_seller.nil?</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="25">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="25">
+          <span class="hits">8</span>
           
           <code class="ruby">      flash[:error] = &quot;You must be logged in to view this section&quot;</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="26">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="8" data-linenumber="26">
+          <span class="hits">8</span>
           
           <code class="ruby">      redirect_to products_path</code>
         </li>
@@ -1852,8 +1852,8 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="31" data-linenumber="34">
-          <span class="hits">31</span>
+        <li class="covered" data-hits="28" data-linenumber="34">
+          <span class="hits">28</span>
           
           <code class="ruby">    auth_hash = request.env[&quot;omniauth.auth&quot;]</code>
         </li>
@@ -1864,20 +1864,20 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="31" data-linenumber="36">
-          <span class="hits">31</span>
+        <li class="covered" data-hits="28" data-linenumber="36">
+          <span class="hits">28</span>
           
           <code class="ruby">    seller = Seller.find_by(uid: auth_hash[:uid], provider: &quot;github&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="31" data-linenumber="37">
-          <span class="hits">31</span>
+        <li class="covered" data-hits="28" data-linenumber="37">
+          <span class="hits">28</span>
           
           <code class="ruby">    if seller</code>
         </li>
       
-        <li class="covered" data-hits="30" data-linenumber="38">
-          <span class="hits">30</span>
+        <li class="covered" data-hits="27" data-linenumber="38">
+          <span class="hits">27</span>
           
           <code class="ruby">      flash[:success] = &quot;Logged in as returning seller #{seller.username}&quot;</code>
         </li>
@@ -1948,14 +1948,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="30" data-linenumber="50">
-          <span class="hits">30</span>
+        <li class="covered" data-hits="27" data-linenumber="50">
+          <span class="hits">27</span>
           
           <code class="ruby">    session[:seller_id] = seller.id</code>
         </li>
       
-        <li class="covered" data-hits="30" data-linenumber="51">
-          <span class="hits">30</span>
+        <li class="covered" data-hits="27" data-linenumber="51">
+          <span class="hits">27</span>
           
           <code class="ruby">    return redirect_to root_path</code>
         </li>

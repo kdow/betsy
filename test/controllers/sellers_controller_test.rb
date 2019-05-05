@@ -9,21 +9,18 @@ describe "SellersController" do
     end
     describe "show" do
       it "Can get a seller with a valid current seller id" do
-        perform_login(seller)
         get seller_path(seller)
 
         must_respond_with :success
       end
 
       it "Will redirect if given an invalid seller ID" do
-        perform_login(seller)
         get seller_path(-1)
 
         must_respond_with :redirect
       end
 
       it "Will redirect if given a seller id other than current_seller id" do
-        perform_login(seller)
         get seller_path(:last_seller)
 
         must_respond_with :redirect
@@ -142,11 +139,25 @@ describe "SellersController" do
       must_redirect_to products_path
     end
 
+    it "requires login for product_index" do
+      get seller_products_path(seller.id)
+      must_redirect_to products_path
+    end
+    it "requires login for order_product_index" do
+      get seller_order_products_path(seller.id)
+      must_redirect_to products_path
+    end
+    it "requires login for order_show" do
+      get seller_order_path(seller.id, seller.orders.first)
+      must_redirect_to products_path
+    end
+
     # it "requires login for delete" do
     #   expect {
     #     delete logout_path(Seller.first)
     #   }.wont_change "Seller.count"
     #   must_redirect_to products_path
     # end
+
   end
 end
