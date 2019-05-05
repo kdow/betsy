@@ -13,6 +13,7 @@
       <tr>
         <th>Product</th>
         <th>Quantity</th>
+        <th>Subtotal</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
       <tr>
         <td><%= link_to order_product.product.name, product_path(order_product.product) %></td>
         <td><%= order_product.quantity %></td>
+        <td><%= order_product.line_item_subtotal %></td>
       </tr>
     <% end %>
   <% end %>
