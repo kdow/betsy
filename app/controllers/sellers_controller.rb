@@ -23,6 +23,10 @@ class SellersController < ApplicationController
     @order = Order.find_by(id: params[:order_id])
     unless @order
       head :not_found
+      return
+    end
+    unless @seller.has_order?(@order)
+      redirect_to seller_path(@seller)
     end
   end
 
@@ -60,6 +64,7 @@ class SellersController < ApplicationController
     @seller = Seller.find_by(id: params[:seller_id])
     unless @seller
       head :not_found
+      return
     end
   end
 

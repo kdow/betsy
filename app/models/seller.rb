@@ -30,6 +30,10 @@ class Seller < ApplicationRecord
     return unique_orders
   end
 
+  def has_order?(order)
+    return self.orders.include?(order)
+  end
+
   def total_revenue
   end
 end

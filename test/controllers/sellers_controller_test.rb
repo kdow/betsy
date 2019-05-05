@@ -72,12 +72,12 @@ describe "SellersController" do
         must_respond_with :not_found
       end
 
-      # it "Will respond with redirect if given a order id that the seller does not have" do
-      #   new_seller = sellers(:new_seller)
-      #   get seller_order_path(new_seller.id, @order_id)
+      it "Will respond with redirect if given a order id that the seller does not have" do
+        new_seller = sellers(:new_seller)
+        get seller_order_path(new_seller.id, @order_id)
 
-      #   must_respond_with :redirect
-      # end
+        must_respond_with :redirect
+      end
 
       it "will respond with not_found if given a bad order_id" do
         get seller_order_path(seller.id, -1)
