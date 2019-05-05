@@ -1,33 +1,31 @@
- <table class="table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Order ID</th>
-          <th>Status</th>
+<h2>Orders</h2>
 
-        </tr>
-      </thead>
-      <tbody>
-        <% @order_products.each do |order_product| %>
-        <tr>
-          <td><%= link_to order_product.product.name, product_path(order_product.product) %></td>
-          <td><%= order_product.quantity %></td>
-          <td><%= order_product.order_id%></td>
-          <td><%= order_product.order.status %></td>
-
-        </tr>
-        <% end %>
-      </tbody>
-
-    </table>
 
 <% @orders.each do |order| %>
 
   <ul>
     <li>Order Number: <%= order.id %></li>
+    <li>Order Status: <%= order.status %></li>
     <li>Purchace Details:</li>
   </ul>
-        
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% order.order_products.each do |order_product| %>
+    <% if order_product.product.seller == @seller %>
+
+      <tr>
+        <td><%= link_to order_product.product.name, product_path(order_product.product) %></td>
+        <td><%= order_product.quantity %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+  </table>
         
 <% end %>
