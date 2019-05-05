@@ -1,9 +1,21 @@
 <%= image_tag("https://live.staticflickr.com/65535/33890483388_bbbc313b31_o.jpg", :alt => "Cats and mice jumping around books", class: "img-fluid") %>
+
+<br class="top-buffer">
+
 <% products = @products.sample(6) %>
 
-<ul>
-  <% products.each do |product| %>
-    <%= link_to(image_tag(product.photo_url, :alt => "Photo of ""#{product.name}"), product_path(product)) %>
-    <li><%= link_to product.name, product_path(product) %> | <%= "$""#{'%.2f' % (product.price / 100.00)}" %></li>
+<section class="cards">
+    <% products.each do |product| %>
+      <article>
+        <div class="card">
+          <%= link_to(image_tag(product.photo_url, class: "card-img-top", :alt => "Photo of ""#{product.name}"), product_path(product)) %>
+          <div class="card-body">
+            <h5><%= product.name %></h5>
+            <%= link_to "$""#{'%.2f' % (product.price / 100.00)}", product_path(product), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </article>
   <% end %>
-</ul>
+</section>
+
+
