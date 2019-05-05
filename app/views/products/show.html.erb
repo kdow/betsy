@@ -1,6 +1,7 @@
-<ul>
-  <li><%= @product.name %></li>
-  <li><%= image_tag(@product.photo_url, :alt => "Photo of ""#{@product.name}") %></li>
-  <li><%= "$""#{'%.2f' % (@product.price / 100.00)}" %></li>
-  <li><%= @product.description %></li>
-</ul>
+<section>
+  <h2><%= @product.name %></h2>
+  <%= image_tag(@product.photo_url, :alt => "Photo of ""#{@product.name}") %>
+  <p><%= "$""#{'%.2f' % (@product.price / 100.00)}" %></p>
+  <p><%= @product.description %></p>
+  <%= link_to "Leave a Review", new_product_review_path(@product), class: "btn btn-primary" %>
+</section>
