@@ -252,6 +252,10 @@
         1,
         null,
         null,
+        null,
+        1,
+        2,
+        null,
         null
       ],
       "/Users/sarah/ada/projects/betsy/app/models/order.rb": [
@@ -472,6 +476,6 @@
         null
       ]
     },
-    "timestamp": 1557072370
+    "timestamp": 1557075117
   }
 }
