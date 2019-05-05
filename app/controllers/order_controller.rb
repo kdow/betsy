@@ -1,4 +1,6 @@
 class OrderController < ApplicationController
+  skip_before_action :require_login
+
   def new
     @order = current_order
   end
