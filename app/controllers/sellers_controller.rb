@@ -1,6 +1,4 @@
 
-require "pry"
-
 class SellersController < ApplicationController
   before_action :require_login, only: [:show]
   before_action :auth_seller, only: [:show]
