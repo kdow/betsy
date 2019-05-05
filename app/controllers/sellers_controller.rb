@@ -2,7 +2,7 @@
 class SellersController < ApplicationController
   before_action :require_login, only: [:show]
   before_action :auth_seller, only: [:show]
-  before_action :find_seller, only: [:product_index, :order_product_index]
+  before_action :find_seller, only: [:product_index, :order_product_index, :order_show]
 
   def show
     @seller = Seller.find_by(id: params[:id])
@@ -17,6 +17,13 @@ class SellersController < ApplicationController
 
   def order_product_index
     @orders = @seller.get_unique_orders
+  end
+
+  def order_show
+    @order = Order.find_by(id: params[:order_id])
+    unless @order
+      head :not_found
+    end
   end
 
   def create

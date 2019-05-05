@@ -1,8 +1,8 @@
 require "test_helper"
 
 describe "SellersController" do
-  let (:seller) { sellers.first }
-  let (:last_seller) { sellers.last }
+  let (:seller) { sellers(:sarah) }
+  let (:last_seller) { sellers(:kelly) }
   describe "logged in seller" do
     describe "show" do
       before do
@@ -51,6 +51,36 @@ describe "SellersController" do
       end
       it "Will respond with not_found if given an invalid seller ID" do
         get seller_order_products_path(-1)
+
+        must_respond_with :not_found
+      end
+    end
+
+    describe "order_show" do
+      before do
+        @order_id = seller.orders.first.id
+      end
+      it "can get order_show with valid seller and order id" do
+        get seller_order_path(seller.id, @order_id)
+
+        must_respond_with :success
+      end
+
+      it "Will respond with not_found if given an invalid seller ID" do
+        get seller_order_path(-1, @order_id)
+
+        must_respond_with :not_found
+      end
+
+      # it "Will respond with redirect if given a order id that the seller does not have" do
+      #   new_seller = sellers(:new_seller)
+      #   get seller_order_path(new_seller.id, @order_id)
+
+      #   must_respond_with :redirect
+      # end
+
+      it "will respond with not_found if given a bad order_id" do
+        get seller_order_path(seller.id, -1)
 
         must_respond_with :not_found
       end
