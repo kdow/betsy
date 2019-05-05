@@ -98,6 +98,16 @@ describe "SellersController" do
 
         must_respond_with :redirect
       end
+      it "Will respond with not_found if given an invalid seller ID" do
+        get seller_product_categories_path(-1, @product.id)
+
+        must_respond_with :not_found
+      end
+      it "will respond with not_found if given a bad product_id" do
+        get seller_product_categories_path(seller.id, -1)
+
+        must_respond_with :not_found
+      end
     end
 
     describe "destroy" do
