@@ -3,6 +3,7 @@ require "test_helper"
 describe "SellersController" do
   let (:seller) { sellers(:sarah) }
   let (:last_seller) { sellers(:kelly) }
+  let (:new_seller) { sellers(:devin) }
   describe "logged in seller" do
     before do
       perform_login(seller)
@@ -87,7 +88,7 @@ describe "SellersController" do
       before do
         @product = seller.products.first
       end
-      it "can get order_show with valid seller and order id" do
+      it "can get order_show with valid seller and product id" do
         get seller_product_categories_path(seller.id, @product.id)
 
         must_respond_with :success
@@ -105,6 +106,39 @@ describe "SellersController" do
       end
       it "will respond with not_found if given a bad product_id" do
         get seller_product_categories_path(seller.id, -1)
+
+        must_respond_with :not_found
+      end
+    end
+
+    describe "product_categories_update" do
+      let(:product_data) {
+        {
+          product: {
+            category_ids: [categories(:toys).id, categories(:hats).id],
+          },
+        }
+      }
+      let(:product) { seller.products.first }
+      it "change the data on the model" do
+        expect(product.categories.count).must_equal 0
+
+        patch seller_product_categories_path(seller, product), params: product_data
+
+        expect(flash[:status]).must_equal :success
+        must_redirect_to product_path(product)
+        expect(product.categories.count).must_equal 2
+        expect(product.categories).must_include categories(:toys)
+      end
+
+      it "Will respond with redirect if given a product id that the seller does not have" do
+        other_product = last_seller.products.first
+        patch seller_product_categories_path(seller.id, other_product.id), params: product_data
+
+        must_respond_with :redirect
+      end
+      it "Will respond with not_found if given an invalid seller ID" do
+        patch seller_product_categories_path(-1, product.id), params: product_data
 
         must_respond_with :not_found
       end

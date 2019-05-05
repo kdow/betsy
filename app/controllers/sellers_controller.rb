@@ -1,9 +1,8 @@
 
 class SellersController < ApplicationController
-  before_action :require_login, only: [:show, :product_index, :order_product_index, :order_show, :product_categories_edit]
-  before_action :auth_seller_by_id, only: [:show]
-  before_action :auth_seller, only: []
-  before_action :find_seller, only: [:product_index, :order_product_index, :order_show, :product_categories_edit]
+  before_action :require_login, only: [:show, :product_index, :order_product_index, :order_show, :product_categories_edit, :product_categories_update]
+  before_action :auth_seller, only: [:show]
+  before_action :find_seller, only: [:product_index, :order_product_index, :order_show, :product_categories_edit, :product_categories_update]
 
   def show
     @seller = Seller.find_by(id: params[:id])
@@ -42,6 +41,19 @@ class SellersController < ApplicationController
     end
   end
 
+  def product_categories_update
+    @product = Product.find_by(id: params[:id])
+    if @product.update(category_params)
+      flash[:status] = :success
+      flash[:message] = "Successfully updated product #{@product.id}"
+      redirect_to product_path(@product)
+    else
+      flash.now[:status] = :error
+      flash.now[:message] = "Could not save product #{@product.id}"
+      redirect_to seller_products_path(@seller, @product)
+    end
+  end
+
   def create
     auth_hash = request.env["omniauth.auth"]
 
@@ -72,6 +84,10 @@ class SellersController < ApplicationController
 
   private
 
+  def category_params
+    return params.require(:product).permit(category_ids: [])
+  end
+
   def find_seller
     @seller = Seller.find_by(id: params[:seller_id])
     unless @seller
@@ -80,7 +96,7 @@ class SellersController < ApplicationController
     end
   end
 
-  def auth_seller_by_id
+  def auth_seller
     unless current_seller.id == params[:id].to_i
       flash[:error] = "You dont have permission to view this page"
 
