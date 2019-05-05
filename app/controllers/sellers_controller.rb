@@ -37,9 +37,9 @@ class SellersController < ApplicationController
       head :not_found
       return
     end
-    # unless @seller.has_product?(@product)
-    #   redirect_to seller_path(@seller)
-    # end
+    unless @seller.has_product?(@product)
+      redirect_to seller_path(@seller)
+    end
   end
 
   def create

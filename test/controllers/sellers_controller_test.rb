@@ -92,12 +92,12 @@ describe "SellersController" do
 
         must_respond_with :success
       end
-      # it "Will respond with redirect if given a product id that the seller does not have" do
-      #   other_product = last_seller.products.first
-      #   get seller_product_categories_path(seller.id, other_product.id)
+      it "Will respond with redirect if given a product id that the seller does not have" do
+        other_product = last_seller.products.first
+        get seller_product_categories_path(seller.id, other_product.id)
 
-      #   must_respond_with :redirect
-      # end
+        must_respond_with :redirect
+      end
     end
 
     describe "destroy" do
