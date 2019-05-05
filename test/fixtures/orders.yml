@@ -5,6 +5,7 @@ one:
   email: susie@gmail.com
   last_four: 9876
   cc_exp: 1220
+  cvv: 123
   address: 123 Fake Ave.
   city: Los Angeles
   state: CA
@@ -16,6 +17,7 @@ two:
   email: jeand@gmail.com
   last_four: 4297
   cc_exp: 0221
+  cvv: 123
   address: 4839 Main St.
   city: Seattle
   state: WA
@@ -28,6 +30,7 @@ catter:
   email: bita@gmail.com
   last_four: 42975678
   cc_exp: 0221
+  cvv: 123
   address: 4839 Main St.
   city: Seattle
   state: WA
@@ -39,6 +42,7 @@ kitcat:
   email: john@gmail.com
   last_four: 429985678
   cc_exp: 0221
+  cvv: 123
   address: 4839 Main St.
   city: Seattle
   state: WA
