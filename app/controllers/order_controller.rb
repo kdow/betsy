@@ -10,8 +10,7 @@ class OrderController < ApplicationController
       flash[:message] = "Successfully placed the order"
       redirect_to order_path(@order)
     else
-      flash.now[:status] = :error
-      flash.now[:message] = "Could not place the order"
+      flash.now[:error] = "We could not place your order."
       render :new, status: :bad_request
     end
   end
