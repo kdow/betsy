@@ -11,4 +11,23 @@
       Subtotal
     </th>
   </tr>
-</table>
+  <tbody>
+    <tr>
+      <% Order.last.order_products.each do |item| %>
+        <td>
+          <%= item.product.name %>
+        </td>
+        <td>
+          <%= item.quantity %>
+        </td>
+        <td>
+          <%= item.quantity * item.product.price %>
+        </td>
+      </tbody>
+    <% end %>
+  </table>
+  <br>
+  <div>
+    <h4> <%= Order.last.order_products.length %> items will be shipped to:<%= Order.last.name %></h4>
+    <p>Shipping address: <%= Order.last.address %>, <%= Order.last.city %>, <%= Order.last.state %>, <%= Order.last.zip %></p>
+  </div>
