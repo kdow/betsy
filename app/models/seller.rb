@@ -21,13 +21,13 @@ class Seller < ApplicationRecord
     return unique_orders
   end
 
-  def has_order?(order)
-    return self.orders.include?(order)
-  end
+  # def has_order?(order)
+  #   return self.orders.include?(order)
+  # end
 
-  def has_product?(product)
-    return self.products.include?(product)
-  end
+  # def has_product?(product)
+  #   return self.products.include?(product)
+  # end
 
   def total_revenue
   end
