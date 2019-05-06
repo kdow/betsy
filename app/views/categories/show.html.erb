@@ -1,8 +1,16 @@
-<h2><%= @category.name %>
-<ul>
-  <% @category.products.each do |product| %>
-    <li><%= image_tag(product.photo_url, :alt => "Photo of ""#{product.name}") %></li>
-    <li><%= link_to product.name, product_path(product) %> | <%= "$""#{'%.2f' % (product.price / 100.00)}" %></li>
-  <% end %>
-</ul>
+<h2><%= (@category.name).capitalize %></h2>
+<section class="cards">
+<% @category.products.each do |product| %>
+  <article>
+    <div class="card">
+      <%= image_tag(product.photo_url, class: "card-img-top", :alt => "Photo of ""#{product.name}") %>
+      <div class="card-body">
+        <%= link_to product.name, product_path(product) %> 
+        <br>
+        <%= "$""#{'%.2f' % (product.price / 100.00)}" %>
+      </div>
+    </div>
+  </article>
+<% end %>
+</section>
 
