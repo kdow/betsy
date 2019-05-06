@@ -69,6 +69,16 @@ class Order < ApplicationRecord
       ["Wyoming", "WY"],
     ]
 
+
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :address, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :zip, presence: true
+  validates :last_four, presence: true
+  validates :cc_exp, presence: true
+
   def calculate_total
     self.order_products.collect { |item| item.product.price * item.quantity }.sum
   end

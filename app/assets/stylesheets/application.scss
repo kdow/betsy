@@ -27,3 +27,7 @@ a.button {
 /* Import scss content */
 @import "**/*";
 
+
+h1 a:hover {
+  text-decoration: none;
+}

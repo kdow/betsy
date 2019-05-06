@@ -1,4 +1,3 @@
-
 class SellersController < ApplicationController
   before_action :require_login, only: [:show, :product_index, :order_product_index, :order_show, :product_categories_edit, :product_categories_update]
   before_action :auth_seller, only: [:show]
