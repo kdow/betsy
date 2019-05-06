@@ -1,220 +1,5 @@
 <!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml'>
-<<<<<<< HEAD
-
-<head>
-  <title>Code coverage for Betsy</title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <script src='./assets/0.10.2/application.js' type='text/javascript'></script>
-  <link href='./assets/0.10.2/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-  <link rel="shortcut icon" type="image/png" href="./assets/0.10.2/favicon_yellow.png" />
-  <link rel="icon" type="image/png" href="./assets/0.10.2/favicon.png" />
-</head>
-
-<body>
-  <div id="loading">
-    <img src="./assets/0.10.2/loading.gif" alt="loading" />
-  </div>
-  <div id="wrapper" style="display:none;">
-    <div class="timestamp">Generated <abbr class="timeago"
-        title="2019-05-06T10:30:17-07:00">2019-05-06T10:30:17-07:00</abbr></div>
-    <ul class="group_tabs"></ul>
-
-    <div id="content">
-      <div class="file_list_container" id="AllFiles">
-        <h2>
-          <span class="group_name">All Files</span>
-          (<span class="covered_percent"><span class="yellow">81.85%</span></span>
-          covered at
-          <span class="covered_strength">
-            <span class="green">
-              2.52
-            </span>
-          </span> hits/line)
-        </h2>
-        <a name="AllFiles"></a>
-        <div>
-          <b>14</b> files in total.
-          <b>259</b> relevant lines.
-          <span class="green"><b>212</b> lines covered</span> and
-          <span class="red"><b>47</b> lines missed </span>
-        </div>
-        <table class="file_list">
-          <thead>
-            <tr>
-              <th>File</th>
-              <th>% covered</th>
-              <th>Lines</th>
-              <th>Relevant Lines</th>
-              <th>Lines covered</th>
-              <th>Lines missed</th>
-              <th>Avg. Hits / Line</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr>
-              <td class="strong"><a href="#9e21a131805c64f3edabb12125a5e24866db5ef5" class="src_link"
-                  title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
-              <td class="green strong">95.0 %</td>
-              <td>35</td>
-              <td>20</td>
-              <td>19</td>
-              <td>1</td>
-              <td>7.8</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#8f773d249796bcce5c1b76d9f9ebd0f33684a4eb" class="src_link"
-                  title="app/controllers/carts_controller.rb">app/controllers/carts_controller.rb</a></td>
-              <td class="green strong">100.0 %</td>
-              <td>8</td>
-              <td>5</td>
-              <td>5</td>
-              <td>0</td>
-              <td>1.0</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#20a3f0c9b8bf23927ba4a4646a472eb3505e20e9" class="src_link"
-                  title="app/controllers/categories_controller.rb">app/controllers/categories_controller.rb</a></td>
-              <td class="green strong">100.0 %</td>
-              <td>16</td>
-              <td>9</td>
-              <td>9</td>
-              <td>0</td>
-              <td>1.2</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#53b0ab9225ded731f7cd84c94534ec18d251cd5c" class="src_link"
-                  title="app/controllers/order_controller.rb">app/controllers/order_controller.rb</a></td>
-              <td class="red strong">35.0 %</td>
-              <td>31</td>
-              <td>20</td>
-              <td>7</td>
-              <td>13</td>
-              <td>0.4</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#b4f681b942caf4676f10f78c71d643ff6f690428" class="src_link"
-                  title="app/controllers/order_products_controller.rb">app/controllers/order_products_controller.rb</a>
-              </td>
-              <td class="red strong">56.67 %</td>
-              <td>42</td>
-              <td>30</td>
-              <td>17</td>
-              <td>13</td>
-              <td>1.2</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#d79f52efc96b0b63ea250adad43419d68057276e" class="src_link"
-                  title="app/controllers/products_controller.rb">app/controllers/products_controller.rb</a></td>
-              <td class="yellow strong">86.96 %</td>
-              <td>97</td>
-              <td>46</td>
-              <td>40</td>
-              <td>6</td>
-              <td>1.3</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#9e8d930f0fbd6254f04fb587a47f1057610122d8" class="src_link"
-                  title="app/controllers/sellers_controller.rb">app/controllers/sellers_controller.rb</a></td>
-              <td class="yellow strong">86.89 %</td>
-              <td>106</td>
-              <td>61</td>
-              <td>53</td>
-              <td>8</td>
-              <td>5.0</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#2321da0801280710f44bfac49ed560bdc1080491" class="src_link"
-                  title="app/models/application_record.rb">app/models/application_record.rb</a></td>
-              <td class="green strong">100.0 %</td>
-              <td>3</td>
-              <td>2</td>
-              <td>2</td>
-              <td>0</td>
-              <td>1.0</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#6679296581555ceba3a28a41d160f95524d7fa6d" class="src_link"
-                  title="app/models/category.rb">app/models/category.rb</a></td>
-              <td class="green strong">100.0 %</td>
-              <td>3</td>
-              <td>2</td>
-              <td>2</td>
-              <td>0</td>
-              <td>1.0</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#cb2f913ebb6dd2e13ef4ef275d81a46d94bb8316" class="src_link"
-                  title="app/models/order.rb">app/models/order.rb</a></td>
-              <td class="yellow strong">86.36 %</td>
-              <td>87</td>
-              <td>22</td>
-              <td>19</td>
-              <td>3</td>
-              <td>1.0</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#2ffd13bfdd0aa9321473e942b439b08dd6e9dee9" class="src_link"
-                  title="app/models/order_product.rb">app/models/order_product.rb</a></td>
-              <td class="green strong">100.0 %</td>
-              <td>13</td>
-              <td>7</td>
-              <td>7</td>
-              <td>0</td>
-              <td>1.4</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#fda2ee1172c5e7fce9ad95f9e582122584c19c70" class="src_link"
-                  title="app/models/product.rb">app/models/product.rb</a></td>
-              <td class="red strong">75.0 %</td>
-              <td>19</td>
-              <td>12</td>
-              <td>9</td>
-              <td>3</td>
-              <td>0.8</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#1fd4fb70b32f10de49d0fc62c2bba1504d445a9e" class="src_link"
-                  title="app/models/review.rb">app/models/review.rb</a></td>
-              <td class="green strong">100.0 %</td>
-              <td>7</td>
-              <td>3</td>
-              <td>3</td>
-              <td>0</td>
-              <td>1.0</td>
-            </tr>
-
-            <tr>
-              <td class="strong"><a href="#86102845baa5472ed00d8fb0eba25b9834e716ad" class="src_link"
-                  title="app/models/seller.rb">app/models/seller.rb</a></td>
-              <td class="green strong">100.0 %</td>
-              <td>34</td>
-              <td>20</td>
-              <td>20</td>
-              <td>0</td>
-              <td>1.2</td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-
-
-
-=======
   <head>
     <title>Code coverage for Betsy</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -229,14 +14,14 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-05-06T13:50:00-07:00">2019-05-06T13:50:00-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-05-06T14:11:01-07:00">2019-05-06T14:11:01-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">83.92%</span></span>
+    (<span class="covered_percent"><span class="yellow">82.93%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -247,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>16</b> files in total.
-    <b>286</b> relevant lines. 
-    <span class="green"><b>240</b> lines covered</span> and
-    <span class="red"><b>46</b> lines missed </span>
+    <b>287</b> relevant lines. 
+    <span class="green"><b>238</b> lines covered</span> and
+    <span class="red"><b>49</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -266,17 +51,17 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#9e21a131805c64f3edabb12125a5e24866db5ef5" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
-        <td class="green strong">95.0 %</td>
+        <td class="strong"><a href="#67f1429690ff4c254b42d9702913173cbee649b4" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
+        <td class="green strong">100.0 %</td>
         <td>34</td>
         <td>20</td>
-        <td>19</td>
-        <td>1</td>
+        <td>20</td>
+        <td>0</td>
         <td>7.8</td>
       </tr>
       
       <tr>
-        <td class="strong"><a href="#8f773d249796bcce5c1b76d9f9ebd0f33684a4eb" class="src_link" title="app/controllers/carts_controller.rb">app/controllers/carts_controller.rb</a></td>
+        <td class="strong"><a href="#ed5494060be9ef81d69bf623f41f1fd389fcd04b" class="src_link" title="app/controllers/carts_controller.rb">app/controllers/carts_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>8</td>
         <td>5</td>
@@ -286,7 +71,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#20a3f0c9b8bf23927ba4a4646a472eb3505e20e9" class="src_link" title="app/controllers/categories_controller.rb">app/controllers/categories_controller.rb</a></td>
+        <td class="strong"><a href="#6cf530d762c90aa362509d1123ea3ab88d60d237" class="src_link" title="app/controllers/categories_controller.rb">app/controllers/categories_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>16</td>
         <td>9</td>
@@ -296,7 +81,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#d5304b5add87a87ee32e08e4259c43bbfc703b25" class="src_link" title="app/controllers/homepages_controller.rb">app/controllers/homepages_controller.rb</a></td>
+        <td class="strong"><a href="#10931eafeaf3c9f39e24edd65a056e190f372bdd" class="src_link" title="app/controllers/homepages_controller.rb">app/controllers/homepages_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>8</td>
         <td>5</td>
@@ -306,19 +91,19 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#53b0ab9225ded731f7cd84c94534ec18d251cd5c" class="src_link" title="app/controllers/order_controller.rb">app/controllers/order_controller.rb</a></td>
-        <td class="red strong">36.84 %</td>
-        <td>30</td>
-        <td>19</td>
-        <td>7</td>
-        <td>12</td>
+        <td class="strong"><a href="#9ff7c12c261f3dd343b67db3d63672f444659d50" class="src_link" title="app/controllers/order_controller.rb">app/controllers/order_controller.rb</a></td>
+        <td class="red strong">35.71 %</td>
+        <td>73</td>
+        <td>28</td>
+        <td>10</td>
+        <td>18</td>
         <td>0.4</td>
       </tr>
       
       <tr>
-        <td class="strong"><a href="#b4f681b942caf4676f10f78c71d643ff6f690428" class="src_link" title="app/controllers/order_products_controller.rb">app/controllers/order_products_controller.rb</a></td>
+        <td class="strong"><a href="#d82cf14e7c478dab7c9b3c55c5d9fa85dcb059a0" class="src_link" title="app/controllers/order_products_controller.rb">app/controllers/order_products_controller.rb</a></td>
         <td class="red strong">56.67 %</td>
-        <td>42</td>
+        <td>45</td>
         <td>30</td>
         <td>17</td>
         <td>13</td>
@@ -326,7 +111,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#d79f52efc96b0b63ea250adad43419d68057276e" class="src_link" title="app/controllers/products_controller.rb">app/controllers/products_controller.rb</a></td>
+        <td class="strong"><a href="#69fc19a26df8bd53aac59726c8d0a811d270ce32" class="src_link" title="app/controllers/products_controller.rb">app/controllers/products_controller.rb</a></td>
         <td class="yellow strong">88.0 %</td>
         <td>101</td>
         <td>50</td>
@@ -336,7 +121,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#6722a725d8715c28de34e6b8fadf529b09ef767b" class="src_link" title="app/controllers/reviews_controller.rb">app/controllers/reviews_controller.rb</a></td>
+        <td class="strong"><a href="#e415c873d3be7712732f30aeecf27ab8c7530f10" class="src_link" title="app/controllers/reviews_controller.rb">app/controllers/reviews_controller.rb</a></td>
         <td class="green strong">93.75 %</td>
         <td>28</td>
         <td>16</td>
@@ -346,7 +131,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#9e8d930f0fbd6254f04fb587a47f1057610122d8" class="src_link" title="app/controllers/sellers_controller.rb">app/controllers/sellers_controller.rb</a></td>
+        <td class="strong"><a href="#ba3859aaa9c817530649428a584828b1de8df5d5" class="src_link" title="app/controllers/sellers_controller.rb">app/controllers/sellers_controller.rb</a></td>
         <td class="yellow strong">88.14 %</td>
         <td>108</td>
         <td>59</td>
@@ -356,7 +141,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#2321da0801280710f44bfac49ed560bdc1080491" class="src_link" title="app/models/application_record.rb">app/models/application_record.rb</a></td>
+        <td class="strong"><a href="#69a2c959d7a03b39e8dbadbf6fabe48378c7afe0" class="src_link" title="app/models/application_record.rb">app/models/application_record.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>3</td>
         <td>2</td>
@@ -366,7 +151,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#6679296581555ceba3a28a41d160f95524d7fa6d" class="src_link" title="app/models/category.rb">app/models/category.rb</a></td>
+        <td class="strong"><a href="#4bb7c335db8c3a29330983779835ff9124860315" class="src_link" title="app/models/category.rb">app/models/category.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>3</td>
         <td>2</td>
@@ -376,17 +161,17 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#cb2f913ebb6dd2e13ef4ef275d81a46d94bb8316" class="src_link" title="app/models/order.rb">app/models/order.rb</a></td>
-        <td class="yellow strong">90.0 %</td>
-        <td>97</td>
-        <td>30</td>
-        <td>27</td>
-        <td>3</td>
-        <td>1.0</td>
+        <td class="strong"><a href="#2afefee066b0c82c754b3e3046b50012a1b1a4a4" class="src_link" title="app/models/order.rb">app/models/order.rb</a></td>
+        <td class="green strong">95.45 %</td>
+        <td>87</td>
+        <td>22</td>
+        <td>21</td>
+        <td>1</td>
+        <td>1.3</td>
       </tr>
       
       <tr>
-        <td class="strong"><a href="#2ffd13bfdd0aa9321473e942b439b08dd6e9dee9" class="src_link" title="app/models/order_product.rb">app/models/order_product.rb</a></td>
+        <td class="strong"><a href="#350c75a25477ccd78e6a1a0925979222d98df0f0" class="src_link" title="app/models/order_product.rb">app/models/order_product.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>13</td>
         <td>7</td>
@@ -396,7 +181,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#fda2ee1172c5e7fce9ad95f9e582122584c19c70" class="src_link" title="app/models/product.rb">app/models/product.rb</a></td>
+        <td class="strong"><a href="#90b1999989c32884ca16ed7c19f83fa25dfd50d8" class="src_link" title="app/models/product.rb">app/models/product.rb</a></td>
         <td class="red strong">76.92 %</td>
         <td>20</td>
         <td>13</td>
@@ -406,7 +191,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#1fd4fb70b32f10de49d0fc62c2bba1504d445a9e" class="src_link" title="app/models/review.rb">app/models/review.rb</a></td>
+        <td class="strong"><a href="#092efeee89156e36efdcc719a5bd6348a1b78d2f" class="src_link" title="app/models/review.rb">app/models/review.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>7</td>
         <td>3</td>
@@ -416,7 +201,7 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#86102845baa5472ed00d8fb0eba25b9834e716ad" class="src_link" title="app/models/seller.rb">app/models/seller.rb</a></td>
+        <td class="strong"><a href="#0a21f99f6182f2d8769280d1e03f475c27a4527b" class="src_link" title="app/models/seller.rb">app/models/seller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>34</td>
         <td>16</td>
@@ -441,42 +226,18 @@
     
       <div class="source_files">
       
-        <div class="source_table" id="9e21a131805c64f3edabb12125a5e24866db5ef5">
+        <div class="source_table" id="67f1429690ff4c254b42d9702913173cbee649b4">
   <div class="header">
     <h3>app/controllers/application_controller.rb</h3>
-    <h4><span class="green">95.0 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>20</b> relevant lines. 
-<<<<<<< HEAD
       <span class="green"><b>20</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
->>>>>>> eafa8471462c46f4bd38633fad856e7fe4ddb8d7
-=======
-      <span class="green"><b>19</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
->>>>>>> 078f4537ebe1165e8a98691903bd821dd83a15ff
     </div>
-
-    <div id="footer">
-      Generated by <a href="http://github.com/colszowka/simplecov">simplecov</a> v0.16.1
-      and simplecov-html v0.10.2<br />
-      using MiniTest
-    </div>
-
-    <div class="source_files">
-
-      <div class="source_table" id="9e21a131805c64f3edabb12125a5e24866db5ef5">
-        <div class="header">
-          <h3>app/controllers/application_controller.rb</h3>
-          <h4><span class="green">95.0 %</span> covered</h4>
-          <div>
-            <b>20</b> relevant lines.
-            <span class="green"><b>19</b> lines covered</span> and
-            <span class="red"><b>1</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
+  </div>
+  
+  <pre>
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -533,8 +294,8 @@
           <code class="ruby">    if session[:order_id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="10">
-          
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
           
           <code class="ruby">      Order.find(session[:order_id])</code>
         </li>
@@ -545,8 +306,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="12">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="5" data-linenumber="12">
+          <span class="hits">5</span>
           
           <code class="ruby">      Order.new</code>
         </li>
@@ -685,21 +446,21 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-
-      <div class="source_table" id="8f773d249796bcce5c1b76d9f9ebd0f33684a4eb">
-        <div class="header">
-          <h3>app/controllers/carts_controller.rb</h3>
-          <h4><span class="green">100.0 %</span> covered</h4>
-          <div>
-            <b>5</b> relevant lines.
-            <span class="green"><b>5</b> lines covered</span> and
-            <span class="red"><b>0</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
+      
+        <div class="source_table" id="ed5494060be9ef81d69bf623f41f1fd389fcd04b">
+  <div class="header">
+    <h3>app/controllers/carts_controller.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -752,21 +513,21 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-
-      <div class="source_table" id="20a3f0c9b8bf23927ba4a4646a472eb3505e20e9">
-        <div class="header">
-          <h3>app/controllers/categories_controller.rb</h3>
-          <h4><span class="green">100.0 %</span> covered</h4>
-          <div>
-            <b>9</b> relevant lines.
-            <span class="green"><b>9</b> lines covered</span> and
-            <span class="red"><b>0</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
+      
+        <div class="source_table" id="6cf530d762c90aa362509d1123ea3ab88d60d237">
+  <div class="header">
+    <h3>app/controllers/categories_controller.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>9</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -867,25 +628,10 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-<<<<<<< HEAD
-
-      <div class="source_table" id="53b0ab9225ded731f7cd84c94534ec18d251cd5c">
-        <div class="header">
-          <h3>app/controllers/order_controller.rb</h3>
-          <h4><span class="red">35.0 %</span> covered</h4>
-          <div>
-            <b>20</b> relevant lines.
-            <span class="green"><b>7</b> lines covered</span> and
-            <span class="red"><b>13</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
-=======
       
-        <div class="source_table" id="d5304b5add87a87ee32e08e4259c43bbfc703b25">
+        <div class="source_table" id="10931eafeaf3c9f39e24edd65a056e190f372bdd">
   <div class="header">
     <h3>app/controllers/homepages_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -952,467 +698,453 @@
 </div>
 
       
-        <div class="source_table" id="53b0ab9225ded731f7cd84c94534ec18d251cd5c">
+        <div class="source_table" id="9ff7c12c261f3dd343b67db3d63672f444659d50">
   <div class="header">
     <h3>app/controllers/order_controller.rb</h3>
-    <h4><span class="red">36.84 %</span> covered</h4>
+    <h4><span class="red">35.71 %</span> covered</h4>
     <div>
-      <b>19</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
-      <span class="red"><b>12</b> lines missed.</span>
+      <b>28</b> relevant lines. 
+      <span class="green"><b>10</b> lines covered</span> and
+      <span class="red"><b>18</b> lines missed.</span>
     </div>
   </div>
   
   <pre>
->>>>>>> 078f4537ebe1165e8a98691903bd821dd83a15ff
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &quot;pry&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
           <code class="ruby">class OrderController &lt; ApplicationController</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="2">
+        <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
           <code class="ruby">  skip_before_action :require_login</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
+        <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
           <code class="ruby">  skip_before_action :auth_seller</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
           <code class="ruby">  def new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="6">
+        <li class="missed" data-hits="0" data-linenumber="8">
           
           
           <code class="ruby">    @order = current_order</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="11">
           
-          <code class="ruby">  def update</code>
+          
+          <code class="ruby">  # def show</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">    @order = current_order</code>
+          <code class="ruby">  #   id = params[:id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">    @order_products = current_order.order_products</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="12">
-          
-          
-          <code class="ruby">    Product.adjust_quantity(@order_products)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="13">
-          
-          
-          <code class="ruby">    @order.status = &quot;completed&quot;</code>
+          <code class="ruby">  #   if session[:order_id] == id.to_i</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="15">
-          
-          
-          <code class="ruby">    if @order.update(order_params)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="16">
-          
-          
-          <code class="ruby">      flash[:status] = :success</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="17">
-          
-          
-          <code class="ruby">      flash[:message] = &quot;Successfully placed the order&quot;</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="18">
-          
-          
-          <code class="ruby">      redirect_to order_path(@order)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="20">
-          
-          
-          <code class="ruby">      flash.now[:error] = &quot;We could not place your order.&quot;</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="21">
-          
-          
-          <code class="ruby">      render :new, status: :bad_request</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  private</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="27">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def order_params</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="28">
-          
-          
-          <code class="ruby">    params.require(:order).permit(:name, :email, :last_four, :cc_exp, :address, :city, :state, :zip, :cvv)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="29">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="30">
-          
-          
-          <code class="ruby">end</code>
-        </li>
-      
-    </ol>
-  </pre>
-      </div>
-
-
-      <div class="source_table" id="b4f681b942caf4676f10f78c71d643ff6f690428">
-        <div class="header">
-          <h3>app/controllers/order_products_controller.rb</h3>
-          <h4><span class="red">56.67 %</span> covered</h4>
-          <div>
-            <b>30</b> relevant lines.
-            <span class="green"><b>17</b> lines covered</span> and
-            <span class="red"><b>13</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
-    <ol>
-      
-        <li class="covered" data-hits="1" data-linenumber="1">
-          <span class="hits">1</span>
-          
-          <code class="ruby">class OrderProductsController &lt; ApplicationController</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="2">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  skip_before_action :require_login</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  skip_before_action :auth_seller</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def create</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="6">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @order = current_order</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="7">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @order_product = OrderProduct.new(order_product_params)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="8">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @order_product.order_id = @order.id</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="9">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @order_product.save</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="10">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @order.order_products &lt;&lt; @order_product</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="11">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @order.save</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="12">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    session[:order_id] = @order.id</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="13">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    redirect_to products_path</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
-          
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">  #     @order = Order.find_by(id: session[:order_id])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #     if @order</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="16">
           
-          <code class="ruby">  def update</code>
+          
+          <code class="ruby">  #       @order_products = @order.order_products.order(created_at: :desc)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">    @order = current_order</code>
+          <code class="ruby">  #     end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby">    @item = @order.order_products.find(params[:id])</code>
+          <code class="ruby">  #   else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
-          <code class="ruby">    if @item.quantity &lt; 1</code>
+          <code class="ruby">  #     head :not_found</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">      flash[:message] = &quot;Sorry, this item is out of stock.&quot;</code>
+          <code class="ruby">  #   end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby">      redirect_to cart_path</code>
+          <code class="ruby">  # end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby">    else</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">      @item.update_attributes(order_product_params)</code>
+          <code class="ruby">  # def create</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">      @items = @order.order_products</code>
+          <code class="ruby">  #   @order = Order.new(order_params)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">      redirect_to cart_path</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="26">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">  #   successful = @order.save</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  #   if successful</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #     flash[:status] = :success</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="29">
           
-          <code class="ruby">  def destroy</code>
+          
+          <code class="ruby">  #     flash[:message] = &quot;successfully create the order&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
-          <code class="ruby">    @order = current_order</code>
+          <code class="ruby">  #     redirect_to orders_path</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">    @item = @order.order_products.find(params[:id])</code>
+          <code class="ruby">  #   else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">    @item.destroy</code>
+          <code class="ruby">  #     flash.now[:status] = :error</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">    @order.save</code>
+          <code class="ruby">  #     flash.now[:message] = &quot;Could not save the order&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="34">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby">    redirect_to cart_path</code>
+          <code class="ruby">  #     render :new, status: :bad_request</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  #   end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  # end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  private</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="39">
+        <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
-          <code class="ruby">  def order_product_params</code>
+          <code class="ruby">  def edit</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="40">
-          <span class="hits">3</span>
+        <li class="missed" data-hits="0" data-linenumber="39">
           
-          <code class="ruby">    params.require(:order_product).permit(:quantity, :product_id)</code>
+          
+          <code class="ruby">    @order.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def update</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="43">
+          
+          
+          <code class="ruby">    @order = current_order</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="44">
+          
+          
+          <code class="ruby">    @order_products = current_order.order_products</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="45">
+          
+          
+          <code class="ruby">    Product.adjust_quantity(@order_products)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="46">
+          
+          
+          <code class="ruby">    @order.status = &quot;completed&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="48">
+          
+          
+          <code class="ruby">    if @order.update(order_params)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="49">
+          
+          
+          <code class="ruby">      flash[:status] = :success</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="50">
+          
+          
+          <code class="ruby">      flash[:message] = &quot;Successfully placed the order&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="51">
+          
+          
+          <code class="ruby">      redirect_to order_path(@order)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="53">
+          
+          
+          <code class="ruby">      flash.now[:status] = :error</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="54">
+          
+          
+          <code class="ruby">      flash.now[:message] = &quot;Could not complete the order&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="56">
+          
+          
+          <code class="ruby">      render :new, status: :bad_request</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="58">
+          
+          
+          <code class="ruby">    session[:order_id] = nil</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="63">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_order</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="64">
+          
+          
+          <code class="ruby">    @order = Order.find_by(id: session[:order_id])</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="65">
+          
+          
+          <code class="ruby">    if @order.nil?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="66">
+          
+          
+          <code class="ruby">      head :not_found</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="70">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def order_params</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="71">
+          
+          
+          <code class="ruby">    params.require(:order).permit(:name, :email, :last_four, :cc_exp, :address, :city, :state, :zip, :cvv)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby">end</code>
@@ -1420,25 +1152,299 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-<<<<<<< HEAD
-
-      <div class="source_table" id="d79f52efc96b0b63ea250adad43419d68057276e">
-        <div class="header">
-          <h3>app/controllers/products_controller.rb</h3>
-          <h4><span class="yellow">86.96 %</span> covered</h4>
-          <div>
-            <b>46</b> relevant lines.
-            <span class="green"><b>40</b> lines covered</span> and
-            <span class="red"><b>6</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
-=======
       
-        <div class="source_table" id="d79f52efc96b0b63ea250adad43419d68057276e">
+        <div class="source_table" id="d82cf14e7c478dab7c9b3c55c5d9fa85dcb059a0">
+  <div class="header">
+    <h3>app/controllers/order_products_controller.rb</h3>
+    <h4><span class="red">56.67 %</span> covered</h4>
+    <div>
+      <b>30</b> relevant lines. 
+      <span class="green"><b>17</b> lines covered</span> and
+      <span class="red"><b>13</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="never" data-hits="" data-linenumber="1">
+          
+          
+          <code class="ruby">#require &quot;pry&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class OrderProductsController &lt; ApplicationController</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  skip_before_action :require_login</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  skip_before_action :auth_seller</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def create</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="8">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @order = current_order</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="9">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @order_product = OrderProduct.new(order_product_params)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="10">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @order_product.order_id = @order.id</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="11">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @order_product.save</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @order.order_products &lt;&lt; @order_product</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="13">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @order.save</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="14">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    session[:order_id] = @order.id</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">    #binding.pry</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="16">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    redirect_to products_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def update</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="20">
+          
+          
+          <code class="ruby">    @order = current_order</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="21">
+          
+          
+          <code class="ruby">    @item = @order.order_products.find(params[:id])</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="22">
+          
+          
+          <code class="ruby">    if @item.quantity &lt; 1</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="23">
+          
+          
+          <code class="ruby">      flash[:message] = &quot;Sorry, this item is out of stock.&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="24">
+          
+          
+          <code class="ruby">      redirect_to cart_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="26">
+          
+          
+          <code class="ruby">      @item.update_attributes(order_product_params)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="27">
+          
+          
+          <code class="ruby">      @items = @order.order_products</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="28">
+          
+          
+          <code class="ruby">      redirect_to cart_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def destroy</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="33">
+          
+          
+          <code class="ruby">    @order = current_order</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="34">
+          
+          
+          <code class="ruby">    @item = @order.order_products.find(params[:id])</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="35">
+          
+          
+          <code class="ruby">    @item.destroy</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="36">
+          
+          
+          <code class="ruby">    @order.save</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="37">
+          
+          
+          <code class="ruby">    redirect_to cart_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="40">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def order_product_params</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="43">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    params.require(:order_product).permit(:quantity, :product_id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="69fc19a26df8bd53aac59726c8d0a811d270ce32">
   <div class="header">
     <h3>app/controllers/products_controller.rb</h3>
     <h4><span class="yellow">88.0 %</span> covered</h4>
@@ -1450,7 +1456,6 @@
   </div>
   
   <pre>
->>>>>>> 078f4537ebe1165e8a98691903bd821dd83a15ff
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -1750,7 +1755,7 @@
         <li class="covered" data-hits="1" data-linenumber="50">
           <span class="hits">1</span>
           
-          <code class="ruby">      flash[:error] = &quot;Unable to create product&quot;</code>
+          <code class="ruby">      flash.now[:error] = &quot;Unable to create product&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="51">
@@ -1924,7 +1929,7 @@
         <li class="covered" data-hits="1" data-linenumber="79">
           <span class="hits">1</span>
           
-          <code class="ruby">      flash[:success] = &quot;Unable to updated product&quot;</code>
+          <code class="ruby">      flash.now[:error] = &quot;Unable to updated product&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="80">
@@ -2061,25 +2066,10 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-<<<<<<< HEAD
-
-      <div class="source_table" id="9e8d930f0fbd6254f04fb587a47f1057610122d8">
-        <div class="header">
-          <h3>app/controllers/sellers_controller.rb</h3>
-          <h4><span class="yellow">86.89 %</span> covered</h4>
-          <div>
-            <b>61</b> relevant lines.
-            <span class="green"><b>53</b> lines covered</span> and
-            <span class="red"><b>8</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
-=======
       
-        <div class="source_table" id="6722a725d8715c28de34e6b8fadf529b09ef767b">
+        <div class="source_table" id="e415c873d3be7712732f30aeecf27ab8c7530f10">
   <div class="header">
     <h3>app/controllers/reviews_controller.rb</h3>
     <h4><span class="green">93.75 %</span> covered</h4>
@@ -2091,7 +2081,6 @@
   </div>
   
   <pre>
->>>>>>> 078f4537ebe1165e8a98691903bd821dd83a15ff
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -2267,7 +2256,7 @@
 </div>
 
       
-        <div class="source_table" id="9e8d930f0fbd6254f04fb587a47f1057610122d8">
+        <div class="source_table" id="ba3859aaa9c817530649428a584828b1de8df5d5">
   <div class="header">
     <h3>app/controllers/sellers_controller.rb</h3>
     <h4><span class="yellow">88.14 %</span> covered</h4>
@@ -2931,21 +2920,21 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-
-      <div class="source_table" id="2321da0801280710f44bfac49ed560bdc1080491">
-        <div class="header">
-          <h3>app/models/application_record.rb</h3>
-          <h4><span class="green">100.0 %</span> covered</h4>
-          <div>
-            <b>2</b> relevant lines.
-            <span class="green"><b>2</b> lines covered</span> and
-            <span class="red"><b>0</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
+      
+        <div class="source_table" id="69a2c959d7a03b39e8dbadbf6fabe48378c7afe0">
+  <div class="header">
+    <h3>app/models/application_record.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>2</b> relevant lines. 
+      <span class="green"><b>2</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -2968,21 +2957,21 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-
-      <div class="source_table" id="6679296581555ceba3a28a41d160f95524d7fa6d">
-        <div class="header">
-          <h3>app/models/category.rb</h3>
-          <h4><span class="green">100.0 %</span> covered</h4>
-          <div>
-            <b>2</b> relevant lines.
-            <span class="green"><b>2</b> lines covered</span> and
-            <span class="red"><b>0</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
+      
+        <div class="source_table" id="4bb7c335db8c3a29330983779835ff9124860315">
+  <div class="header">
+    <h3>app/models/category.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>2</b> relevant lines. 
+      <span class="green"><b>2</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -3005,37 +2994,21 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-<<<<<<< HEAD
-
-      <div class="source_table" id="cb2f913ebb6dd2e13ef4ef275d81a46d94bb8316">
-        <div class="header">
-          <h3>app/models/order.rb</h3>
-          <h4><span class="yellow">86.36 %</span> covered</h4>
-          <div>
-            <b>22</b> relevant lines.
-            <span class="green"><b>19</b> lines covered</span> and
-            <span class="red"><b>3</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
-=======
       
-        <div class="source_table" id="cb2f913ebb6dd2e13ef4ef275d81a46d94bb8316">
+        <div class="source_table" id="2afefee066b0c82c754b3e3046b50012a1b1a4a4">
   <div class="header">
     <h3>app/models/order.rb</h3>
-    <h4><span class="yellow">90.0 %</span> covered</h4>
+    <h4><span class="green">95.45 %</span> covered</h4>
     <div>
-      <b>30</b> relevant lines. 
-      <span class="green"><b>27</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
+      <b>22</b> relevant lines. 
+      <span class="green"><b>21</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
   <pre>
->>>>>>> eafa8471462c46f4bd38633fad856e7fe4ddb8d7
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -3464,157 +3437,97 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="73">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :name, presence: true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="74">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :email, presence: true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="75">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :address, presence: true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="76">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :city, presence: true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="77">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :state, presence: true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="78">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :zip, presence: true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="79">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :last_four, presence: true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="80">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  validates :cc_exp, presence: true</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="81">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="82">
+        <li class="covered" data-hits="1" data-linenumber="72">
           <span class="hits">1</span>
           
           <code class="ruby">  def calculate_total</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="83">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="7" data-linenumber="73">
+          <span class="hits">7</span>
           
           <code class="ruby">    self.order_products.collect { |item| item.product.price * item.quantity }.sum</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="84">
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="85">
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="86">
+        <li class="covered" data-hits="1" data-linenumber="76">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="87">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="88">
+        <li class="covered" data-hits="1" data-linenumber="78">
           <span class="hits">1</span>
           
           <code class="ruby">  def update_status</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="89">
-          
+        <li class="covered" data-hits="2" data-linenumber="79">
+          <span class="hits">2</span>
           
           <code class="ruby">    if self.status == nil?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="90">
+        <li class="missed" data-hits="0" data-linenumber="80">
           
           
           <code class="ruby">      self.status = &quot;In progress&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="91">
+        <li class="never" data-hits="" data-linenumber="81">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
+        <li class="never" data-hits="" data-linenumber="82">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="93">
+        <li class="never" data-hits="" data-linenumber="83">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="94">
+        <li class="covered" data-hits="1" data-linenumber="84">
           <span class="hits">1</span>
           
           <code class="ruby">  def update_total</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="95">
-          
+        <li class="covered" data-hits="2" data-linenumber="85">
+          <span class="hits">2</span>
           
           <code class="ruby">    self.total_price = calculate_total</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="96">
+        <li class="never" data-hits="" data-linenumber="86">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="97">
+        <li class="never" data-hits="" data-linenumber="87">
           
           
           <code class="ruby">end</code>
@@ -3622,21 +3535,21 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-
-      <div class="source_table" id="2ffd13bfdd0aa9321473e942b439b08dd6e9dee9">
-        <div class="header">
-          <h3>app/models/order_product.rb</h3>
-          <h4><span class="green">100.0 %</span> covered</h4>
-          <div>
-            <b>7</b> relevant lines.
-            <span class="green"><b>7</b> lines covered</span> and
-            <span class="red"><b>0</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
+      
+        <div class="source_table" id="350c75a25477ccd78e6a1a0925979222d98df0f0">
+  <div class="header">
+    <h3>app/models/order_product.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>7</b> relevant lines. 
+      <span class="green"><b>7</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -3719,25 +3632,10 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-<<<<<<< HEAD
-
-      <div class="source_table" id="fda2ee1172c5e7fce9ad95f9e582122584c19c70">
-        <div class="header">
-          <h3>app/models/product.rb</h3>
-          <h4><span class="red">75.0 %</span> covered</h4>
-          <div>
-            <b>12</b> relevant lines.
-            <span class="green"><b>9</b> lines covered</span> and
-            <span class="red"><b>3</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
-=======
       
-        <div class="source_table" id="fda2ee1172c5e7fce9ad95f9e582122584c19c70">
+        <div class="source_table" id="90b1999989c32884ca16ed7c19f83fa25dfd50d8">
   <div class="header">
     <h3>app/models/product.rb</h3>
     <h4><span class="red">76.92 %</span> covered</h4>
@@ -3749,7 +3647,6 @@
   </div>
   
   <pre>
->>>>>>> 078f4537ebe1165e8a98691903bd821dd83a15ff
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -3874,21 +3771,21 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-
-      <div class="source_table" id="1fd4fb70b32f10de49d0fc62c2bba1504d445a9e">
-        <div class="header">
-          <h3>app/models/review.rb</h3>
-          <h4><span class="green">100.0 %</span> covered</h4>
-          <div>
-            <b>3</b> relevant lines.
-            <span class="green"><b>3</b> lines covered</span> and
-            <span class="red"><b>0</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
+      
+        <div class="source_table" id="092efeee89156e36efdcc719a5bd6348a1b78d2f">
+  <div class="header">
+    <h3>app/models/review.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>3</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -3935,25 +3832,10 @@
       
     </ol>
   </pre>
-      </div>
+</div>
 
-<<<<<<< HEAD
-
-      <div class="source_table" id="86102845baa5472ed00d8fb0eba25b9834e716ad">
-        <div class="header">
-          <h3>app/models/seller.rb</h3>
-          <h4><span class="green">100.0 %</span> covered</h4>
-          <div>
-            <b>20</b> relevant lines.
-            <span class="green"><b>20</b> lines covered</span> and
-            <span class="red"><b>0</b> lines missed.</span>
-          </div>
-        </div>
-
-        <pre>
-=======
       
-        <div class="source_table" id="86102845baa5472ed00d8fb0eba25b9834e716ad">
+        <div class="source_table" id="0a21f99f6182f2d8769280d1e03f475c27a4527b">
   <div class="header">
     <h3>app/models/seller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
@@ -3965,7 +3847,6 @@
   </div>
   
   <pre>
->>>>>>> 078f4537ebe1165e8a98691903bd821dd83a15ff
     <ol>
       
         <li class="covered" data-hits="1" data-linenumber="1">
@@ -4174,11 +4055,10 @@
       
     </ol>
   </pre>
+</div>
+
+      
       </div>
-
-
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

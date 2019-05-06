@@ -15,7 +15,7 @@
     <tr>
       <% Order.last.order_products.each do |item| %>
         <td>
-          <%= item.product.name %>
+          <%= link_to item.product.name, product_path(item.product) %>
         </td>
         <td>
           <%= item.quantity %>
@@ -26,6 +26,10 @@
       </tbody>
     <% end %>
   </table>
+  <div>
+    <p>Order Total price: <%= Order.last.total_price %></p>
+    <p>Made at: <%= readable_date(Order.last.created_at) %> is <%= Order.last.status %></p>
+  </div>
   <br>
   <div>
     <h4> <%= Order.last.order_products.length %> items will be shipped to:<%= Order.last.name %></h4>
