@@ -1,3 +1,5 @@
+require "pry"
+
 class OrderController < ApplicationController
   skip_before_action :require_login
   skip_before_action :auth_seller
@@ -12,9 +14,9 @@ class OrderController < ApplicationController
       @order = Order.find_by(id: session[:order_id])
       if @order
         @order_products = @order.order_products.order(created_at: :desc)
-      else
-        head :not_found
       end
+    else
+      head :not_found
     end
   end
 
@@ -50,9 +52,10 @@ class OrderController < ApplicationController
     else
       flash.now[:status] = :error
       flash.now[:message] = "Could not complete the order"
+
       render :new, status: :bad_request
     end
-    #session[:order_id] = nil
+    session[:order_id] = nil
   end
 
   private

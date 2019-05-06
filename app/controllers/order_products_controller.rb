@@ -1,3 +1,5 @@
+#require "pry"
+
 class OrderProductsController < ApplicationController
   skip_before_action :require_login
   skip_before_action :auth_seller
@@ -10,6 +12,7 @@ class OrderProductsController < ApplicationController
     @order.order_products << @order_product
     @order.save
     session[:order_id] = @order.id
+    #binding.pry
     redirect_to products_path
   end
 
