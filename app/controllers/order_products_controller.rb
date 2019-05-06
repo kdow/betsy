@@ -4,7 +4,10 @@ class OrderProductsController < ApplicationController
 
   def create
     @order = current_order
-    @order_product = @order.order_products.new(order_product_params)
+    @order_product = OrderProduct.new(order_product_params)
+    @order_product.order_id = @order.id
+    @order_product.save
+    @order.order_products << @order_product
     @order.save
     session[:order_id] = @order.id
     redirect_to products_path

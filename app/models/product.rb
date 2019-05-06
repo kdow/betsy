@@ -9,7 +9,6 @@ class Product < ApplicationRecord
   validates_numericality_of :price,
     only_integer: true,
     greater_than: 0
-  validates :description, presence: true
 
   def self.adjust_quantity(order_products)
     order_products.each do |item|

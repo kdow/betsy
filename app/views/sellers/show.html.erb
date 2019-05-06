@@ -2,28 +2,11 @@
 
     <h2><%= @seller.username %></h2>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Edit</th>
-          <th>Retire</th>
-          <th>Edit Categories</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @seller.products.each do |product| %>
-        <tr>
-          <td><%= product.name %></td>
-          <td><%= product.quantity %></td>
-          <td><%= link_to "Edit", edit_seller_product_path(@seller.id, product.id), class: "btn btn-primary" %></td>
-          <td><%= link_to "Retire", class: "btn btn-primary"  %></td>
-          <td><%= link_to "Edit Categories", class: "btn btn-primary"  %></td>
-        </tr>
-        <% end %>
-      </tbody>
+    <section>
+      <%= link_to "Manage Products", seller_products_path(@seller), class: "btn btn-primary" %>
+      <%= link_to "Order Fulfilment", seller_order_products_path(@seller), class: "btn btn-primary" %>
+    </section>
 
-    </table>
+
 
 </section>

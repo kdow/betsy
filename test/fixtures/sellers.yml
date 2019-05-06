@@ -15,3 +15,9 @@ sarah:
   email: sarah@cats.com
   provider: github
   uid: 13371337
+
+new_seller: 
+  username: devin
+  email: devin@cats.com
+  provider: github
+  uid: 1437167
