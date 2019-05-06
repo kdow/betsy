@@ -13,8 +13,9 @@ class OrderController < ApplicationController
     @order.status = "completed"
 
     if @order.update(order_params)
-      flash[:status] = :success
-      flash[:message] = "Successfully placed the order"
+      flash[:success] = "Successfully placed the order"
+      # flash[:status] = :success
+      # flash[:message] = "Successfully placed the order"
       redirect_to order_path(@order)
     else
       flash.now[:error] = "We could not place your order."
