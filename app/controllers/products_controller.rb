@@ -1,3 +1,4 @@
+require "pry"
 
 class ProductsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
@@ -33,6 +34,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new
+    # binding.pry
 
     if params[:product]
       @successful = @product.update(product_params)
