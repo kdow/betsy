@@ -1,4 +1,3 @@
-
 class ProductsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   before_action :auth_seller, only: [:create, :edit, :update]
@@ -33,6 +32,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new
+    # binding.pry
 
     if params[:product]
       @successful = @product.update(product_params)
@@ -44,8 +44,10 @@ class ProductsController < ApplicationController
     if @successful
       @product.seller_id = session[:seller_id]
       @successful = @product.save
+      flash[:success] = "Successfully created product #{@product.name}"
       redirect_to product_path(@product.id)
     else
+      flash.now[:error] = "Unable to create product"
       render :new, status: :bad_request
     end
   end
@@ -71,8 +73,10 @@ class ProductsController < ApplicationController
     # end
     successful = @product.update(product_params)
     if successful
+      flash[:success] = "Successfully updated product #{@product.name}"
       redirect_to product_path(@product)
     else
+      flash.now[:error] = "Unable to updated product"
       render :edit, status: :bad_request
     end
   end
