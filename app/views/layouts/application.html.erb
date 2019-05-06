@@ -19,6 +19,11 @@
       <div class="collapse navbar-collapse flex-grow-1 text-right">
 
       <ul class="navbar-nav ml-auto flex-nowrap">
+        <% if session[:seller_id] %>
+          <li class="nav-item">
+            <%= link_to "View My Catboard", seller_path(session[:seller_id]), class: "nav-link" %>
+          </li>
+        <% end %>     
         <li class="dropdown">
           <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">CATegories<span class="caret"></span></button>
           <ul class="dropdown-menu">
@@ -27,7 +32,6 @@
             <% end %>
           </ul>
         </li>
-
         <li class="dropdown nav-item">
           <button class="btn dropdown-toggle nav-item navbar-dark" type="button" data-toggle="dropdown">ReTAILers<span class="caret"></span></button>
           <ul class="dropdown-menu">
@@ -36,7 +40,6 @@
             <% end %>
           </ul>
         </li>
-        
         <li class="nav-item">
           <%= link_to "Purrducts", products_path, class: "nav-link" %>
         </li>
