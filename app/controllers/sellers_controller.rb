@@ -24,7 +24,8 @@ class SellersController < ApplicationController
       head :not_found
       return
     end
-    unless @seller.has_order?(@order)
+    # unless @seller.has_order?(@order)
+    unless @seller.orders.include?(@order)
       redirect_to seller_path(@seller)
     end
   end
@@ -35,7 +36,7 @@ class SellersController < ApplicationController
       head :not_found
       return
     end
-    unless @seller.has_product?(@product)
+    unless @seller.products.include?(@product)
       redirect_to seller_path(@seller)
     end
   end
