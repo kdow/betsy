@@ -16,7 +16,7 @@
             <tr>
               <td></td>
               <td><%= item.product.name %></td>
-              <td><%= number_to_currency item.product.price %></td>
+              <td><%= "$""#{'%.2f' % (item.product.price/100)}" %></td>
               <td>
                 <%= form_for item do |f| %>
                   <%= f.hidden_field :product_id, value: item.product.id %>
@@ -29,7 +29,7 @@
           <% end %>
           <tr>
             <td></td>
-            <td>Order Total: <%= number_to_currency @order_products.collect { |item| item.product.price * item.quantity }.sum %></td>
+            <td>Order Total: <%= "$""#{'%.2f' % (@order_products[0].order.calculate_total/100)}" %></td>
             <tr>
             <% else %>
               <p>Your shopping cart is empty.</p>
