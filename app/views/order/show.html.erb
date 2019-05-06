@@ -11,4 +11,27 @@
       Subtotal
     </th>
   </tr>
-</table>
+  <tbody>
+    <tr>
+      <% Order.last.order_products.each do |item| %>
+        <td>
+          <%= link_to item.product.name, product_path(item.product) %>
+        </td>
+        <td>
+          <%= item.quantity %>
+        </td>
+        <td>
+          <%= item.quantity * item.product.price %>
+        </td>
+      </tbody>
+    <% end %>
+  </table>
+  <div>
+    <p>Order Total price: <%= Order.last.total_price %></p>
+    <p>Made at: <span class="date" title="2019-04-21T19:33:26-07:00">14 minutes ago</span> is <%= Order.last.status %></p>
+  </div>
+  <br>
+  <div>
+    <h4> <%= Order.last.order_products.length %> items will be shipped to:<%= Order.last.name %></h4>
+    <p>Shipping address: <%= Order.last.address %>, <%= Order.last.city %>, <%= Order.last.state %>, <%= Order.last.zip %></p>
+  </div>
