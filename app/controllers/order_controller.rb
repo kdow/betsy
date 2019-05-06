@@ -42,7 +42,7 @@ class OrderController < ApplicationController
     @order = current_order
     @order_products = current_order.order_products
     Product.adjust_quantity(@order_products)
-    @order.status = "completed"
+    #@order.status = "completed"
     if @order.update(order_params)
       flash[:status] = :success
       # flash[:message] = "Successfully placed the order"
