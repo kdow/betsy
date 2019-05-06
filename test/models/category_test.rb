@@ -11,5 +11,14 @@ describe Category do
 
       expect(valid_category).must_equal true
     end
+
+    it "requires a name" do
+      category.name = nil
+
+      category.valid?.must_equal false
+
+      expect(category.errors.messages).must_include :name
+      expect(category.errors.messages[:name]).must_equal ["can't be blank"]
+    end
   end
 end
