@@ -1,8 +1,10 @@
 
 class ApplicationController < ActionController::Base
+  before_action :require_login
+  before_action :auth_seller
   helper_method :current_order
-  # before_action :require_login
-  # before_action :auth_seller
+  
+
 
   private
 
