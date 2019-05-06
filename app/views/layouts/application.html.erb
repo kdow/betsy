@@ -19,6 +19,11 @@
       <div class="collapse navbar-collapse flex-grow-1 text-right">
 
       <ul class="navbar-nav ml-auto flex-nowrap">
+        <% if session[:seller_id] %>
+          <li class="nav-item">
+            <%= link_to "View My Catboard", seller_path(session[:seller_id]), class: "nav-link" %>
+          </li>
+        <% end %>     
         <li class="nav-item">
           <%= link_to "CATegories", categories_path, class: "nav-link" %>
         </li>
