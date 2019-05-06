@@ -11,7 +11,9 @@ class ApplicationController < ActionController::Base
     if session[:order_id]
       Order.find(session[:order_id])
     else
-      Order.new
+      new_order = Order.new
+      new_order.status = "in progress"
+      return new_order
     end
   end
 

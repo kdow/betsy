@@ -1,5 +1,3 @@
-require "pry"
-
 class OrderController < ApplicationController
   skip_before_action :require_login
   skip_before_action :auth_seller
@@ -49,6 +47,7 @@ class OrderController < ApplicationController
       flash[:success] = "Successfully placed the order"
       # flash[:status] = :success
       # flash[:message] = "Successfully placed the order"
+      session[:order_id] = nil
       redirect_to order_path(@order)
     else
       flash.now[:status] = :error
@@ -56,7 +55,6 @@ class OrderController < ApplicationController
 
       render :new, status: :bad_request
     end
-    session[:order_id] = nil
   end
 
   private
