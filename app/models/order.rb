@@ -1,15 +1,15 @@
 class Order < ApplicationRecord
   has_many :order_products
   has_many :products, through: :order_products
-  validates :name, presence: true
-  validates :email, presence: true
-  validates :last_four, presence: true
-  validates :cc_exp, presence: true
+  validates :name, on: :update, presence: true
+  validates :email, on: :update, presence: true
+  validates :last_four, on: :update, presence: true
+  validates :cc_exp, on: :update, presence: true
   # validates :cvv, presence: true
-  validates :address, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
-  validates :zip, presence: true
+  validates :address, on: :update, presence: true
+  validates :city, on: :update, presence: true
+  validates :state, on: :update, presence: true
+  validates :zip, on: :update, presence: true
   before_save :update_total
   before_create :update_status
 
@@ -68,16 +68,6 @@ class Order < ApplicationRecord
       ["Wisconsin", "WI"],
       ["Wyoming", "WY"],
     ]
-
-
-  validates :name, presence: true
-  validates :email, presence: true
-  validates :address, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
-  validates :zip, presence: true
-  validates :last_four, presence: true
-  validates :cc_exp, presence: true
 
   def calculate_total
     self.order_products.collect { |item| item.product.price * item.quantity }.sum

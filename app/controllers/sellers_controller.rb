@@ -36,7 +36,8 @@ class SellersController < ApplicationController
       head :not_found
       return
     end
-    unless @seller.has_order?(@order)
+    # unless @seller.has_order?(@order)
+    unless @seller.orders.include?(@order)
       redirect_to seller_path(@seller)
     end
   end
@@ -47,7 +48,7 @@ class SellersController < ApplicationController
       head :not_found
       return
     end
-    unless @seller.has_product?(@product)
+    unless @seller.products.include?(@product)
       redirect_to seller_path(@seller)
     end
   end
@@ -55,12 +56,14 @@ class SellersController < ApplicationController
   def product_categories_update
     @product = Product.find_by(id: params[:id])
     if @product.update(category_params)
-      flash[:status] = :success
-      flash[:message] = "Successfully updated product #{@product.id}"
+      # flash[:status] = :success
+      # flash[:message] = "Successfully updated product #{@product.id}"
+      flash[:success] = "Successfully updated product #{@product.id}"
       redirect_to product_path(@product)
     else
-      flash.now[:status] = :error
-      flash.now[:message] = "Could not save product #{@product.id}"
+      # flash.now[:status] = :error
+      # flash.now[:message] = "Could not save product #{@product.id}"
+      flash.now[:error] = "Could not save product #{@product.id}"
       redirect_to seller_products_path(@seller, @product)
     end
   end

@@ -17,3 +17,9 @@ three:
   product_id: 8
   order: two
   product: bouquet
+
+four: 
+  quantity: 2
+  product_id: 8
+  order: two
+  product: bouquet
