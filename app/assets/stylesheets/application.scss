@@ -12,9 +12,21 @@
  *
  */
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
+button.btn.dropdown-toggle {
+  background-color: transparent;
+  color: rgba(255,255, 255, 0.5);
+}
+
+a.button {
+  color: black;
+  padding: 4px;
+}
+
+
 @import "bootstrap";
 /* Import scss content */
 @import "**/*";
+
 
 h1 a:hover {
   text-decoration: none;

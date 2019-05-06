@@ -1,3 +1,17 @@
+<% if @order.errors.messages.any? %>
+  <section class="alert alert-danger">
+    <ul>
+      <% @order.errors.messages.each do |column, problem_list| %>
+        <% problem_list.each do |problem| %>
+          <li>
+            <%= column %>: <%= problem %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
 <%= form_with model: @order, class: 'order-form' do |f| %>
   <p>Payment Details</p>
   <div>
@@ -32,5 +46,9 @@
     <%= f.label :cc_exp %>
     <%= f.text_field :cc_exp, placeholder: "000" %>
   </div>
+  <div>
+   <%= f.label :ccv %>
+   <%= f.text_field :ccv, placeholder: "000" %>
+ </div>
   <%= f.submit button_text, class: "btn btn-success" %>
 <% end %>

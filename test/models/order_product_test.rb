@@ -26,4 +26,20 @@ describe OrderProduct do
       order_prod.product_id.must_equal products(:crown).id
     end
   end
+
+  describe "line_item_subtotal" do
+    it "returns the correct total" do
+      order_prod = order_products(:two)
+      order_prod.quantity = 2
+      order_prod.product.price = 200
+      expect(order_prod.line_item_subtotal).must_equal 400
+    end
+
+    it "returns zero if quantity is zero" do
+      order_prod = order_products(:two)
+      order_prod.quantity = 0
+      order_prod.product.price = 300
+      expect(order_prod.line_item_subtotal).must_equal 0
+    end
+  end
 end

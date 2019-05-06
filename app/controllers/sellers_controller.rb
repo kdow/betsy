@@ -1,12 +1,55 @@
 class SellersController < ApplicationController
-  before_action :require_login, only: [:show]
+  before_action :require_login, only: [:show, :product_index, :order_product_index, :order_show, :product_categories_edit, :product_categories_update]
   before_action :auth_seller, only: [:show]
+  before_action :find_seller, only: [:product_index, :order_product_index, :order_show, :product_categories_edit, :product_categories_update]
 
   def show
     @seller = Seller.find_by(id: params[:id])
 
     unless @seller
       head :not_found
+    end
+  end
+
+  def product_index
+  end
+
+  def order_product_index
+    @orders = @seller.get_unique_orders
+  end
+
+  def order_show
+    @order = Order.find_by(id: params[:order_id])
+    unless @order
+      head :not_found
+      return
+    end
+    unless @seller.has_order?(@order)
+      redirect_to seller_path(@seller)
+    end
+  end
+
+  def product_categories_edit
+    @product = Product.find_by(id: params[:id])
+    unless @product
+      head :not_found
+      return
+    end
+    unless @seller.has_product?(@product)
+      redirect_to seller_path(@seller)
+    end
+  end
+
+  def product_categories_update
+    @product = Product.find_by(id: params[:id])
+    if @product.update(category_params)
+      flash[:status] = :success
+      flash[:message] = "Successfully updated product #{@product.id}"
+      redirect_to product_path(@product)
+    else
+      flash.now[:status] = :error
+      flash.now[:message] = "Could not save product #{@product.id}"
+      redirect_to seller_products_path(@seller, @product)
     end
   end
 
@@ -39,6 +82,18 @@ class SellersController < ApplicationController
   end
 
   private
+
+  def category_params
+    return params.require(:product).permit(category_ids: [])
+  end
+
+  def find_seller
+    @seller = Seller.find_by(id: params[:seller_id])
+    unless @seller
+      head :not_found
+      return
+    end
+  end
 
   def auth_seller
     unless current_seller.id == params[:id].to_i

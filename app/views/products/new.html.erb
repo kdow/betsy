@@ -1,2 +1,3 @@
 <h2>Create new product</h2>
-<%= render "form" %>
+
+<%= render "form", url: seller_products_path(session[:seller_id]) %>

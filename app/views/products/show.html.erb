@@ -1,7 +1,28 @@
-<section>
-  <h2><%= @product.name %></h2>
-  <%= image_tag(@product.photo_url, :alt => "Photo of ""#{@product.name}") %>
-  <p><%= "$""#{'%.2f' % (@product.price / 100.00)}" %></p>
-  <p><%= @product.description %></p>
-  <%= link_to "Leave a Review", new_product_review_path(@product), class: "btn btn-primary" %>
-</section>
+<h2><%= @product.name %></h2>
+<%= image_tag(@product.photo_url, :alt => "Photo of ""#{@product.name}") %>
+<p><%= "$""#{'%.2f' % (@product.price / 100.00)}" %></p>
+<p><%= @product.description %></p>
+<%= link_to "Leave a Review", new_product_review_path(@product), class: "btn btn-primary" %>
+
+<%= form_for OrderProduct.new do |f| %>
+  <% if @product.quantity.nil? || @product.quantity < 1 %>
+    <% "Sorry, this item is out of stock." %>
+  <% else %>
+    <%= f.hidden_field :product_id, value: @product.id %>
+    <%= f.number_field :quantity %>
+    <%= f.submit "Add to cart" %>
+  <% end %>
+<% end %>
+
+</ul>
+  <li>Price: <%= "$""#{'%.2f' % (@product.price / 100.00)}" %></li>
+  <li>Description: <%= @product.description %></li>
+</ul>
+
+<p>Categories: 
+  <% @product.categories.each do |category| %>
+  <%= link_to category.name, category_path(category) %>
+  <% end %>
+</p>
+
+>>>>>>> 9670b230a6d5258b11a7135668a9b86f05d52aa7

@@ -2,15 +2,18 @@
 
 one:
   quantity: 1
+  product_id: 10
   order: one
   product: crown
 
 two:
   quantity: 2
+  product_id: 2
   order: one
   product: bouquet
 
 three: 
   quantity: 1
+  product_id: 8
   order: two
   product: bouquet

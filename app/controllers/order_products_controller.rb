@@ -4,7 +4,10 @@ class OrderProductsController < ApplicationController
 
   def create
     @order = current_order
-    @order_product = @order.order_products.new(order_product_params)
+    @order_product = OrderProduct.new(order_product_params)
+    @order_product.order_id = @order.id
+    @order_product.save
+    @order.order_products << @order_product
     @order.save
     session[:order_id] = @order.id
     redirect_to products_path
@@ -13,9 +16,14 @@ class OrderProductsController < ApplicationController
   def update
     @order = current_order
     @item = @order.order_products.find(params[:id])
-    @item.update_attributes(product_params)
-    @items = @order.order_products
-    redirect_to cart_path
+    if @item.quantity < 1
+      flash[:message] = "Sorry, this item is out of stock."
+      redirect_to cart_path
+    else
+      @item.update_attributes(order_product_params)
+      @items = @order.order_products
+      redirect_to cart_path
+    end
   end
 
   def destroy
