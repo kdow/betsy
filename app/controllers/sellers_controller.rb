@@ -18,6 +18,18 @@ class SellersController < ApplicationController
     @orders = @seller.get_unique_orders
   end
 
+  def seller_products
+    @seller = Seller.find_by(id: params[:seller_id])
+    unless @seller
+      head :not_found
+    end
+    
+    @seller_products = Product.where(seller_id: @seller.id)
+    unless @seller_products.nil?
+      return @seller_products
+    end
+  end
+
   def order_show
     @order = Order.find_by(id: params[:order_id])
     unless @order
