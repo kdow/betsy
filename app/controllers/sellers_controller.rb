@@ -44,12 +44,14 @@ class SellersController < ApplicationController
   def product_categories_update
     @product = Product.find_by(id: params[:id])
     if @product.update(category_params)
-      flash[:status] = :success
-      flash[:message] = "Successfully updated product #{@product.id}"
+      # flash[:status] = :success
+      # flash[:message] = "Successfully updated product #{@product.id}"
+      flash[:success] = "Successfully updated product #{@product.id}"
       redirect_to product_path(@product)
     else
-      flash.now[:status] = :error
-      flash.now[:message] = "Could not save product #{@product.id}"
+      # flash.now[:status] = :error
+      # flash.now[:message] = "Could not save product #{@product.id}"
+      flash.now[:error] = "Could not save product #{@product.id}"
       redirect_to seller_products_path(@seller, @product)
     end
   end

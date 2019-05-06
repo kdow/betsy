@@ -153,8 +153,6 @@
       ],
       "/Users/sarah/ada/projects/betsy/app/controllers/products_controller.rb": [
         1,
-        null,
-        1,
         1,
         1,
         null,
@@ -201,7 +199,9 @@
         1,
         1,
         1,
+        1,
         null,
+        1,
         1,
         null,
         null,
@@ -228,7 +228,9 @@
         2,
         2,
         1,
+        1,
         null,
+        1,
         1,
         null,
         null,
@@ -520,11 +522,13 @@
         1,
         2,
         2,
-        2,
+        null,
+        null,
         2,
         2,
         null,
-        0,
+        null,
+        null,
         0,
         0,
         null,
@@ -582,6 +586,6 @@
         null
       ]
     },
-    "timestamp": 1557174766
+    "timestamp": 1557175800
   }
 }

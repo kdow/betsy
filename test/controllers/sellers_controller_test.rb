@@ -125,7 +125,7 @@ describe "SellersController" do
 
         patch seller_product_categories_path(seller, product), params: product_data
 
-        expect(flash[:status]).must_equal :success
+        expect(flash[:success]).wont_be_nil
         must_redirect_to product_path(product)
         expect(product.categories.count).must_equal 2
         expect(product.categories).must_include categories(:toys)
