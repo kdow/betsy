@@ -1,6 +1,7 @@
 require "test_helper"
 
 describe OrderProductsController do
+
   describe "create" do
     it "should get created" do
 
@@ -54,4 +55,5 @@ describe OrderProductsController do
     must_respond_with :redirect
     must_redirect_to order_product_path
   end
+
 end
