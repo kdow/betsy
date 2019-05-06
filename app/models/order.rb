@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   validates :email, presence: true
   validates :last_four, presence: true
   validates :cc_exp, presence: true
-  validates :cvv, presence: true
+  # validates :cvv, presence: true
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true

@@ -8,6 +8,10 @@ class OrderController < ApplicationController
 
   def update
     @order = current_order
+    @order_products = current_order.order_products
+    Product.adjust_quantity(@order_products)
+    @order.status = "completed"
+
     if @order.update(order_params)
       flash[:status] = :success
       flash[:message] = "Successfully placed the order"
@@ -22,6 +26,6 @@ class OrderController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:name, :email, :last_four, :cc_exp, :address, :city, :state, :zip)
+    params.require(:order).permit(:name, :email, :last_four, :cc_exp, :address, :city, :state, :zip, :cvv)
   end
 end
