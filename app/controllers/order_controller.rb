@@ -52,7 +52,7 @@ class OrderController < ApplicationController
       flash.now[:message] = "Could not complete the order"
       render :new, status: :bad_request
     end
-    session[:order_id] = nil
+    #session[:order_id] = nil
   end
 
   private
