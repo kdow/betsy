@@ -32,7 +32,7 @@
           <button class="btn dropdown-toggle nav-item navbar-dark" type="button" data-toggle="dropdown">ReTAILers<span class="caret"></span></button>
           <ul class="dropdown-menu">
             <% Seller.all.each do |s|%>
-              <li><%= link_to s.username, seller_path(s.id), class:"button" %></li>
+              <li><%= link_to s.username, seller_products_path(s.id), class:"button" %></li>
             <% end %>
           </ul>
         </li>
