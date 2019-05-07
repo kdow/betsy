@@ -1,7 +1,7 @@
 {
   "MiniTest": {
     "coverage": {
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/controllers/carts_controller.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/controllers/carts_controller.rb": [
         1,
         1,
         1,
@@ -11,7 +11,9 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/controllers/application_controller.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/controllers/application_controller.rb": [
+        1,
+        1,
         1,
         1,
         1,
@@ -47,7 +49,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/controllers/categories_controller.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/controllers/categories_controller.rb": [
         1,
         1,
         1,
@@ -65,7 +67,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/controllers/homepages_controller.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/controllers/homepages_controller.rb": [
         1,
         1,
         1,
@@ -75,7 +77,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/controllers/order_controller.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/controllers/order_controller.rb": [
         1,
         null,
         1,
@@ -150,7 +152,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/controllers/order_products_controller.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/controllers/order_products_controller.rb": [
         null,
         null,
         1,
@@ -173,10 +175,11 @@
         0,
         0,
         0,
+        null,
+        0,
         0,
         0,
         null,
-        0,
         0,
         0,
         null,
@@ -197,7 +200,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/controllers/products_controller.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/controllers/products_controller.rb": [
         1,
         1,
         1,
@@ -300,7 +303,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/controllers/reviews_controller.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/controllers/reviews_controller.rb": [
         1,
         1,
         1,
@@ -330,17 +333,17 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/models/category.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/models/category.rb": [
         1,
         1,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/models/application_record.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/models/order_product.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/models/order_product.rb": [
         1,
         1,
         1,
@@ -355,7 +358,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/models/order.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/models/order.rb": [
         1,
         1,
         1,
@@ -444,7 +447,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/models/product.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/models/product.rb": [
         1,
         1,
         1,
@@ -466,7 +469,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/models/seller.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/models/seller.rb": [
         1,
         1,
         null,
@@ -502,7 +505,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/models/review.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/models/review.rb": [
         1,
         1,
         1,
@@ -511,7 +514,7 @@
         null,
         null
       ],
-      "/Users/bitaamani/Documents/homework/projects/ruby-projects/betsy/app/controllers/sellers_controller.rb": [
+      "/Users/carlabosco/Desktop/Ada/betsy/app/controllers/sellers_controller.rb": [
         1,
         1,
         1,
@@ -530,6 +533,18 @@
         null,
         1,
         1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        null,
         null,
         null,
         1,
@@ -622,6 +637,6 @@
         null
       ]
     },
-    "timestamp": 1557177061
+    "timestamp": 1557199340
   }
 }

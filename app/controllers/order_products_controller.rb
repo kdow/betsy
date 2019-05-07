@@ -19,12 +19,13 @@ class OrderProductsController < ApplicationController
   def update
     @order = current_order
     @item = @order.order_products.find(params[:id])
-    if @item.quantity < 1
-      flash[:message] = "Sorry, this item is out of stock."
+    new_quantity = params[:quantity]
+
+    if @item.update(quantity: new_quantity)
+      flash[:success] = "Quantity successfuly updated."
       redirect_to cart_path
     else
-      @item.update_attributes(order_product_params)
-      @items = @order.order_products
+      flash[:error] = "Sorry. Not enough available items in stock."
       redirect_to cart_path
     end
   end
