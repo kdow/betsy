@@ -6,20 +6,8 @@ class OrderController < ApplicationController
     @order = current_order
   end
 
-  # def show
-  #   id = params[:id]
-  #   if session[:order_id] == id.to_i
-  #     @order = Order.find_by(id: session[:order_id])
-  #     if @order
-  #       @order_products = @order.order_products.order(created_at: :desc)
-  #     end
-  #   else
-  #     head :not_found
-  #   end
-  # end
-
   def edit
-    @order.save
+    @order = current_order
   end
 
   def update
@@ -32,10 +20,8 @@ class OrderController < ApplicationController
 
     if @order.update(order_params)
       flash[:status] = :success
-   
+
       flash[:success] = "Successfully placed the order"
-      # flash[:status] = :success
-      # flash[:message] = "Successfully placed the order"
       session[:order_id] = nil
       redirect_to order_path(@order)
     else

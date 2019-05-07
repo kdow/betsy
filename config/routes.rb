@@ -4,11 +4,10 @@ Rails.application.routes.draw do
 
   resources :order_products
   resource :cart, only: [:show]
-  resources :order, only: [:new, :update, :show]
+  resources :order, only: [:new, :edit, :update, :show]
 
   resources :products, only: [:index, :show]
   get "products/seller/:seller_id", to: "sellers#seller_products", as: "products_by_seller"
-
 
   resources :sellers, only: [:show]
 
@@ -28,7 +27,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews, only: [:new, :create]
   end
-  
+
   get "/auth/github", as: "github_login"
   get "/auth/:provider/callback", to: "sellers#create", as: "auth_callback"
   delete "/logout", to: "sellers#destroy", as: "logout"
