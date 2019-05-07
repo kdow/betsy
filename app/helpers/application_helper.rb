@@ -8,6 +8,10 @@ module ApplicationHelper
             " ago</span>".html_safe)
   end
 
+  def format_date(date)
+    return date.strftime("%B %-d, %Y")
+  end
+
   def bootstrap_class_for(flash_type)
     case flash_type
     when "success"
