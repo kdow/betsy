@@ -2,7 +2,8 @@ require "test_helper"
 
 describe Seller do
   let(:seller) { sellers(:sarah) }
-  let(:new_seller) { Seller.new }
+  let(:kelly) { sellers(:sarah) }
+  let(:new_seller) { sellers(:new_seller) }
 
   it "can add a product through .products" do
     prod = Product.new(name: "mousie", price: 300)
@@ -21,6 +22,25 @@ describe Seller do
 
     it "returns an emply array if there are no orders " do
       expect(new_seller.get_unique_orders).must_equal []
+    end
+  end
+
+  describe "order_revenue" do
+    before do
+      @order = orders(:new_order)
+    end
+
+    it "returns the sum of order_products belonging to the seller" do
+      expect(seller.order_revenue(@order)).must_equal 6000
+    end
+
+    it "return zero if there are no order products belonging to the seller" do
+      expect(new_seller.order_revenue(@order)).must_equal 0
+    end
+
+    it "returns zero if there are no order_products for the order" do
+      empty_order = orders(:empty_order)
+      expect(seller.order_revenue(empty_order)).must_equal 0
     end
   end
 end

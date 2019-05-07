@@ -23,3 +23,18 @@ four:
   product_id: 8
   order: two
   product: bouquet
+
+sarah-1:
+  quantity: 1
+  order: new_order
+  product: crown
+
+sarah-2:
+  quantity: 2
+  order: new_order
+  product: bouquet
+
+sarah-3: 
+  quantity: 1
+  order: new_order
+  product: bouquet

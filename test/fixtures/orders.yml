@@ -48,4 +48,26 @@ kitcat:
   state: WA
   zip: 98119
 
+new_order:
+  status: in progress
+  name: 
+  email: 
+  last_four: 
+  cc_exp: 
+  cvv: 
+  address: 
+  city: 
+  state: 
+  zip: 
 
+empty_order:
+  status: in progress
+  name: 
+  email: 
+  last_four: 
+  cc_exp: 
+  cvv: 
+  address: 
+  city: 
+  state: 
+  zip: 
