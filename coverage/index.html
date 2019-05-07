@@ -1382,40 +1382,46 @@
         <li class="missed" data-hits="0" data-linenumber="19">
           
           
-          <code class="ruby">    if @item.quantity &lt; 1</code>
+          <code class="ruby">    new_quantity = params[:quantity]</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="20">
           
           
-          <code class="ruby">      flash[:message] = &quot;Sorry, this item is out of stock.&quot;</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="21">
           
           
-          <code class="ruby">      redirect_to cart_path</code>
+          <code class="ruby">    if @item.update(quantity: new_quantity)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby">    else</code>
+          <code class="ruby">      flash[:success] = &quot;Quantity successfuly updated.&quot;</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="23">
           
           
-          <code class="ruby">      @item.update_attributes(order_product_params)</code>
+          <code class="ruby">      redirect_to cart_path</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="24">
           
           
-          <code class="ruby">      @items = @order.order_products</code>
+          <code class="ruby">    else</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">      flash[:error] = &quot;Sorry. Not enough available items in stock.&quot;</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="29">
           
           
           <code class="ruby">      redirect_to cart_path</code>
