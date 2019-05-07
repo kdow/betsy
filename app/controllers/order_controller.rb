@@ -18,21 +18,6 @@ class OrderController < ApplicationController
   #   end
   # end
 
-  def create
-    @order = Order.new(order_params)
-
-    successful = @order.save
-    if successful
-      flash[:status] = :success
-      flash[:message] = "successfully create the order"
-      redirect_to orders_path
-    else
-      flash.now[:status] = :error
-      flash.now[:message] = "Could not save the order"
-      render :new, status: :bad_request
-    end
-  end
-
   def edit
     @order.save
   end
@@ -40,10 +25,14 @@ class OrderController < ApplicationController
   def update
     @order = current_order
     @order_products = current_order.order_products
-    Product.adjust_quantity(@order_products)
-    @order.status = "completed"
+    if Product.check_quantity(@order_products)
+      Product.adjust_quantity(@order_products)
+      @order.status = "completed"
+    end
 
     if @order.update(order_params)
+      flash[:status] = :success
+   
       flash[:success] = "Successfully placed the order"
       # flash[:status] = :success
       # flash[:message] = "Successfully placed the order"
