@@ -18,8 +18,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @seller.products.each do |product| %>
-      <% if product.is_active == true %>
+      <% Product.active(@seller.products).each do |product| %>
         <tr>
           <td><%= link_to product.name, product_path(product) %></td>
           <td><%= product.quantity %></td>
@@ -27,7 +26,6 @@
           <td><%= link_to "Retire", product_retire_path(product.id), method: :patch, class: "btn btn-primary"  %></td>
           <td><%= link_to "Edit Categories", seller_product_categories_path(@seller.id, product.id), class: "btn btn-primary"  %></td>
         </tr>
-      <% end %>
       <% end %>
     </tbody>
   </table>

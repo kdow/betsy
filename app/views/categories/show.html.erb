@@ -1,6 +1,6 @@
 <h2><%= (@category.name).capitalize %></h2>
 <section class="cards">
-<% @category.products.each do |product| %>
+<% Product.active(@category.products).each do |product| %>
   <article>
     <div class="card">
       <%= image_tag(product.photo_url, class: "card-img-top", :alt => "Photo of ""#{product.name}") %>
@@ -22,4 +22,3 @@
   </article>
 <% end %>
 </section>
-

@@ -2,7 +2,7 @@
 
 <br class="top-buffer">
 
-<% products = @products.sample(6) %>
+<% products = Product.active(@products).sample(6) %>
 
 <section class="cards">
     <% products.each do |product| %>
