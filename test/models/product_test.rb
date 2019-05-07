@@ -23,6 +23,7 @@ describe Product do
       expect(product_one.order_products).must_include order_prod
     end
   end
+
   describe "custome method adjust quantity" do
     it "adjust the quantity of the inventory" do
       item = order_products(:two)
@@ -39,6 +40,7 @@ describe Product do
 
       expect(start_quantity - end_quantity).must_equal item.quantity
     end
+
     describe "custome method check quantity" do
       it "return false if there is not enough quantity" do
         item = order_products(:one)
@@ -56,6 +58,7 @@ describe Product do
       end
     end
   end
+
   describe "validations" do
     it "must be valid" do
       expect(product).must_be :valid?
@@ -84,6 +87,21 @@ describe Product do
       result = product.save
       expect(result).must_equal false
       expect(product.errors.messages).must_include :price
+    end
+  end
+
+  describe "self.active" do
+    it "returns a collection of active products" do
+      products = [product, bouquet]
+      bouquet.is_active = false
+      bouquet.save
+
+      active_products = Product.active(products)
+
+      expect(active_products).must_be_instance_of Array
+      expect(active_products.first).must_equal product
+      expect(active_products.first.is_active).wont_equal false
+      expect(active_products.length).must_equal 1
     end
   end
 end

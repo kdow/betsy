@@ -1,5 +1,5 @@
 <section class="cards">
-  <% @products.each do |product| %>
+  <% Product.active(@products).each do |product| %>
     <article>
       <div class="card">
         <%= link_to(image_tag(product.photo_url, class: "card-img-top", :alt => "Photo of ""#{product.name}"), product_path(product)) %>
