@@ -19,17 +19,7 @@ class OrderController < ApplicationController
   # end
 
 
-    successful = @order.save
-    if successful
-      flash[:status] = :success
-      flash[:message] = "successfully create the order"
-      redirect_to orders_path
-    else
-      flash.now[:status] = :error
-      flash.now[:message] = "Could not save the order"
-      render :new, status: :bad_request
-    end
-  end
+ 
 
   def edit
     @order.save
