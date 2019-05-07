@@ -6,21 +6,8 @@ class OrderController < ApplicationController
     @order = current_order
   end
 
-  def create
-    @order = Order.new(order_params)
-
-    successful = @order.save
-    if successful
-      flash[:success] = "successfully create the order."
-      redirect_to orders_path
-    else
-      flash.now[:error] = "Could not save the order."
-      render :new, status: :bad_request
-    end
-  end
-
   def edit
-    @order.save
+    @order = current_order
   end
 
   def update
@@ -32,9 +19,7 @@ class OrderController < ApplicationController
     end
 
     if @order.update(order_params)
-      flash[:success] = "Successfully placed the order."
-      # flash[:status] = :success
-      # flash[:message] = "Successfully placed the order"
+      flash[:success] = "Successfully placed the order"
       session[:order_id] = nil
       redirect_to order_path(@order)
     else

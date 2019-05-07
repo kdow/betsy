@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :order_products
   resource :cart, only: [:show]
-  resources :order, only: [:new, :update, :show]
+  resources :order, only: [:new, :edit, :update, :show]
 
   resources :products, only: [:index, :show]
   get "products/seller/:seller_id", to: "sellers#seller_products", as: "products_by_seller"
