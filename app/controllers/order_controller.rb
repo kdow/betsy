@@ -18,9 +18,6 @@ class OrderController < ApplicationController
   #   end
   # end
 
-
- 
-
   def edit
     @order.save
   end
@@ -28,8 +25,10 @@ class OrderController < ApplicationController
   def update
     @order = current_order
     @order_products = current_order.order_products
-    Product.adjust_quantity(@order_products)
-    @order.status = "completed"
+    if Product.check_quantity(@order_products)
+      Product.adjust_quantity(@order_products)
+      @order.status = "completed"
+    end
 
     if @order.update(order_params)
       flash[:success] = "Successfully placed the order"
