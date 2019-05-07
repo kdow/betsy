@@ -14,7 +14,7 @@
             <% "Sorry, this item is out of stock." %>
           <% else %>
             <%= f.hidden_field :product_id, value: product.id %>
-              <%= f.number_field :quantity, value: 1, max: product.quantity, class: "form-control qty" %>
+              <%= f.number_field :quantity, value: 1, min: 0, max: product.quantity, class: "form-control qty" %>
             <%= f.submit "Add to Cart", class: "btn btn-primary" %>
           <% end %>
         <% end %>
