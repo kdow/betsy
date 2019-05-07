@@ -59,6 +59,18 @@ new_order:
   city: 
   state: 
   zip: 
+ 
+new_order_dup:
+  status: in progress
+  name: 
+  email: 
+  last_four: 
+  cc_exp: 
+  cvv: 
+  address: 
+  city: 
+  state: 
+  zip: 
 
 empty_order:
   status: in progress

@@ -43,4 +43,13 @@ describe Seller do
       expect(seller.order_revenue(empty_order)).must_equal 0
     end
   end
+  describe "total_revenue_by_status" do
+    it "returns the sum of seller revenue from all orders of a givin status" do
+      expect(seller.total_revenue_by_status("in progress")).must_equal 12000
+    end
+
+    it "returns 0 if there are no order with given status" do
+      expect(seller.total_revenue_by_status("shipped")).must_equal 0
+    end
+  end
 end

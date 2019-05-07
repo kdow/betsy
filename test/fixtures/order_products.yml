@@ -38,3 +38,18 @@ sarah-3:
   quantity: 1
   order: new_order
   product: bouquet
+
+sarah-4:
+  quantity: 1
+  order: new_order_dup
+  product: crown
+
+sarah-5:
+  quantity: 2
+  order: new_order_dup
+  product: bouquet
+
+sarah-6: 
+  quantity: 1
+  order: new_order_dup
+  product: bouquet

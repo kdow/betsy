@@ -38,6 +38,11 @@ class Seller < ApplicationRecord
     return order_total
   end
 
-  def total_revenue
+  def total_revenue_by_status(order_status)
+    total = 0
+    self.get_unique_orders.each do |order|
+      total += order_revenue(order) if order.status == order_status
+    end
+    return total
   end
 end
