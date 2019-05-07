@@ -17,6 +17,7 @@ class Product < ApplicationRecord
       item.product.save
     end
   end
+
   def self.check_quantity(order_products)
     order_products.each do |item|
       if item.product.quantity < item.quantity
@@ -24,5 +25,9 @@ class Product < ApplicationRecord
       end
     end
     return true
+  end
+
+  def self.active(products)
+    return products.select { |product| product.is_active != false }
   end
 end
