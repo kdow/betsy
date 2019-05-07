@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   has_many :products, through: :order_products
   validates :name, on: :update, presence: true
   validates :email, on: :update, presence: true
-  validates :last_four, on: :update, presence: true
+  validates :last_four, on: :update, presence: true, length: { is: 16 }
   validates :cc_exp, on: :update, presence: true
   # validates :cvv, presence: true
   validates :address, on: :update, presence: true
