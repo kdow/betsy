@@ -23,12 +23,10 @@ class OrderController < ApplicationController
 
     successful = @order.save
     if successful
-      flash[:status] = :success
-      flash[:message] = "successfully create the order"
+      flash[:success] = "successfully create the order."
       redirect_to orders_path
     else
-      flash.now[:status] = :error
-      flash.now[:message] = "Could not save the order"
+      flash.now[:error] = "Could not save the order."
       render :new, status: :bad_request
     end
   end
@@ -44,14 +42,13 @@ class OrderController < ApplicationController
     @order.status = "completed"
 
     if @order.update(order_params)
-      flash[:success] = "Successfully placed the order"
+      flash[:success] = "Successfully placed the order."
       # flash[:status] = :success
       # flash[:message] = "Successfully placed the order"
       session[:order_id] = nil
       redirect_to order_path(@order)
     else
-      flash.now[:status] = :error
-      flash.now[:message] = "Could not complete the order"
+      flash.now[:error] = "Could not complete the order."
 
       render :new, status: :bad_request
     end
