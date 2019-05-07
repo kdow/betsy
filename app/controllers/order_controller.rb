@@ -6,17 +6,18 @@ class OrderController < ApplicationController
     @order = current_order
   end
 
-  # def show
-  #   id = params[:id]
-  #   if session[:order_id] == id.to_i
-  #     @order = Order.find_by(id: session[:order_id])
-  #     if @order
-  #       @order_products = @order.order_products.order(created_at: :desc)
-  #     end
-  #   else
-  #     head :not_found
-  #   end
-  # end
+  def create
+    @order = Order.new(order_params)
+
+    successful = @order.save
+    if successful
+      flash[:success] = "successfully create the order."
+      redirect_to orders_path
+    else
+      flash.now[:error] = "Could not save the order."
+      render :new, status: :bad_request
+    end
+  end
 
   def edit
     @order.save
@@ -31,16 +32,13 @@ class OrderController < ApplicationController
     end
 
     if @order.update(order_params)
-      flash[:status] = :success
-   
-      flash[:success] = "Successfully placed the order"
+      flash[:success] = "Successfully placed the order."
       # flash[:status] = :success
       # flash[:message] = "Successfully placed the order"
       session[:order_id] = nil
       redirect_to order_path(@order)
     else
-      flash.now[:status] = :error
-      flash.now[:message] = "Could not complete the order"
+      flash.now[:error] = "Could not complete the order."
 
       render :new, status: :bad_request
     end
