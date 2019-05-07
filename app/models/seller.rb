@@ -23,13 +23,6 @@ class Seller < ApplicationRecord
     return unique_orders
   end
 
-  # def has_order?(order)
-  #   return self.orders.include?(order)
-  # end
-
-  # def has_product?(product)
-  #   return self.products.include?(product)
-  # end
   def order_revenue(order)
     order_total = 0
     order.order_products.each do |order_product|
