@@ -1,8 +1,8 @@
 <h2>Thanks for shopping at Catsy!</h2>
-<table>
+<table class="table">
   <tr>
     <th>
-      Items perchased
+      Item
     </th>
     <th>
       Quantity
@@ -21,7 +21,7 @@
           <%= item.quantity %>
         </td>
         <td>
-          <%= item.quantity * item.product.price %>
+          <%= "$""#{'%.2f' % (item.quantity * item.product.price / 100.00)}" %>
         </td>
       </tbody>
     <% end %>
@@ -32,6 +32,6 @@
   </div>
   <br>
   <div>
-    <h4> <%= Order.last.order_products.length %> items will be shipped to:<%= Order.last.name %></h4>
+    <h4> <%= Order.last.order_products.length %> items will be shipped to: <%= Order.last.name %></h4>
     <p>Shipping address: <%= Order.last.address %>, <%= Order.last.city %>, <%= Order.last.state %>, <%= Order.last.zip %></p>
   </div>

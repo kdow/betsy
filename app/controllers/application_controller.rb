@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :require_login
+  before_action :auth_seller
   helper_method :current_order
   before_action :require_login
   before_action :auth_seller
@@ -9,7 +11,9 @@ class ApplicationController < ActionController::Base
     if session[:order_id]
       Order.find(session[:order_id])
     else
-      Order.new
+      new_order = Order.new
+      new_order.status = "in progress"
+      return new_order
     end
   end
 

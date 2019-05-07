@@ -32,8 +32,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new
-    # binding.pry
-
     if params[:product]
       @successful = @product.update(product_params)
     else

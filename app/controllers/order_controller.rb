@@ -1,5 +1,3 @@
-require "pry"
-
 class OrderController < ApplicationController
   skip_before_action :require_login
   skip_before_action :auth_seller
@@ -20,8 +18,6 @@ class OrderController < ApplicationController
   #   end
   # end
 
-
-
   def edit
     @order.save
   end
@@ -29,12 +25,17 @@ class OrderController < ApplicationController
   def update
     @order = current_order
     @order_products = current_order.order_products
-    Product.adjust_quantity(@order_products)
-    @order.status = "completed"
+    if Product.check_quantity(@order_products)
+      Product.adjust_quantity(@order_products)
+      @order.status = "completed"
+    end
 
     if @order.update(order_params)
       flash[:status] = :success
-      flash[:message] = "Successfully placed the order"
+   
+      flash[:success] = "Successfully placed the order"
+      # flash[:status] = :success
+      # flash[:message] = "Successfully placed the order"
       session[:order_id] = nil
       redirect_to order_path(@order)
     else

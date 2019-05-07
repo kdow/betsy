@@ -13,4 +13,31 @@ class CategoriesController < ApplicationController
       head :not_found
     end
   end
+
+  def new
+    @category = Category.new
+  end
+
+  def create
+    category = Category.new(category_params)
+
+    successful = category.save
+
+    if successful
+      flash[:success] = "Category added successfully"
+      redirect_to category_path(category.id)
+    else
+      category.errors.messages.each do |field, messages|
+        flash.now[field] = messages
+      end
+
+      render :new, status: :bad_request
+    end
+  end
+
+  private
+
+  def category_params
+    return params.require(:category).permit(:name)
+  end
 end
