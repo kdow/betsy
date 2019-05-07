@@ -37,6 +37,11 @@
           </tbody>
         </table>
       </section>
-      <%= link_to "Proceed to checkout", new_order_path, class: "btn btn-success" %>
-      <%= link_to "Continue shopping", products_path, class: "btn btn-success" %>
+      <% if @order.order_products.any? %>
+        <%= link_to "Proceed to checkout", edit_order_path(@order), class: "btn btn-success" %>
+        <%= link_to "Continue shopping", products_path, class: "btn btn-success" %>
+      <% else %>
+        <p>Your shopping cart is empty, please add items to your cart!</p>
+        <%= link_to "Continue shopping", products_path, class: "btn btn-success" %>
+      <% end %>
     </main>
