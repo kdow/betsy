@@ -18,8 +18,6 @@ class OrderController < ApplicationController
   #   end
   # end
 
-  def create
-    @order = Order.new(order_params)
 
     successful = @order.save
     if successful
