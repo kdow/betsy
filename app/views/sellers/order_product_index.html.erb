@@ -2,7 +2,10 @@
 
 <section>
   <h2>Orders</h2>
-
+    <h4>Revenue by order status</h4>
+    <ul>
+      <li>Complete: <%= format_dollars(@seller.total_revenue_by_status("completed")) %></li>
+    </ul>
   <% @orders.each do |order| %>
   <section>
     <ul>
