@@ -5,7 +5,7 @@
   <section class="grid-body">
     <h2 class="btm-boarder">Order Dashboard</h2>
       <h4>Revenue by order status</h4>
-      <section class="stats-flex">
+      <section class="order-flex">
         <div class="stat-item">
           <p>Complete: </p>
           <h5><%= format_dollars(@seller.total_revenue_by_status("completed")) %></h5>
@@ -26,14 +26,16 @@
 
     <h4>Your Orders</h4>
     <% @orders.each do |order| %>
-    <section>
-      <h5>Order Number: <%= order.id %></h5>
-      <ul>
-        <li>Order Status: <%= order.status %></li>
-        <li>Order Date: <%= format_date(order.updated_at) %></li>
-        <li>Order Total Revenue <%= format_dollars(@seller.order_revenue(order)) %></li>
-        <li><%= link_to "View Purchase Details", seller_order_path(@seller, order), class: "btn btn-primary" %></li>
-      </ul>
+    <section class="order-flex">
+      <div class="order-info">
+        <h5>Order Number: <%= order.id %></h5>
+        <ul>
+          <li>Order Status: <%= order.status %></li>
+          <li>Order Date: <%= format_date(order.updated_at) %></li>
+          <li>Order Total Revenue <%= format_dollars(@seller.order_revenue(order)) %></li>
+          <li><%= link_to "View Purchase Details", seller_order_path(@seller, order), class: "btn btn-primary" %></li>
+        </ul>
+      </div>
       <table class="table">
         <thead>
           <tr>
