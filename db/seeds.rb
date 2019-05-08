@@ -209,7 +209,7 @@ pink.categories << toys
 pink.save
 
 ornament = Product.create(
-  name: "Ornamanet",
+  name: "Ornament",
   price: 899,
   seller_id: Faker::Number.between(1, 20),
   description: "Set of 4 golden ornaments adorned with red snowflakes.",
