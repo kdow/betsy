@@ -1,56 +1,106 @@
 require "faker"
 
-20.times do
-  Seller.create(
-    username: Faker::Name.name,
-    email: Faker::Internet.email,
-  )
-end
+Seller.create(
+  username: "Felines Forever",
+  email: Faker::Internet.email,
+)
 
-# Seller.create(
-#   username: "Felines Forever",
-#   email: Faker::Internet.email,
-# )
+Seller.create(
+  username: "Cats Over Dogs",
+  email: Faker::Internet.email,
+)
 
-# Seller.create(
-#   username: "Cats Over Dogs",
-#   email: Faker::Internet.email,
-# )
+Seller.create(
+  username: "Classy Cat",
+  email: Faker::Internet.email,
+)
 
-# Seller.create(
-#   username: "Classy Cat",
-#   email: Faker::Internet.email,
-# )
+Seller.create(
+  username: "I Dream of Cats",
+  email: Faker::Internet.email,
+)
 
-# Seller.create(
-#   username: "I Dream of Cats",
-#   email: Faker::Internet.email,
-# )
+Seller.create(
+  username: "Cats & Friends",
+  email: Faker::Internet.email,
+)
 
-# Seller.create(
-#   username: "Cats & Friends",
-#   email: Faker::Internet.email,
-# )
+Seller.create(
+  username: "Whiskers to Tails",
+  email: Faker::Internet.email,
+)
 
-# Seller.create(
-#   username: "Whiskers to Tails",
-#   email: Faker::Internet.email,
-# )
+Seller.create(
+  username: "The Modern Cat",
+  email: Faker::Internet.email,
+)
 
-# Seller.create(
-#   username: "The Modern Cat",
-#   email: Faker::Internet.email,
-# )
+Seller.create(
+  username: "Sweets for Cats",
+  email: Faker::Internet.email,
+)
 
-# Seller.create(
-#   username: "Sweets for Cats",
-#   email: Faker::Internet.email,
-# )
+Seller.create(
+  username: "A Hiss for a Kiss",
+  email: Faker::Internet.email,
+)
 
-# Seller.create(
-#   username: "A Hiss for a Kiss",
-#   email: Faker::Internet.email,
-# )
+Seller.create(
+  username: "Fast and Flully",
+  email: Faker::Internet.email,
+)
+
+Seller.create(
+  username: "Jazzy's Jewels",
+  email: Faker::Internet.email,
+)
+
+Seller.create(
+  username: "Fast and Flully",
+  email: Faker::Internet.email,
+)
+
+Seller.create(
+  username: "Crookshank's Emporium",
+  email: Faker::Internet.email,
+)
+
+Seller.create(
+  username: "Fast and Flully",
+  email: Faker::Internet.email,
+)
+
+Seller.create(
+  username: "Jellybean Locker",
+  email: Faker::Internet.email,
+)
+
+Seller.create(
+  username: "Hats for Cats",
+  email: Faker::Internet.email,
+)
+
+Seller.create(
+  username: "Simba's Big and Tall",
+  email: Faker::Internet.email,
+)
+
+Seller.create(
+  username: "Forever 9 Lives",
+  email: Faker::Internet.email,
+)
+
+Seller.create(
+  username: "Kitten Mittens",
+  email: Faker::Internet.email,
+)
+
+Seller.create(
+  username: "Lucky Cat",
+  email: Faker::Internet.email,
+)
+
+
 
 accessories = Category.create(name: "accessories")
 toys = Category.create(name: "toys")
