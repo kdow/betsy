@@ -79,17 +79,29 @@ describe OrderProductsController do
   end
 
   describe 'destroy' do
-    it 'responds with success if an order_product is deleted' do
-      skip
-      order_product_id = OrderProduct.first.id
-      before_count = OrderProduct.count
+    before do
+      product = Product.first
+      post order_products_path, params: {
+        order_product: {
+          product_id: product.id,
+          quantity: 1
+        }
+      }
 
-      delete order_product_path(order_product_id)
+      @order_id = Order.last.id
+      @order_product_id = OrderProduct.last.id
+      @before_count = OrderProduct.find_by(id: @order_product_id).quantity
+    end
+
+    it "removes the item from the current cart" do
+  
+      expect {
+        delete order_product_path(@order_product_id)
+      }.must_change "OrderProduct.count", -1
 
       must_respond_with :redirect
-
-      OrderProduct.count.must_equal before_count - 1
-      OrderProduct.find_by(id: order_product_id).must_be_nil
+      must_redirect_to cart_path
+      expect (OrderProduct.find_by(id: @order_product_id)).must_be_nil
     end
   end
 end
