@@ -5,10 +5,11 @@
   <section class="grid-body">
     <h2 class="btm-boarder">Orders</h2>
       <h4>Revenue by order status</h4>
-      <ul>
-        <li>Complete: <%= format_dollars(@seller.total_revenue_by_status("completed")) %></li>
-        <li>In Progress: <%= format_dollars(@seller.total_revenue_by_status("in progress")) %></li>
-      </ul>
+      <section class="stats-flex">
+          <p>Complete: <%= format_dollars(@seller.total_revenue_by_status("completed")) %></p>
+          <p>In Progress: <%= format_dollars(@seller.total_revenue_by_status("in progress")) %></p>
+      </section>
+
     <% @orders.each do |order| %>
     <section>
       <ul>
