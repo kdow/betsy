@@ -16,14 +16,11 @@ class OrderController < ApplicationController
     end
 
     if @order.update(order_params)
-      flash[:status] = :success
-
       flash[:success] = "Successfully placed the order"
       session[:order_id] = nil
       redirect_to order_path(@order)
     else
-      flash.now[:status] = :error
-      flash.now[:message] = "Could not complete the order"
+      flash.now[:error] = "Could not complete the order."
 
       render :edit, status: :bad_request
     end
