@@ -33,7 +33,7 @@ bowtie = Product.create(
   description: "Your cat will be the hit of the holiday party with this classy red starred bowtie.",
   photo_url: "https://live.staticflickr.com/65535/46828525745_35d4075877_q.jpg",
   quantity: 10,
-  large_photo_url: "https://live.staticflickr.com/65535/47745224121_36f9a5ce73.jpg",
+  large_photo_url: "https://live.staticflickr.com/65535/46828525745_35d4075877.jpg",
 )
 
 bowtie.categories << accessories
