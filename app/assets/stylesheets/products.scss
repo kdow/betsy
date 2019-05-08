@@ -3,13 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .card {
-  height: 350px;
+  height: 450px;
+  width: 18rem;
 }
 
 .qty {
   width: 6.5rem;
 }
+<<<<<<< HEAD
+.car_body:last-child {
+  display: flex;
+  flex-direction: row;
+  
+}
+.card_link {
+  display: inline-block;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: baseline;
+=======
 
 .prod-show {
   padding-top: 7.5%;
+>>>>>>> ea14ba0316fb4ef9906eec5aa712c18f61c76bf6
 }
