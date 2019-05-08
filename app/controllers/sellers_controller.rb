@@ -18,6 +18,10 @@ class SellersController < ApplicationController
     @orders = @seller.get_unique_orders
   end
 
+  def browse_sellers
+    @sellers = Seller.all
+  end
+
   def seller_products
     @seller = Seller.find_by(id: params[:seller_id])
     unless @seller

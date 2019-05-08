@@ -2,12 +2,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "homepages#index"
 
+  get "products/sellers", to: "sellers#browse_sellers", as: "browse_sellers"
+
   resources :order_products
   resource :cart, only: [:show]
   resources :order, only: [:new, :update, :show]
 
   resources :products, only: [:index, :show]
+
+  
   get "products/seller/:seller_id", to: "sellers#seller_products", as: "products_by_seller"
+  
 
 
   resources :sellers, only: [:show]
