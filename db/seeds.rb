@@ -7,6 +7,51 @@ require "faker"
   )
 end
 
+# Seller.create(
+#   username: "Felines Forever",
+#   email: Faker::Internet.email,
+# )
+
+# Seller.create(
+#   username: "Cats Over Dogs",
+#   email: Faker::Internet.email,
+# )
+
+# Seller.create(
+#   username: "Classy Cat",
+#   email: Faker::Internet.email,
+# )
+
+# Seller.create(
+#   username: "I Dream of Cats",
+#   email: Faker::Internet.email,
+# )
+
+# Seller.create(
+#   username: "Cats & Friends",
+#   email: Faker::Internet.email,
+# )
+
+# Seller.create(
+#   username: "Whiskers to Tails",
+#   email: Faker::Internet.email,
+# )
+
+# Seller.create(
+#   username: "The Modern Cat",
+#   email: Faker::Internet.email,
+# )
+
+# Seller.create(
+#   username: "Sweets for Cats",
+#   email: Faker::Internet.email,
+# )
+
+# Seller.create(
+#   username: "A Hiss for a Kiss",
+#   email: Faker::Internet.email,
+# )
+
 accessories = Category.create(name: "accessories")
 toys = Category.create(name: "toys")
 food = Category.create(name: "food")

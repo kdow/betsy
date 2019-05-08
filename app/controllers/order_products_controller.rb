@@ -25,18 +25,20 @@ class OrderProductsController < ApplicationController
     @item = @order.order_products.find(params[:id])
     new_quantity = params[:quantity]
 
-    if @item.update(quantity: new_quantity)
-      flash[:success] = "Quantity successfuly updated."
+    if @item.quantity < 1
+      flash[:error] = "Sorry. Not enough available items in stock."
       redirect_to cart_path
     else
-      flash[:error] = "Sorry. Not enough available items in stock."
+      @item.update_attributes(order_product_params)
+      @items = @order.order_products
+      flash[:success] = "Quantity successfuly updated."
       redirect_to cart_path
     end
   end
 
   def destroy
     @order = current_order
-    @item = @order.order_products.find(params[:id])
+    @item = @order.order_products.find_by(id: params[:id])
     @item.destroy
     @order.save
     redirect_to cart_path

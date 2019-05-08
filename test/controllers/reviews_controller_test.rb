@@ -3,6 +3,13 @@ require "test_helper"
 describe ReviewsController do
   let (:product) { products(:crown) }
 
+  describe "index" do
+    it "should get index" do
+      get product_reviews_path(product)
+      must_respond_with :success
+    end
+  end
+
   describe "new" do
     it "can get the new review page" do
       get new_product_review_path(product.id)
