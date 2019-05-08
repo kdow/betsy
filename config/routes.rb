@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end
 
   resources :products do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:index, :new, :create]
   end
 
   get "/auth/github", as: "github_login"

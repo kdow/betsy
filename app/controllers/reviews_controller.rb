@@ -2,6 +2,11 @@ class ReviewsController < ApplicationController
   skip_before_action :require_login
   skip_before_action :auth_seller
 
+  def index
+    @reviews = Review.where(product_id: params[:product_id])
+    @product = Product.find_by(id: params[:product_id])
+  end
+
   def new
     @product = Product.find_by(id: params[:product_id])
     @review = @product.reviews.new

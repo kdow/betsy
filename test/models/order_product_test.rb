@@ -42,4 +42,18 @@ describe OrderProduct do
       expect(order_prod.line_item_subtotal).must_equal 0
     end
   end
+  describe "already in the cart" do
+    it "returns true if the item exist in the cart" do
+      order = orders(:one)
+      order_product = order_products(:one)
+      result = OrderProduct.already_in_cart?(order_product, order)
+      expect(result).must_equal true
+    end
+    it "returns false if the item does not exist in the cart" do
+      order = orders(:two)
+      order_product = order_products(:one)
+      result = OrderProduct.already_in_cart?(order_product, order)
+      expect(result).must_equal false
+    end
+  end
 end
