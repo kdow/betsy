@@ -3,7 +3,7 @@
   <%= render "dashboard_header", locals: { seller: @seller } %>
 
   <section class="grid-body">
-    <h2>Orders</h2>
+    <h2 class="btm-boarder">Orders</h2>
       <h4>Revenue by order status</h4>
       <ul>
         <li>Complete: <%= format_dollars(@seller.total_revenue_by_status("completed")) %></li>

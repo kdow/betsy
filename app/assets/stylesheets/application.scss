@@ -32,6 +32,10 @@ h1 a:hover {
   text-decoration: none;
 }
 
+.btm-boarder {
+  border-bottom: 3px solid;
+  border-bottom-color: rgb(198, 229, 230)
+}
 .grid-container {
   display: grid;
   grid-template: 1fr / 200px 1fr ;

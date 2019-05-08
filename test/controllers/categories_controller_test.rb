@@ -7,7 +7,7 @@ describe CategoriesController do
       must_respond_with :success
     end
   end
-  describe "logged in user" do
+  describe "logged in seller" do
     before do
       perform_login
     end

@@ -3,7 +3,7 @@
   <%= render "dashboard_header", locals: { seller: @seller } %>
   <section class="grid-body">
 
-    <h2>Edit Product Categories</h2>
+    <h2 class="btm-boarder">Edit Product Categories</h2>
     <%= form_with model: @product, url: seller_product_categories_path(@seller, @product), class: 'book-form' do |f| %>
       <div>
         <%= f.label :categories %>
