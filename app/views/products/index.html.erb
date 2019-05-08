@@ -1,5 +1,5 @@
 <section class="cards">
-  <% @products.each do |product| %>
+  <% Product.active(@products).each do |product| %>
     <article>
       <div class="card">
         <%= link_to(image_tag(product.photo_url, class: "card-img-top", :alt => "Photo of ""#{product.name}"), product_path(product)) %>
@@ -12,7 +12,7 @@
               <% "Sorry, this item is out of stock." %>
             <% else %>
             <%= f.hidden_field :product_id, value: product.id %>
-            <%= f.number_field :quantity, value: 1, max: product.quantity, class: "form-control qty" %>
+            <%= f.number_field :quantity, value: 1, min: 0, max: product.quantity, class: "form-control qty" %>
             <%= f.submit "Add to cart", class: "btn btn-primary mt-1" %>
             <% end %>
           <% end %>

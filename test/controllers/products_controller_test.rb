@@ -8,16 +8,16 @@ describe ProductsController do
     Seller.create username: "kittynip", email: "KittyNip@email.com"
   }
   let (:product) {
-    Product.create name: "kittin mittins", description: "paw warmers", price: 1200, seller_id: seller.id, photo_url: "https://live.staticflickr.com/65535/47745224121_36f9a5ce73_q.jpg"
+    Product.create name: "kittin mittins", description: "paw warmers", is_active: true, price: 1200, seller_id: seller.id, photo_url: "https://live.staticflickr.com/65535/47745224121_36f9a5ce73_q.jpg"
   }
   let (:good_data) {
-    { product: {
+    {product: {
       name: "Catnip",
       price: 600,
       description: "crazy kitty fun time",
       quantity: 10,
       seller_id: seller.id,
-    } }
+    }}
   }
   describe "logged in seller" do
     before do
@@ -146,7 +146,28 @@ describe ProductsController do
         must_redirect_to seller_path(@seller)
       end
     end
+
+    describe "retire" do
+      it "updates is_active to false" do
+        expect(product.is_active).must_equal true
+
+        patch product_retire_path(product)
+        product.reload
+
+        expect(product.is_active).must_equal false
+      end
+
+      it "returns a 404 if the product does not exist" do
+        product_id = 1234567
+        expect(Product.find_by(id: product_id)).must_be_nil
+
+        patch product_retire_path(product_id)
+
+        must_respond_with :not_found
+      end
+    end
   end
+
   describe "Guest user" do
     it "requires login for new" do
       get new_seller_product_path(seller.id)
