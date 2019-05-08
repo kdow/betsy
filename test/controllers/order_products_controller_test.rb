@@ -79,6 +79,7 @@ describe OrderProductsController do
   end
 
   describe 'destroy' do
+    
     before do
       product = Product.first
       post order_products_path, params: {
