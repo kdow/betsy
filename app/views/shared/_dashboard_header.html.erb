@@ -1,0 +1,11 @@
+<section class="dashboard-header grid-header">
+  <h4 class="nav-title"><%= @current_seller.username %></h4>
+  <section>
+    <ul>
+      <li><%= link_to "Manage Products", seller_products_path(@current_seller), class: "seller-nav-btn"%></li>
+      <li><%= link_to "Add Product", new_seller_product_path(@current_seller), class: "seller-nav-btn" %></li>
+      <li><%= link_to "Add Category", new_category_path, class: "seller-nav-btn" %></li>
+      <li><%= link_to "Order Fulfilment", seller_order_products_path(@current_seller), class: "seller-nav-btn" %></li>
+    </ul>
+  </section>
+</section>

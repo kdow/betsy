@@ -1,3 +1,10 @@
-<h2>Create new product</h2>
+<section class="grid-container">
 
-<%= render "form", url: seller_products_path(session[:seller_id]) %>
+
+  <%= render "shared/dashboard_header", locals: { seller: @current_seller } %>
+  <section class="grid-body">
+  <h2 class="btm-boarder">Create new product</h2>
+
+  <%= render "form", url: seller_products_path(session[:seller_id]) %>
+</section>
+</section>

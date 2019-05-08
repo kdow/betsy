@@ -4,7 +4,6 @@
     <title>CATsy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('Cat_silhouette.png') %>
@@ -21,28 +20,29 @@
       <ul class="navbar-nav ml-auto flex-nowrap">
         <% if session[:seller_id] %>
           <li class="nav-item">
-            <%= link_to "View My Catboard", seller_path(session[:seller_id]), class: "nav-link" %>
+            <%= link_to "View My Catboard", seller_products_path(session[:seller_id]), class: "nav-link" %>
           </li>
         <% end %>     
         <li class="dropdown">
-          <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">CATegories<span class="caret"></span></button>
+          <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Browse by<span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <% Category.all.each do |c|%>
-              <li><%= link_to c.name, category_path(c.id), class:"button" %></li>
+            <li><%= link_to "CATegories", categories_path, class:"button" %></li>
+            <li><%= link_to "ReTAILers", browse_sellers_path, class:"button" %></li>
+            <li><%= link_to "Purrducts", products_path, class:"button" %></li>
+            <li class="nav-item">
+            <li><%= link_to "Shopping Cat", cart_path, class: "nav-link" %></li>        
+            <% if session[:seller_id] %>
+              <li class="nav-item">
+                <%= link_to "Log out", logout_path, method: "delete", class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Login with Cathub", github_login_path, class: "nav-link" %>
+              </li>
             <% end %>
           </ul>
         </li>
-        <li class="dropdown nav-item">
-          <button class="btn dropdown-toggle nav-item navbar-dark" type="button" data-toggle="dropdown">ReTAILers<span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <% Seller.all.each do |s|%>
-              <li><%= link_to s.username, products_by_seller_path(s.id), class:"button" %></li>
-            <% end %>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Purrducts", products_path, class: "nav-link" %>
-        </li>
+        
         <li class="nav-item">
           <%= link_to "Shopping Cat", cart_path, class: "nav-link" %>
         </li>        

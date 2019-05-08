@@ -10,4 +10,14 @@ class OrderProduct < ApplicationRecord
   def line_item_subtotal
     return self.quantity * self.product.price
   end
+
+  def self.already_in_cart?(order_product, order)
+    result = self.all.where(product_id: order_product.product_id, order_id: order.id)
+
+    if result.empty?
+      return false
+    else
+      return true
+    end
+  end
 end

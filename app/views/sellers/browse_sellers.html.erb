@@ -1,0 +1,13 @@
+<h2>Sellers</h2>
+
+<section class="nav">
+  <ul>
+    <% @sellers.each do |s| %>
+      <li><%= link_to s.username, products_by_seller_path(s.id), class:"button" %></li>
+    <% end %>
+  </ul>
+</section>
+
+<div class="tab-content">
+  
+</div>

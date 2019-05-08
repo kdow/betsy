@@ -1,34 +1,47 @@
-<h2>Orders</h2>
+<section class="grid-container">
 
+  <%= render "dashboard_header", locals: { seller: @seller } %>
 
-<% @orders.each do |order| %>
+  <section class="grid-body">
+    <h2 class="btm-boarder">Orders</h2>
+      <h4>Revenue by order status</h4>
+      <section class="stats-flex">
+          <p>Complete: <%= format_dollars(@seller.total_revenue_by_status("completed")) %></p>
+          <p>In Progress: <%= format_dollars(@seller.total_revenue_by_status("in progress")) %></p>
+      </section>
 
-  <ul>
-    <li>Order Number: <%= order.id %></li>
-    <li>Order Status: <%= order.status %></li>
-    <li>Order Status: <%= format_date(order.updated_at) %></li>
-    <li><%= link_to "View Purchase Details", seller_order_path(@seller, order), class: "btn btn-primary" %></li>
-  </ul>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Subtotal</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% order.order_products.each do |order_product| %>
-    <% if order_product.product.seller == @seller %>
+    <% @orders.each do |order| %>
+    <section>
+      <ul>
+        <li>Order Number: <%= order.id %></li>
+        <li>Order Status: <%= order.status %></li>
+        <li>Order Date: <%= format_date(order.updated_at) %></li>
+        <li>Order Total Revenue <%= format_dollars(@seller.order_revenue(order)) %></li>
+        <li><%= link_to "View Purchase Details", seller_order_path(@seller, order), class: "btn btn-primary" %></li>
+      </ul>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% order.order_products.each do |order_product| %>
+        <% if order_product.product.seller == @seller %>
 
-      <tr>
-        <td><%= link_to order_product.product.name, product_path(order_product.product) %></td>
-        <td><%= order_product.quantity %></td>
-        <td>$<%= "#{'%.2f' % (order_product.line_item_subtotal / 100.00)}"%></td>
-      </tr>
+          <tr>
+            <td><%= link_to order_product.product.name, product_path(order_product.product) %></td>
+            <td><%= order_product.quantity %></td>
+            <td>$<%= "#{'%.2f' % (order_product.line_item_subtotal / 100.00)}"%></td>
+          </tr>
+        <% end %>
+      <% end %>
+      </tbody>
+      </table>
+    </section>       
     <% end %>
-  <% end %>
-  </tbody>
-  </table>
-        
-<% end %>
+
+  </section>
+</section>

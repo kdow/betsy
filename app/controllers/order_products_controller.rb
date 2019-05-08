@@ -6,11 +6,18 @@ class OrderProductsController < ApplicationController
     @order = current_order
     @order_product = OrderProduct.new(order_product_params)
     @order_product.order_id = @order.id
-    @order_product.save
-    @order.order_products << @order_product
-    @order.save
-    session[:order_id] = @order.id
-    redirect_to products_path
+    if OrderProduct.already_in_cart?(@order_product, @order)
+      flash[:status] = :error
+      flash[:error] = "This item already exists in your cart."
+      redirect_to cart_path(session[:order_id])
+    else
+      @order_product.order_id = @order.id
+      @order_product.save
+      @order.order_products << @order_product
+      @order.save
+      session[:order_id] = @order.id
+      redirect_to products_path
+    end
   end
 
   def update
@@ -18,18 +25,20 @@ class OrderProductsController < ApplicationController
     @item = @order.order_products.find(params[:id])
     new_quantity = params[:quantity]
 
-    if @item.update(quantity: new_quantity)
-      flash[:success] = "Quantity successfuly updated."
+    if @item.quantity < 1
+      flash[:error] = "Sorry. Not enough available items in stock."
       redirect_to cart_path
     else
-      flash[:error] = "Sorry. Not enough available items in stock."
+      @item.update_attributes(order_product_params)
+      @items = @order.order_products
+      flash[:success] = "Quantity successfuly updated."
       redirect_to cart_path
     end
   end
 
   def destroy
     @order = current_order
-    @item = @order.order_products.find(params[:id])
+    @item = @order.order_products.find_by(id: params[:id])
     @item.destroy
     @order.save
     redirect_to cart_path
