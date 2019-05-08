@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show]
+  skip_before_action :require_login, only: [:index, :show, :retire]
   before_action :auth_seller, only: [:create, :edit, :update]
+  before_action :find_product, only: [:show, :edit, :update, :retire]
 
   def index
     if params[:category_id]
@@ -12,14 +13,7 @@ class ProductsController < ApplicationController
     @order_product = current_order.order_products.new
   end
 
-  def show
-    @product = Product.find_by(id: params[:id])
-
-    unless @product
-      head :not_found
-      return
-    end
-  end
+  def show; end
 
   def new
     if params[:category_id]
@@ -32,8 +26,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new
-    # binding.pry
-
     if params[:product]
       @successful = @product.update(product_params)
     else
@@ -43,6 +35,7 @@ class ProductsController < ApplicationController
 
     if @successful
       @product.seller_id = session[:seller_id]
+      @product.is_active = true
       @successful = @product.save
       flash[:success] = "Successfully created product #{@product.name}"
       redirect_to product_path(@product.id)
@@ -52,20 +45,9 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit
-    @product = Product.find_by(id: params[:id])
-    unless @product
-      head :not_found
-      return
-    end
-  end
+  def edit; end
 
   def update
-    @product = Product.find_by(id: params[:id])
-    unless @product
-      head :not_found
-      return
-    end
     # if params[:product]
     #   successful = @product.update(product_params)
     # else
@@ -79,6 +61,13 @@ class ProductsController < ApplicationController
       flash.now[:error] = "Unable to updated product"
       render :edit, status: :bad_request
     end
+  end
+
+  def retire
+    @product.is_active = false
+    @product.save
+
+    redirect_to seller_products_path(current_seller)
   end
 
   private
@@ -97,5 +86,14 @@ class ProductsController < ApplicationController
 
   def no_product_params
     return params.permit(:name, :price, :quantity, :seller_id, :description, :photo_url)
+  end
+
+  def find_product
+    @product = Product.find_by(id: params[:id])
+
+    unless @product
+      head :not_found
+      return
+    end
   end
 end

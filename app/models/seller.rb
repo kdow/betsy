@@ -1,3 +1,5 @@
+require "pry"
+
 class Seller < ApplicationRecord
   has_many :products
 
@@ -28,7 +30,19 @@ class Seller < ApplicationRecord
   # def has_product?(product)
   #   return self.products.include?(product)
   # end
+  def order_revenue(order)
+    order_total = 0
+    order.order_products.each do |order_product|
+      order_total += (order_product.product.price * order_product.quantity) if order_product.product.seller == self
+    end
+    return order_total
+  end
 
-  def total_revenue
+  def total_revenue_by_status(order_status)
+    total = 0
+    self.get_unique_orders.each do |order|
+      total += order_revenue(order) if order.status == order_status
+    end
+    return total
   end
 end

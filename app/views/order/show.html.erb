@@ -27,8 +27,9 @@
     <% end %>
   </table>
   <div>
-    <p>Order Total: <%= "$""#{'%.2f' % (Order.last.total_price / 100.00)}" %></p>
-    <p>Made at: <span class="date" title="2019-04-21T19:33:26-07:00">14 minutes ago</span> is <%= Order.last.status %></p>
+    <p>Order Total price: <%= "$""#{'%.2f' % (Order.last.total_price / 100)}" %></p>
+    <p>Card ending in: <%= Order.last.last_four[12..16]%>
+    <p>Order placed on: <%= (Order.last.created_at.strftime("%b %d, %Y, at %H:%M%p")) %>. Status: <%= Order.last.status %></p>
   </div>
   <br>
   <div>

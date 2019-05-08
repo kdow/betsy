@@ -1,13 +1,19 @@
-<% @seller.products.each do |product| %>
-  <%= link_to(image_tag(product.photo_url, :alt => "Photo of ""#{product.name}"), product_path(product)) %>
-    <li><%= link_to product.name, product_path(product) %> | <%= "$""#{'%.2f' % (product.price / 100.00)}" %></li>
-    <%= form_for OrderProduct.new do |f| %>
-      <% if product.quantity.nil? || product.quantity < 1 %>
-        <% "Sorry, this item is out of stock." %>
-      <% else %>
-      <%= f.hidden_field :product_id, value: product.id %>
-      <%= f.number_field :quantity %>
-      <%= f.submit "Add to cart" %>
+<h2><%= @seller.username %></h2>
+
+<% if @seller.products.count == 0 %>
+  <p>Sorry. This seller has no items available at the moment.</p>
+<% else %>
+  <% @seller.products.each do |product| %>
+    <%= link_to(image_tag(product.photo_url, :alt => "Photo of ""#{product.name}"), product_path(product)) %>
+      <li><%= link_to product.name, product_path(product) %> | <%= "$""#{'%.2f' % (product.price / 100.00)}" %></li>
+      <%= form_for OrderProduct.new do |f| %>
+        <% if product.quantity.nil? || product.quantity < 1 %>
+          <% "Sorry, this item is out of stock." %>
+        <% else %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.number_field :quantity, value: 1 , min: 0, max: product.quantity, class: "form-control qty"%>
+        <%= f.submit "Add to cart" %>
+        <% end %>
       <% end %>
-    <% end %>
+  <% end %>
 <% end %>
