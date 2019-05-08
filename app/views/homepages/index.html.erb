@@ -2,29 +2,50 @@
 
 <br class="top-buffer">
 
-<% products = @products.sample(6) %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-11 col-md-10 col-centered">
 
-<section class="cards">
-    <% products.each do |product| %>
-      <article>
-        <div class="card">
-          <%= link_to(image_tag(product.photo_url, class: "card-img-top", :alt => "Photo of ""#{product.name}"), product_path(product)) %>
-          <div class="card-body">
-            <h5><%= product.name %></h5>
-            <%= link_to "$""#{'%.2f' % (product.price / 100.00)}", product_path(product), class: "btn btn-primary" %>
-          </div>
-          <%= form_for OrderProduct.new do |f| %>
-            <% if product.quantity.nil? || product.quantity < 1 %>
-              <% "Sorry, this item is out of stock." %>
-            <% else %>
-              <%= f.hidden_field :product_id, value: product.id %>
-              <%= f.number_field :quantity, value: 1, min: 1, min: 0, max: product.quantity, class: "form-control qty" %>
-              <%= f.submit "Add to Cart", class: "btn btn-primary" %>
-            <% end %>
-          <% end %>
-        </div>
-      </article>
-  <% end %>
-</section>
+			<div id="carousel" class="carousel slide" data-ride="carousel" data-type="multi" data-interval="2500">
+				<div class="carousel-inner">
+					<div class="item active">
+						<div class="carousel-col">
+							<div class="block red img-responsive"></div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="carousel-col">
+							<div class="block green img-responsive"></div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="carousel-col">
+							<div class="block blue img-responsive"></div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="carousel-col">
+							<div class="block yellow img-responsive"></div>
+						</div>
+					</div>
+				</div>
 
+				<!-- Controls -->
+				<div class="left carousel-control">
+					<a href="#carousel" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+				</div>
+				<div class="right carousel-control">
+					<a href="#carousel" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
 
