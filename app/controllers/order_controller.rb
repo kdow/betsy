@@ -1,14 +1,11 @@
 class OrderController < ApplicationController
   skip_before_action :require_login
   skip_before_action :auth_seller
+  before_action :find_order, only: [:edit]
 
-  def new
-    @order = current_order
-  end
-
-  def edit
-    @order = current_order
-  end
+  # def new
+  #   @order = current_order
+  # end
 
   def update
     @order = current_order
@@ -28,7 +25,7 @@ class OrderController < ApplicationController
       flash.now[:status] = :error
       flash.now[:message] = "Could not complete the order"
 
-      render :new, status: :bad_request
+      render :edit, status: :bad_request
     end
   end
 
