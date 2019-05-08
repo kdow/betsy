@@ -5,13 +5,15 @@
     <h4>Revenue by order status</h4>
     <ul>
       <li>Complete: <%= format_dollars(@seller.total_revenue_by_status("completed")) %></li>
+      <li>In Progress: <%= format_dollars(@seller.total_revenue_by_status("in progress")) %></li>
     </ul>
   <% @orders.each do |order| %>
   <section>
     <ul>
       <li>Order Number: <%= order.id %></li>
       <li>Order Status: <%= order.status %></li>
-      <li>Order Status: <%= format_date(order.updated_at) %></li>
+      <li>Order Date: <%= format_date(order.updated_at) %></li>
+      <li>Order Total Revenue <%= format_dollars(@seller.order_revenue(order)) %></li>
       <li><%= link_to "View Purchase Details", seller_order_path(@seller, order), class: "btn btn-primary" %></li>
     </ul>
     <table class="table">
