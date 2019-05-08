@@ -1,3 +1,10 @@
+<section class="dashboard-header">
+  <h1><%= @seller.username %></h1>
+  <section>
+    <%= link_to "Manage Products", seller_products_path(@seller), class: "btn btn-primary" %>
+    <%= link_to "Order Fulfilment", seller_order_products_path(@seller), class: "btn btn-primary" %>
+  </section>
+</section>
 <h2>Orders</h2>
 
 
