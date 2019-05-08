@@ -1,18 +1,16 @@
 <section class="d-flex justify-content-around align-items-center">
-  <%= image_tag(@product.large_photo_url, class: "", :alt => "Photo of ""#{@product.name}") %>
+  <%= image_tag(@product.large_photo_url, class: "pt-10", :alt => "Photo of ""#{@product.name}") %>
   <div>
     <h2><%= @product.name %></h2>
-    <p><%= "$""#{'%.2f' % (@product.price / 100.00)}" %></p>
+
+    <% rating = (Review.avg_rating(@product)) %>
+    <% if rating %>
+      <p><%= rating.round(1) %> out of 5 paws</p>
+    <% end %>
+
     <p><%= @product.description %></p>
 
-    </ul>
-      <% rating = (Review.avg_rating(@product)) %>
-      <% if rating %>
-        <li>Average review: <%= rating.round(1) %> out of 5 paws</li>
-      <% end %>
-      <li>Price: <%= "$""#{'%.2f' % (@product.price / 100.00)}" %></li>
-      <li>Description: <%= @product.description %></li>
-    </ul>
+    <p>Price: <%= "$""#{'%.2f' % (@product.price / 100.00)}" %></p>
 
     <p>Categories: 
       <% @product.categories.each do |category| %>
