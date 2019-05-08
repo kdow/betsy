@@ -1,14 +1,21 @@
-<h2>Create new category</h2>
+<section class="grid-container">
 
-<%= form_with model: @category  do |f| %>
 
-  <div class="form-group">
-    <%= f.label :name, "Category" %>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
+  <%= render "shared/dashboard_header", locals: { seller: @current_seller } %>
+  <section class="grid-body">
+    <h2>Create new category</h2>
 
-  <div class="form-group">
-    <%= f.submit "Submit", class: "btn btn-primary"%>
-  </div>
+    <%= form_with model: @category  do |f| %>
 
-<% end %>
+      <div class="form-group">
+        <%= f.label :name, "Category" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Submit", class: "btn btn-primary"%>
+      </div>
+
+    <% end %>
+  </section>
+</section>

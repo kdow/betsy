@@ -7,40 +7,44 @@ describe CategoriesController do
       must_respond_with :success
     end
   end
-
-  describe "new" do
-    it "can get the new work page" do
-      get new_category_path
-
-      must_respond_with :success
+  describe "logged in user" do
+    before do
+      perform_login
     end
-  end
+    describe "new" do
+      it "can get the new work page" do
+        get new_category_path
 
-  describe "create" do
-    it "should create new categories" do
-      category_hash = {
-        category: {
-          name: "Clothing",
-        },
-      }
-      expect {
-        post categories_path, params: category_hash
-      }.must_change "Category.count", 1
-
-      must_respond_with :redirect
+        must_respond_with :success
+      end
     end
 
-    it "should respond with bad request if the category is missing a name" do
-      category_hash = {
-        category: {
-          name: "",
-        },
-      }
-      expect {
-        post categories_path, params: category_hash
-      }.wont_change "Category.count"
+    describe "create" do
+      it "should create new categories" do
+        category_hash = {
+          category: {
+            name: "Clothing",
+          },
+        }
+        expect {
+          post categories_path, params: category_hash
+        }.must_change "Category.count", 1
 
-      must_respond_with :bad_request
+        must_respond_with :redirect
+      end
+
+      it "should respond with bad request if the category is missing a name" do
+        category_hash = {
+          category: {
+            name: "",
+          },
+        }
+        expect {
+          post categories_path, params: category_hash
+        }.wont_change "Category.count"
+
+        must_respond_with :bad_request
+      end
     end
   end
 

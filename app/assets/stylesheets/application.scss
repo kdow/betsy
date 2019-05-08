@@ -34,19 +34,34 @@ h1 a:hover {
 
 .grid-container {
   display: grid;
-  grid-template: 100% / 200px 100% ;
+  grid-template: 1fr / 200px 1fr ;
 }
 
 .grid-header {
   grid-row: 1 ;
   grid-column: 1 ;
-  background-color: rgb(220,220, 220);
+  background-color: rgb(204, 218, 217);
+  min-height: 100vh
 }
 
 .grid-body {
   grid-row: 1 ;
   grid-column: 2 ;
 }
+
+li, ul {
+  list-style-type: none;
+}
+
+.nav-title {
+  padding: 1.5rem 1rem;
+}
+a.seller-nav-btn {
+  display: inline-block; 
+  padding-top: .75rem ;
+
+}
+
 
 // .card {
 //   width: 100%;

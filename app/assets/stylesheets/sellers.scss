@@ -2,10 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-section.table-container {
-  padding: 3rem;
+// section.table-container {
+//   padding: 3rem;
+// }
+.grid-body > * {
+  margin: 2rem 4rem;
+}
+
+.btm-boarder {
+  border-bottom: 3px solid;
+  border-bottom-color: rgb(198, 229, 230)
 }
 
 .table {
-  width: 70%;
+  width: 100%;
+}
+h2 {
+  margin-bottom: 1rem;
+  padding-bottom: 2rem;
 }

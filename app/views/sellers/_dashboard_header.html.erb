@@ -1,7 +1,11 @@
 <section class="dashboard-header grid-header">
-  <h1><%= @seller.username %></h1>
+  <h4 class="nav-title"><%= @seller.username %></h4>
   <section>
-    <%= link_to "Manage Products", seller_products_path(@seller), class: "btn btn-primary" %>
-    <%= link_to "Order Fulfilment", seller_order_products_path(@seller), class: "btn btn-primary" %>
+    <ul>
+      <li><%= link_to "Manage Products", seller_products_path(@seller), class: "seller-nav-btn"%></li>
+      <li><%= link_to "Add Product", new_seller_product_path(@seller), class: "seller-nav-btn" %></li>
+      <li><%= link_to "Add Category", new_category_path, class: "seller-nav-btn" %></li>
+      <li><%= link_to "Order Fulfilment", seller_order_products_path(@seller), class: "seller-nav-btn" %></li>
+    </ul>
   </section>
 </section>
