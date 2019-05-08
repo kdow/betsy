@@ -1,9 +1,4 @@
-<h1><%= @seller.username %></h1>
-
-<section>
-  <%= link_to "Manage Products", seller_products_path(@seller), class: "btn btn-primary" %>
-  <%= link_to "Order Fulfilment", seller_order_products_path(@seller), class: "btn btn-primary" %>
-</section>
+<%= render "dashboard_header", locals: { seller: @seller } %>
 
  <h2>Product Dashboard</h2> 
 
