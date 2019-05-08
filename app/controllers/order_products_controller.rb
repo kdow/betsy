@@ -6,11 +6,18 @@ class OrderProductsController < ApplicationController
     @order = current_order
     @order_product = OrderProduct.new(order_product_params)
     @order_product.order_id = @order.id
-    @order_product.save
-    @order.order_products << @order_product
-    @order.save
-    session[:order_id] = @order.id
-    redirect_to products_path
+    if OrderProduct.already_in_cart?(@order_product, @order)
+      flash[:status] = :error
+      flash[:error] = "This item already exists in your cart."
+      redirect_to cart_path(session[:order_id])
+    else
+      @order_product.order_id = @order.id
+      @order_product.save
+      @order.order_products << @order_product
+      @order.save
+      session[:order_id] = @order.id
+      redirect_to products_path
+    end
   end
 
   def update
