@@ -1,49 +1,49 @@
-<<<<<<< HEAD
-<%= render "dashboard_header", locals: { seller: @seller } %>
+<section class="grid-container">
 
- <h2>Product Dashboard</h2> 
-=======
-<h2>Product Dashboard</h2> 
->>>>>>> master
+  <%= render "dashboard_header", locals: { seller: @seller } %>
+  <section class="grid-body">
+    <h2>Product Dashboard</h2> 
 
-<section>
-  <%= link_to "Add Product", new_seller_product_path(@seller), class: "btn btn-primary mb-3" %>
-  <%= link_to "Add Category", new_category_path, class: "btn btn-primary mb-3" %>
-</section>
+    <section>
+      <%= link_to "Add Product", new_seller_product_path(@seller), class: "btn btn-primary mb-3" %>
+      <%= link_to "Add Category", new_category_path, class: "btn btn-primary mb-3" %>
+    </section>
 
-<section>
-  <h3>Active Products</h3>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Edit</th>
-        <th>Retire</th>
-        <th>Edit Categories</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% Product.active(@seller.products).each do |product| %>
-        <tr>
-          <td><%= link_to product.name, product_path(product) %></td>
-          <td><%= product.quantity %></td>
-          <td><%= link_to "Edit", edit_seller_product_path(@seller.id, product.id), class: "btn btn-primary" %></td>
-          <td><%= link_to "Retire", product_retire_path(product.id), method: :patch, class: "btn btn-primary"  %></td>
-          <td><%= link_to "Edit Categories", seller_product_categories_path(@seller.id, product.id), class: "btn btn-primary"  %></td>
-        </tr>
+    <section class="table-container">
+      <h3>Active Products</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Edit</th>
+            <th>Retire</th>
+            <th>Edit Categories</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Product.active(@seller.products).each do |product| %>
+            <tr>
+              <td><%= link_to product.name, product_path(product) %></td>
+              <td><%= product.quantity %></td>
+              <td><%= link_to "Edit", edit_seller_product_path(@seller.id, product.id), class: "btn btn-primary" %></td>
+              <td><%= link_to "Retire", product_retire_path(product.id), method: :patch, class: "btn btn-primary"  %></td>
+              <td><%= link_to "Edit Categories", seller_product_categories_path(@seller.id, product.id), class: "btn btn-primary"  %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h3>Retired Products</h3>
+      <% @seller.products.each do |product| %>
+        <% if product.is_active == false %>
+          <ul>
+            <li><%= link_to product.name, product_path(product) %></li>
+          </ul>
+        <% end %>
       <% end %>
-    </tbody>
-  </table>
-</section>
-
-<section>
-  <h3>Retired Products</h3>
-  <% @seller.products.each do |product| %>
-    <% if product.is_active == false %>
-      <ul>
-        <li><%= link_to product.name, product_path(product) %></li>
-      </ul>
-    <% end %>
-  <% end %>
+    </section>
+  </section>
 </section>
