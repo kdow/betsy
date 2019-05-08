@@ -1,8 +1,15 @@
-<h2>Edit Product Categories</h2>
-<%= form_with model: @product, url: seller_product_categories_path(@seller, @product), class: 'book-form' do |f| %>
-  <div>
-    <%= f.label :categories %>
-    <%= collection_check_boxes(:product, :category_ids, Category.all, :id, :name) %>
-  </div>
-  <%= f.submit "Edit Categories", class: "btn btn-success" %>
-<% end %>
+<section class="grid-container">
+
+  <%= render "dashboard_header", locals: { seller: @seller } %>
+  <section class="grid-body">
+
+    <h2 class="btm-boarder">Edit Product Categories</h2>
+    <%= form_with model: @product, url: seller_product_categories_path(@seller, @product), class: 'book-form' do |f| %>
+      <div>
+        <%= f.label :categories %>
+        <%= collection_check_boxes(:product, :category_ids, Category.all, :id, :name) %>
+      </div>
+      <%= f.submit "Edit Categories", class: "btn btn-success" %>
+    <% end %>
+  </section>
+</section>
