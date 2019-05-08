@@ -89,27 +89,39 @@ describe OrderController do
 
       expect(session[:order_id]).must_equal nil
     end
-    # it "can't update if there are not enough inventory for the product" do
-    #   product = products(:crown)
+    it "can't update with bad data" do
+      product = products(:crown)
+      bad_data = {
+        order: {
+          name: "sally",
+          email: "sal@gmail.com",
+          address: "123 cat road",
+          city: "cat city",
+          state: "catsilvania",
+          zip: "123",
+          last_four: "5677",
+          cc_exp: nil,
+          cvv: nil,
 
-    #   post order_products_path, params: {
-    #                               order_product: {
-    #                                 product_id: product.id,
-    #                                 quantity: 5,
-    #                               },
-    #                             }
-    #   order = Order.find(session[:order_id])
+        },
+      }
 
-    #   order.assign_attributes(good_data[:order])
-    #   expect(order).must_be :valid?
-    #   order.reload
-    #   expect {
-    #     patch order_path(order.id), params: good_data
-    #   }.wont_change "Order.count"
-    #   must_respond_with :bad_request
+      post order_products_path, params: {
+                                  order_product: {
+                                    product_id: product.id,
+                                    quantity: 5,
+                                  },
+                                }
+      order = Order.find(session[:order_id])
 
-    #   # expect(order.valid?).must_equal false
-    #   # expect(order.errors.messages).must_include :quantity
-    # end
+      order.assign_attributes(good_data[:order])
+      expect(order).must_be :valid?
+      order.reload
+
+      patch order_path(order.id), params: bad_data
+      must_respond_with :bad_request
+
+      expect(order.valid?).must_equal false
+    end
   end
 end
