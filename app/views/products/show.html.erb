@@ -4,6 +4,10 @@
 <p><%= @product.description %></p>
 
 </ul>
+  <% rating = (Review.avg_rating(@product)) %>
+  <% if rating %>
+    <li>Average review: <%= rating.round(1) %> out of 5 paws</li>
+  <% end %>
   <li>Price: <%= "$""#{'%.2f' % (@product.price / 100.00)}" %></li>
   <li>Description: <%= @product.description %></li>
 </ul>
