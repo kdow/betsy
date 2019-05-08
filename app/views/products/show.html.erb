@@ -1,4 +1,4 @@
-<section class="d-flex justify-content-around align-items-center">
+<section class="d-flex justify-content-around align-items-center prod-show">
   <%= image_tag(@product.large_photo_url, class: "pt-10", :alt => "Photo of ""#{@product.name}") %>
   <div>
     <h2><%= @product.name %></h2>
@@ -10,7 +10,7 @@
 
     <p><%= @product.description %></p>
 
-    <p>Price: <%= "$""#{'%.2f' % (@product.price / 100.00)}" %></p>
+    <p>Price: <strong><%= "$""#{'%.2f' % (@product.price / 100.00)}" %></strong></p>
 
     <p>Categories: 
       <% @product.categories.each do |category| %>
@@ -18,13 +18,14 @@
       <% end %>
     </p>
 
-    <%= form_for OrderProduct.new do |f| %>
-      <% if @product.quantity.nil? || @product.quantity < 1 %>
-        <% "Sorry, this item is out of stock." %>
-      <% else %>
+    <% if @product.quantity.nil? || @product.quantity < 1 %>
+      <p>Out of stock</p>
+    <% else %>
+      <p>In stock</p>
+      <%= form_for OrderProduct.new do |f| %>
         <%= f.hidden_field :product_id, value: @product.id %>
         <%= f.number_field :quantity, value: 1, max: @product.quantity, class: "form-control qty" %>
-        <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+        <%= f.submit "Add to Cart", class: "btn btn-primary mt-2" %>
       <% end %>
     <% end %>
 
