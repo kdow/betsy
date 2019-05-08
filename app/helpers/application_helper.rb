@@ -12,6 +12,10 @@ module ApplicationHelper
     return date.strftime("%B %-d, %Y")
   end
 
+  def format_dollars(dollars)
+    return "$#{"%.2f" % (dollars / 100.00)}"
+  end
+
   def bootstrap_class_for(flash_type)
     case flash_type
     when "success"

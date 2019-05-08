@@ -20,7 +20,7 @@
       <ul class="navbar-nav ml-auto flex-nowrap">
         <% if session[:seller_id] %>
           <li class="nav-item">
-            <%= link_to "View My Catboard", seller_path(session[:seller_id]), class: "nav-link" %>
+            <%= link_to "View My Catboard", seller_products_path(session[:seller_id]), class: "nav-link" %>
           </li>
         <% end %>     
         <li class="dropdown">
