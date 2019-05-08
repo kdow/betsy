@@ -17,3 +17,14 @@ h2 {
   margin-bottom: 1rem;
   padding-bottom: 2rem;
 }
+
+.stats-flex {
+  display: flex;
+}
+.stat-item {
+  text-align: center;
+  width: 150px;
+  padding: 1rem 1rem;
+  margin-right: 3rem;
+  background-color: rgb(198, 229, 230) ;
+}
