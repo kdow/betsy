@@ -32,9 +32,10 @@
         <ul>
           <li>Order Status: <%= order.status %></li>
           <li>Order Date: <%= format_date(order.updated_at) %></li>
-          <li>Order Total Revenue <%= format_dollars(@seller.order_revenue(order)) %></li>
-          <li><%= link_to "View Purchase Details", seller_order_path(@seller, order), class: "btn btn-primary" %></li>
+          <li>Order Revenue: <%= format_dollars(@seller.order_revenue(order)) %></li>
+ 
         </ul>
+        <%= link_to "View Purchase Details", seller_order_path(@seller, order), class: "btn btn-primary" %>
       </div>
       <table class="table table-hover">
         <thead>
