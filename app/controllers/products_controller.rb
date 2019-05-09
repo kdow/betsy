@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show, :retire]
+  skip_before_action :require_login, only: [:index, :show]
   before_action :auth_seller, only: [:create, :edit, :update]
   before_action :find_product, only: [:show, :edit, :update, :retire]
 

@@ -21,6 +21,13 @@ a.button {
   color: black;
   padding: 4px;
 }
+.logo {
+  font-family: 'Spirax', cursive;
+  font-size: 4.25rem;
+  letter-spacing: 4px;
+  font-style: bold;
+  margin: 0
+}
 
 
 @import "bootstrap";
@@ -59,7 +66,7 @@ ul {
 }
 
 .nav-title {
-  padding: 1.5rem 1rem;
+  padding: 2rem 1rem;
 }
 
 a.seller-nav-btn {

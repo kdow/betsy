@@ -143,10 +143,6 @@ describe "SellersController" do
         must_respond_with :not_found
       end
     end
-
-    describe "destroy" do
-      ### TODO
-    end
   end
 
   describe "auth_callback" do
