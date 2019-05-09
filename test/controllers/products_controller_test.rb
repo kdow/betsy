@@ -11,13 +11,13 @@ describe ProductsController do
     Product.create name: "kittin mittins", description: "paw warmers", is_active: true, price: 1200, seller_id: seller.id, photo_url: "https://live.staticflickr.com/65535/47745224121_36f9a5ce73_q.jpg"
   }
   let (:good_data) {
-    {product: {
+    { product: {
       name: "Catnip",
       price: 600,
       description: "crazy kitty fun time",
       quantity: 10,
       seller_id: seller.id,
-    }}
+    } }
   }
   describe "logged in seller" do
     before do
@@ -193,6 +193,11 @@ describe ProductsController do
       patch seller_product_path(seller.id, Product.first), params: good_data
 
       expect(Product.first.name).must_equal first_name
+      must_redirect_to products_path
+    end
+    it "requires login for retire" do
+      patch product_retire_path(product)
+
       must_redirect_to products_path
     end
   end
