@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "homepages#index"
 
-  get "products/sellers", to: "sellers#browse_sellers", as: "browse_sellers"
+  get "products/sellers/browse", to: "sellers#browse_seller", as: "browse_seller"
+  get "sellers/:seller_id/browse", to: "sellers#browse_seller", as: "show_seller"
 
   resources :order_products
   resource :cart, only: [:show]
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   resources :sellers do
     resources :products, only: [:create, :new, :edit, :update]
     get "/products/", to: "sellers#product_index"
+    get "/browse", to: "sellers#browse_seller", as: "browse_seller"
     get "/products/:id/categories", to: "sellers#product_categories_edit", as: "product_categories"
     patch "/products/:id/categories", to: "sellers#product_categories_update"
     get "/order_products/", to: "sellers#order_product_index"
