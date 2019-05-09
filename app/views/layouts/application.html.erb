@@ -29,19 +29,7 @@
             <li><%= link_to "CATegories", categories_path, class:"button" %></li>
             <li><%= link_to "ReTAILers", show_seller_path(Seller.first.id), class:"button" %></li>
             <li><%= link_to "Purrducts", products_path, class:"button" %></li>
-            <li class="nav-item">
-            <li><%= link_to "Shopping Cat", cart_path, class: "nav-link" %></li>        
-            <% if session[:seller_id] %>
-              <li class="nav-item">
-                <%= link_to "Log out", logout_path, method: "delete", class: "nav-link" %>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to "Login with Cathub", github_login_path, class: "nav-link" %>
-              </li>
-            <% end %>
           </ul>
-        </li>
         
         <li class="nav-item">
           <%= link_to "Shopping Cat", cart_path, class: "nav-link" %>
@@ -71,5 +59,15 @@
     </section>
 
     <%= yield %>
+
+    <!-- Footer -->
+  <footer class="page-footer font-small blue pt-4">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href=#>Catsy</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
   </body>
 </html>
