@@ -11,8 +11,8 @@
     </ul>
   </section>
 <% end %>
-<%= form_with model: @order, class: 'order-form' do |f| %>
-  <p>Payment Details</p>
+<p>Payment Details</p>
+<%= form_with model: @order do |f| %>
   <div>
     <%= f.label :name, "Name on credit card" %>
     <%= f.text_field :name, placeholder: "Cat lover" %>
@@ -25,6 +25,8 @@
     <%= f.label :address, "address" %>
     <%= f.text_field :address, placeholder: "12th ne" %>
   </div>
+</div>
+<div>
   <div>
     <%= f.label :city %>
     <%= f.text_field :city, placeholder: "Redmond" %>
@@ -37,17 +39,18 @@
     <%= f.label :zip, "Zip code" %>
     <%= f.text_field :zip, placeholder: "98052" %>
   </div>
-  <div>
-    <%= f.label :last_four, "Credit card number" %>
-    <%= f.text_field :last_four, placeholder: "1234123412341234", minlength: 16, maxlength: 16 %>
-  </div>
-  <div>
-    <%= f.label :cc_exp %>
-    <%= f.text_field :cc_exp, placeholder: "1020" %>
-  </div>
-  <div>
-    <%= f.label :ccv %>
-    <%= f.text_field :ccv, placeholder: "000" %>
-  </div>
-  <%= f.submit button_text, class: "btn btn-success" %>
+</div>
+<div>
+  <%= f.label :last_four, "Credit card number" %>
+  <%= f.text_field :last_four, placeholder: "1234123412341234", minlength: 16, maxlength: 16 %>
+</div>
+<div>
+  <%= f.label :cc_exp %>
+  <%= f.text_field :cc_exp, placeholder: "1020" %>
+</div>
+<div>
+  <%= f.label :ccv %>
+  <%= f.text_field :ccv, placeholder: "000" %>
+</div>
+<%= f.submit button_text, class: "btn btn-success" %>
 <% end %>
