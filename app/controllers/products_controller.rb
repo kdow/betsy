@@ -1,4 +1,4 @@
-require "pry"
+
 
 class ProductsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
@@ -39,7 +39,6 @@ class ProductsController < ApplicationController
       @product.seller_id = session[:seller_id]
       @product.is_active = true
       @product.large_photo_url = @product.photo_url
-      binding.pry
       @successful = @product.save
       flash[:success] = "Successfully created product #{@product.name}"
       redirect_to product_path(@product.id)
