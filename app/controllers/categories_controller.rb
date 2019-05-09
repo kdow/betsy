@@ -6,6 +6,15 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def browse_category
+    @categories = Category.all
+    @category = Category.find_by(id: params[:category_id])
+
+    unless @category
+      head :not_found
+    end
+  end
+
   def show
     @category = Category.find_by(id: params[:id])
 

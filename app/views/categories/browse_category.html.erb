@@ -1,0 +1,19 @@
+<section class="grid-container">
+
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+      <ul class="nav">
+        <li class="nav-title">CATegories</li>
+          <% @categories.each do |category| %>
+             <li class="nav-item"><%= link_to (category.name).capitalize, show_category_path(category.id), class:"button category-nav-btn" %> <li>
+          <% end %>
+      </ul>
+    </nav>
+  </div>
+  
+  <article class="grid-body">
+    <%= render "categoryproducts" %>
+  </article>
+
+</section>
+
