@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get "products/sellers/browse", to: "sellers#browse_seller", as: "browse_seller"
   get "sellers/:seller_id/browse", to: "sellers#browse_seller", as: "show_seller"
+  get "categories/browse", to: "categories#browse_category", as: "browse_category"
+  get "categories/:category_id", to: "categories#browse_category", as: "show_category"
+  get "categories", to: "categories#index", as: "categories"
+  
 
   resources :order_products
   resource :cart, only: [:show]
