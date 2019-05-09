@@ -6,13 +6,17 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Spirax", media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Artifika", media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Gabriela", media: 'all', 'data-turbolinks-track' => true %>
+
     <%= favicon_link_tag asset_path('Cat_silhouette.png') %>
   </head>
   <header>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <h1>
+    <h1 class="logo">
       <%= link_to "CATsy", root_path  %>
     </h1>
       <div class="collapse navbar-collapse flex-grow-1 text-right">
@@ -20,7 +24,7 @@
       <ul class="navbar-nav ml-auto flex-nowrap">
         <% if session[:seller_id] %>
           <li class="nav-item">
-            <%= link_to "View My Catboard", seller_path(session[:seller_id]), class: "nav-link" %>
+            <%= link_to "View My Catboard", seller_products_path(session[:seller_id]), class: "nav-link" %>
           </li>
         <% end %>     
         <li class="dropdown">
@@ -57,11 +61,13 @@
         </div>
       <% end %>
     </section>
-
+    <main>
     <%= yield %>
+    </main>
 
-    <!-- Footer -->
-  <footer class="page-footer font-small blue pt-4">
+  </body>
+      <!-- Footer -->
+  <footer class="page-footer font-small pt-4 navbar-dark bg-dark">
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href=#>Catsy</a>
@@ -69,5 +75,4 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
-  </body>
 </html>

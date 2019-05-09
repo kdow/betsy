@@ -46,7 +46,7 @@ Seller.create(
 )
 
 Seller.create(
-  username: "Fast and Flully",
+  username: "Fast and Fluffy",
   email: Faker::Internet.email,
 )
 
@@ -56,7 +56,7 @@ Seller.create(
 )
 
 Seller.create(
-  username: "Fast and Flully",
+  username: "Tuxedo Cat",
   email: Faker::Internet.email,
 )
 
@@ -66,7 +66,7 @@ Seller.create(
 )
 
 Seller.create(
-  username: "Fast and Flully",
+  username: "Get It Meow!",
   email: Faker::Internet.email,
 )
 

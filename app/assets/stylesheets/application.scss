@@ -21,16 +21,34 @@ a.button {
   color: black;
   padding: 4px;
 }
+.logo {
+  font-family: 'Spirax', cursive;
+  font-size: 4.25rem;
+  letter-spacing: 4px;
+  font-style: bold;
+  margin: 0
+}
 
+main {
+  min-height: 100vh;
+}
+.page-footer{
+  color:  rgb(204, 218, 217);
+}
 
 @import "bootstrap";
 /* Import scss content */
 @import "**/*";
 
-
+h1, h2, h3, h4 {
+  font-family: "Artifika", serif;
+  // font-family: "Gabriela", serif;
+}
 h1 a:hover {
   text-decoration: none;
 }
+
+
 
 .btm-boarder {
   border-bottom: 3px solid;
@@ -59,7 +77,8 @@ ul {
 }
 
 .nav-title {
-  padding: 1.5rem 1rem;
+  padding: 2rem 1rem;
+  font-size: 2rem;
 }
 
 a.seller-nav-btn {
@@ -82,9 +101,7 @@ a.category-nav-btn {
   background-color: rgb(204, 218, 217);
 }
 
-.nav-title {
-  font-size: 2rem;
-}
+
 
 
 // .card {

@@ -4,23 +4,23 @@
 
   <section class="grid-body">
     <h2 class="btm-boarder">Order Dashboard</h2>
-      <h4>Revenue by order status</h4>
+
       <section class="order-flex">
         <div class="stat-item">
-          <p>Complete: </p>
-          <h5><%= format_dollars(@seller.total_revenue_by_status("completed")) %></h5>
+          <p class="stat-title">Revenue for Complete Orders: </p>
+          <h4><%= format_dollars(@seller.total_revenue_by_status("completed")) %></h5>
          </div> 
          <div class="stat-item">
-          <p>Pending: </p>
-          <h5><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h5>
+          <p class="stat-title">Revenue for Pending Orders: </p>
+          <h4><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h5>
         </div>
         <div class="stat-item">
-          <p>Shipped: </p>
-          <h5><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h5>
+          <p class="stat-title">Total Revenue: </p>
+          <h4><%= format_dollars(@seller.total_revenue_by_status("in progress") + @seller.total_revenue_by_status("completed")) %></h5>
         </div>
         <div class="stat-item">
-          <p>Total: </p>
-          <h5><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h5>
+          <p class="stat-title">Total Items Sold: </p>
+          <h4><%= %></h5>
         </div>
       </section>
 
@@ -32,11 +32,12 @@
         <ul>
           <li>Order Status: <%= order.status %></li>
           <li>Order Date: <%= format_date(order.updated_at) %></li>
-          <li>Order Total Revenue <%= format_dollars(@seller.order_revenue(order)) %></li>
-          <li><%= link_to "View Purchase Details", seller_order_path(@seller, order), class: "btn btn-primary" %></li>
+          <li>Order Revenue: <%= format_dollars(@seller.order_revenue(order)) %></li>
+ 
         </ul>
+        <%= link_to "View Purchase Details", seller_order_path(@seller, order), class: "btn btn-primary" %>
       </div>
-      <table class="table">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>Product</th>

@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "homepages#index"
 
+  get "categories/new", to: "categories#new", as: "new_category"
   get "products/sellers/browse", to: "sellers#browse_seller", as: "browse_seller"
   get "sellers/:seller_id/browse", to: "sellers#browse_seller", as: "show_seller"
   get "categories/browse", to: "categories#browse_category", as: "browse_category"
   get "categories/:category_id", to: "categories#browse_category", as: "show_category"
-  get "categories", to: "categories#index", as: "categories"
+  # get "categories", to: "categories#index", as: "categories"
   
 
   resources :order_products
