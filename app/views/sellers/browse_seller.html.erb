@@ -1,0 +1,18 @@
+<section class="grid-container">
+
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+      <ul class="nav">
+        <li class="nav-title">Our Sellers</li>
+        <% @sellers.each do |s| %>
+          <li class="nav-item"><%= link_to s.username, show_seller_path(s.id), class:"button seller-nav-btn" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+  
+  <article class="grid-body">
+    <%= render "sellersproducts" %> 
+  </article>
+
+</section>
