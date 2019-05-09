@@ -2,6 +2,7 @@ class Seller < ApplicationRecord
   has_many :products
 
   has_many :orders, through: :products
+  has_many :order_products, through: :products
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
@@ -38,5 +39,6 @@ class Seller < ApplicationRecord
   end
 
   def total_items_sold
+    order_items = self.order_products.count { |item| item.order.status == "completed" }
   end
 end
