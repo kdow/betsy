@@ -1,9 +1,9 @@
 <section>
   <h2>Reviews</h2>
-      <% rating = (Review.avg_rating(@product)) %>
-    <% if rating %>
-      <p>Average rating: <%=link_to rating.round(1), product_reviews_path(@product) %> out of 5 paws</p>
-    <% end %>
+  <% rating = (Review.avg_rating(@product)) %>
+  <% if rating %>
+    <p>Average rating: <%=link_to rating.round(1), product_reviews_path(@product) %> out of 5 paws</p>
+  <% end %>
   <table class="table table-bordered table-hover">
     <thead>
       <tr>
@@ -14,11 +14,10 @@
     <tbody>
       <% @reviews.each do |review| %>
         <tr>
-        <td><%= review.rating%></td>
-        <td><%=review.description%></td>
+          <td><%= review.rating%></td>
+          <td><%=review.description%></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </section>
-

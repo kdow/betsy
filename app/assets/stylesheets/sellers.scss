@@ -17,3 +17,22 @@ h2 {
   margin-bottom: 1rem;
   padding-bottom: 2rem;
 }
+
+.order-flex {
+  display: flex;
+  padding: 1rem 0;
+}
+.order-info {
+  padding: 2rem;
+  margin-right: 3rem;
+  background-color: rgb(198, 229, 230) ;
+  width: 350px;
+  height: 215px;
+}
+.stat-item {
+  width: 150px;
+  text-align: center;
+  padding: 1rem 1rem;
+  margin-right: 3rem;
+  background-color: rgb(198, 229, 230) ;
+}

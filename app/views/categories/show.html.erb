@@ -1,25 +1,32 @@
 <h2><%= (@category.name).capitalize %></h2>
 <section class="cards">
-<% Product.active(@category.products).each do |product| %>
-  <article>
-    <div class="card">
-      <%= image_tag(product.photo_url, class: "card-img-top", :alt => "Photo of ""#{product.name}") %>
-      <div class="card-body">
-        <%= link_to product.name, product_path(product) %> 
-        <br>
-        <%= "$""#{'%.2f' % (product.price / 100.00)}" %>
-
-        <%= form_for OrderProduct.new do |f| %>
-          <% if product.quantity.nil? || product.quantity < 1 %>
-            <% "Sorry, this item is out of stock." %>
-          <% else %>
-            <%= f.hidden_field :product_id, value: product.id %>
-              <%= f.number_field :quantity, value: 0, min: 0, max: product.quantity, class: "form-control qty" %>
-            <%= f.submit "Add to Cart", class: "btn btn-primary" %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </article>
-<% end %>
-</section>
+  <% Product.active(@category.products).each do |product| %>
+    <article>
+      <div class="card">
+        <%= image_tag(product.photo_url, class: "card-img-top", :alt => "Photo of ""#{product.name}") %>
+        <div class="card-body">
+          <h4 class="card_title">
+            <%= link_to product.name, product_path(product) %>
+          </h4>
+          <div class="card_body">
+            <%= "$""#{'%.2f' % (product.price / 100.00)}" %>
+          </div>
+          <div class="card_body">
+            <%= form_for OrderProduct.new do |f| %>
+              <% if product.quantity.nil? || product.quantity < 1 %>
+                <% "Sorry, this item is out of stock." %>
+              <% else %>
+                <p class="card_link">
+                  <%= f.hidden_field :product_id, value: product.id %>
+                  <%= f.number_field :quantity, value: 0, min: 0, max: product.quantity, class: "form-control qty" %>
+                </p>
+                <p class="card_link">
+                  <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+                </p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </article>
+    <% end %>
+  </section>
