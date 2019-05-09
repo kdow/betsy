@@ -8,19 +8,19 @@
       <section class="order-flex">
         <div class="stat-item">
           <p class="stat-title">Revenue for Complete Orders: </p>
-          <h5><%= format_dollars(@seller.total_revenue_by_status("completed")) %></h5>
+          <h4><%= format_dollars(@seller.total_revenue_by_status("completed")) %></h5>
          </div> 
          <div class="stat-item">
           <p class="stat-title">Revenue for Pending Orders: </p>
-          <h5><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h5>
+          <h4><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h5>
         </div>
         <div class="stat-item">
           <p class="stat-title">Total Revenue: </p>
-          <h5><%= format_dollars(@seller.total_revenue_by_status("in progress") + @seller.total_revenue_by_status("completed")) %></h5>
+          <h4><%= format_dollars(@seller.total_revenue_by_status("in progress") + @seller.total_revenue_by_status("completed")) %></h5>
         </div>
         <div class="stat-item">
           <p class="stat-title">Total Items Sold: </p>
-          <h5><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h5>
+          <h4><%= %></h5>
         </div>
       </section>
 

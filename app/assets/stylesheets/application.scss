@@ -40,10 +40,15 @@ main {
 /* Import scss content */
 @import "**/*";
 
-
+h1, h2, h3, h4 {
+  font-family: "Artifika", serif;
+  // font-family: "Gabriela", serif;
+}
 h1 a:hover {
   text-decoration: none;
 }
+
+
 
 .btm-boarder {
   border-bottom: 3px solid;

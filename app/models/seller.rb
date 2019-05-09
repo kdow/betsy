@@ -36,4 +36,7 @@ class Seller < ApplicationRecord
     end
     return total
   end
+
+  def total_items_sold
+  end
 end
