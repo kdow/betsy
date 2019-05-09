@@ -7,6 +7,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Spirax", media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Artifika", media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Gabriela", media: 'all', 'data-turbolinks-track' => true %>
+
     <%= favicon_link_tag asset_path('Cat_silhouette.png') %>
   </head>
   <header>
@@ -21,13 +24,13 @@
       <ul class="navbar-nav ml-auto flex-nowrap">
         <% if session[:seller_id] %>
           <li class="nav-item">
-            <%= link_to "View My Catboard", seller_path(session[:seller_id]), class: "nav-link" %>
+            <%= link_to "View My Catboard", seller_products_path(session[:seller_id]), class: "nav-link" %>
           </li>
         <% end %>     
         <li class="dropdown">
           <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Browse by<span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><%= link_to "CATegories", categories_path, class:"button" %></li>
+            <li><%= link_to "CATegories", show_category_path(Category.first.id), class:"button" %></li>
             <li><%= link_to "ReTAILers", show_seller_path(Seller.first.id), class:"button" %></li>
             <li><%= link_to "Purrducts", products_path, class:"button" %></li>
           </ul>
@@ -58,11 +61,13 @@
         </div>
       <% end %>
     </section>
-
+    <main>
     <%= yield %>
+    </main>
 
-    <!-- Footer -->
-  <footer class="page-footer font-small blue pt-4">
+  </body>
+      <!-- Footer -->
+  <footer class="page-footer font-small pt-4 navbar-dark bg-dark">
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href=#>Catsy</a>
@@ -70,5 +75,4 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
-  </body>
 </html>
