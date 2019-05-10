@@ -4,3 +4,42 @@
 .reviews {
   margin: 2rem 4rem;
 }
+
+.rating {
+  display: inline-block;
+  position: relative;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating:not(:checked) > label {
+    float: right;
+    width: 1.2em;
+    padding: 0 .1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 200%;
+    color:#ccc;
+}
+
+.rating:not(:checked) > label:before {
+    font-family: FontAwesome;
+    content: "\f1b0";
+}
+
+.rating > input:checked ~ label {
+  color: #007bff;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label,
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: black;
+}
