@@ -2,7 +2,7 @@
   <article class="card order-details text-center">
 
 
-    <h2 class="btm-boarder">Thanks for shopping at Catsy!</h2>
+    <h2 class="btm-boarder">Thanks for shopping at CATsy!</h2>
     <div>
       <h4> <%= Order.last.order_products.length %> items will be shipped to: <%= Order.last.name %></h4>
       <p>Shipping address: <%= Order.last.address %>, <%= Order.last.city %>, <%= Order.last.state %>, <%= Order.last.zip %></p>
@@ -35,7 +35,7 @@
       <% end %>
     </table>
     <div>
-      <h5>Order Total price: <%= "$""#{'%.2f' % (Order.last.total_price / 100)}" %></h5>
+      <h5>Order Total price: <%= "$""#{'%.2f' % (Order.last.total_price / 100.00)}" %></h5>
       <p>Card ending in: xxxx-xxxx-xxxx-<%= Order.last.last_four[12..16]%>
       <p>Order placed on: <%= (Order.last.created_at.strftime("%b %d, %Y, at %H:%M%p")) %>. Status: <%= Order.last.status %></p>
     </div>
