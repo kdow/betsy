@@ -56,4 +56,25 @@ describe OrderProduct do
       expect(result).must_equal false
     end
   end
+  describe "validations" do
+    it "must have a quantity" do
+      order_product = order_products(:one)
+      order_product.quantity = nil
+      expect(order_product.valid?).must_equal false
+      expect(order_product.errors.messages).must_include :quantity
+    end
+    it "must have a quantity greater than zero" do
+      order_product = order_products(:one)
+      order_product.quantity = 0
+      expect(order_product.valid?).must_equal false
+      expect(order_product.errors.messages).must_include :quantity
+    end
+
+    it "can only have an integer as quantity" do
+      order_product = order_products(:one)
+      order_product.quantity = "string"
+      expect(order_product.valid?).must_equal false
+      expect(order_product.errors.messages).must_include :quantity
+    end
+  end
 end
