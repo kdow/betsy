@@ -36,9 +36,8 @@ class OrderProductsController < ApplicationController
     end
   end
 
-  # def mark_as_shipped
-
-  # end
+  def mark_as_shipped
+  end
 
   def destroy
     @order = current_order

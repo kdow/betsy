@@ -7,24 +7,27 @@
 
       <section class="order-flex stat-box">
         <div class="stat-item">
-          <p class="stat-title">Revenue for Complete Orders: </p>
-          <h4><%= format_dollars(@seller.total_revenue_by_status("completed")) %></h5>
+
+          <h3><%= format_dollars(@seller.total_revenue_by_status("completed")) %></h3>
+          <p class="stat-title">Revenue in Complete Orders </p>
          </div> 
          <div class="stat-item">
-          <p class="stat-title">Revenue for Pending Orders: </p>
-          <h4><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h5>
+          <h3><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h3>
+          <p class="stat-title">Revenue in Pending Orders </p>
         </div>
         <div class="stat-item">
-          <p class="stat-title">Total Revenue: </p>
-          <h4><%= format_dollars(@seller.total_revenue_by_status("in progress") + @seller.total_revenue_by_status("completed")) %></h5>
+
+          <h3><%= format_dollars(@seller.total_revenue_by_status("in progress") + @seller.total_revenue_by_status("completed")) %></h3>
+          <p class="stat-title">Total Revenue </p>
         </div>
         <div class="stat-item">
-          <p class="stat-title">Total Items Sold: </p>
-          <h4><%= @seller.total_items_sold %></h5>
+          <h3><%= @seller.total_items_sold %></h3>
+          <p class="stat-title">Items Sold </p>
+
         </div>
       </section>
 
-    <h4>Your Orders</h4>
+    <h3>Your Orders</h3>
     <% @orders.each do |order| %>
     <section class="order-flex">
       <div class="order-info">
