@@ -48,8 +48,23 @@ describe Seller do
       expect(seller.total_revenue_by_status("in progress")).must_equal 12000
     end
 
-    it "returns 0 if there are no order with given status" do
-      expect(seller.total_revenue_by_status("shipped")).must_equal 0
+    it "returns 0 if there are no orders with given status" do
+      expect(seller.total_revenue_by_status("paid")).must_equal 0
+    end
+    it "returns 0 if given a bogus status" do
+      expect(seller.total_revenue_by_status("fake status")).must_equal 0
+    end
+  end
+  describe "total_items_sold" do
+    it "returns the correct number of items" do
+      expect(seller.total_items_sold).must_equal 4
+    end
+    it "returns 0 if the seller has no orders" do
+      expect(new_seller.total_items_sold).must_equal 0
+    end
+    it "returns 0 if the seller has no complete orders" do
+      catnip_seller = sellers(:catnip_seller)
+      expect(catnip_seller.total_items_sold).must_equal 0
     end
   end
 end

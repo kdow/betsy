@@ -20,6 +20,8 @@
 
     <% if @product.quantity.nil? || @product.quantity < 1 %>
       <p>Out of stock</p>
+    <% elsif @product.is_active == false %>
+      <P>Item is no longer available</P>
     <% else %>
       <p>In stock</p>
       <%= form_for OrderProduct.new do |f| %>

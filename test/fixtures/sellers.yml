@@ -21,3 +21,9 @@ new_seller:
   email: devin@cats.com
   provider: github
   uid: 1437167
+
+catnip_seller: 
+  username: carla
+  email: carla@cats.com
+  provider: github
+  uid: 4575869

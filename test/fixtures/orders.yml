@@ -83,3 +83,15 @@ empty_order:
   city: 
   state: 
   zip: 
+
+completed:
+  status: completed
+  name: 
+  email: 
+  last_four: 
+  cc_exp: 
+  cvv: 
+  address: 
+  city: 
+  state: 
+  zip: 

@@ -1,3 +1,5 @@
+require "pry"
+
 class Seller < ApplicationRecord
   has_many :products
 
@@ -39,6 +41,14 @@ class Seller < ApplicationRecord
   end
 
   def total_items_sold
-    order_items = self.order_products.count { |item| item.order.status == "completed" }
+    order_items = 0
+
+    self.order_products.each do |item|
+      # binding.pry
+      if item.order.status == "completed"
+        order_items += item.quantity
+      end
+    end
+    return order_items
   end
 end
