@@ -123,6 +123,12 @@ a.category-nav-btn {
   margin-bottom: 2rem;
 }
 
+.form-control.qty {
+  width: 3rem;
+  display: inline;
+  vertical-align: middle;
+}
+
 .empty-paw {
   color: #ccc;
 }
@@ -156,3 +162,7 @@ p a:hover, h2 a:hover, h3 a:hover, h4 a:hover,  table a:hover, li a:hover {
  td, p {
    font-size: 1.1rem;
  }
+section article {
+  padding: 2rem 2rem 1rem 1rem;
+}
+

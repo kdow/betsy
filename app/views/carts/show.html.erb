@@ -1,6 +1,8 @@
 <main>
-  <section>
-    <table class="table">
+  <section class="grid-body">
+  <h2>Checkout</h2>
+    <section class="table-container">
+      <table class="table table-hover">
       <thead>
         <tr>
           <th></th>
@@ -16,12 +18,12 @@
             <tr>
               <td></td>
               <td><%= link_to item.product.name, product_path(item) %></td>
-              <td><%= "$""#{(item.product.price/100.00).round(2)}" %></td>
+              <td><%= '$%.2f' % "#{(item.product.price/100.00).round(2)}" %></td>
               <td>
                 <%= form_for item do |f| %>
                   <%= f.hidden_field :product_id, value: item.product.id %>
-                  <%= f.number_field :quantity, min: 0, max: item.product.quantity %>
-                  <%= f.submit "Update cart" %>
+                  <%= f.number_field :quantity, min: 0, max: item.product.quantity, class:"form-control qty" %>
+                  <%= f.submit "Update cart", class: "btn btn-primary" %>
                 <% end %>
               </td>
               <td><%= link_to "Delete", order_product_path(item), :data => {:confirm => "Are you sure?", :method => "delete"} %></td>
@@ -29,7 +31,7 @@
           <% end %>
           <tr>
             <td></td>
-            <td>Order Total: <%= "$""#{(@order_products[0].order.calculate_total/100.00).round(2)}" %></td>
+            <td>Order Total: <%= '$%.2f' % "#{(@order_products[0].order.calculate_total/100.00).round(2)}" %></td>
             <tr>
             <% else %>
               <p>Your shopping cart is empty.</p>
@@ -45,5 +47,7 @@
           <%= link_to "Continue shopping", products_path, class: "btn btn-success" %>
         <% end %>
       </section>
-    </main>
+    </section>
+  </section>
+</main>
 
