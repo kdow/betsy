@@ -1,38 +1,45 @@
-<h2>Thanks for shopping at Catsy!</h2>
-<table class="table">
-  <tr>
-    <th>
-      Item
-    </th>
-    <th>
-      Quantity
-    </th>
-    <th>
-      Subtotal
-    </th>
-  </tr>
-  <tbody>
-    <tr>
-      <% Order.last.order_products.each do |item| %>
-        <td>
-          <%= link_to item.product.name, product_path(item.product) %>
-        </td>
-        <td>
-          <%= item.quantity %>
-        </td>
-        <td>
-          <%= "$""#{'%.2f' % (item.quantity * item.product.price / 100.00)}" %>
-        </td>
-      </tbody>
-    <% end %>
-  </table>
-  <div>
-    <p>Order Total price: <%= "$""#{'%.2f' % (Order.last.total_price / 100)}" %></p>
-    <p>Card ending in: <%= Order.last.last_four[12..16]%>
-    <p>Order placed on: <%= (Order.last.created_at.strftime("%b %d, %Y, at %H:%M%p")) %>. Status: <%= Order.last.status %></p>
-  </div>
-  <br>
-  <div>
-    <h4> <%= Order.last.order_products.length %> items will be shipped to: <%= Order.last.name %></h4>
-    <p>Shipping address: <%= Order.last.address %>, <%= Order.last.city %>, <%= Order.last.state %>, <%= Order.last.zip %></p>
-  </div>
+<section class="container">
+  <article class="card order-details text-center">
+
+
+    <h2 class="btm-boarder">Thanks for shopping at Catsy!</h2>
+    <div>
+      <h4> <%= Order.last.order_products.length %> items will be shipped to: <%= Order.last.name %></h4>
+      <p>Shipping address: <%= Order.last.address %>, <%= Order.last.city %>, <%= Order.last.state %>, <%= Order.last.zip %></p>
+    </div>
+    <table class="table">
+      <tr>
+        <th>
+          Item
+        </th>
+        <th>
+          Quantity
+        </th>
+        <th>
+          Subtotal
+        </th>
+      </tr>
+      <tbody>
+        <tr>
+        <% Order.last.order_products.each do |item| %>
+          <td>
+            <%= link_to item.product.name, product_path(item.product) %>
+          </td>
+          <td>
+            <%= item.quantity %>
+          </td>
+          <td>
+            <%= "$""#{'%.2f' % (item.quantity * item.product.price / 100.00)}" %>
+          </td>
+        </tbody>
+      <% end %>
+    </table>
+    <div>
+      <h5>Order Total price: <%= "$""#{'%.2f' % (Order.last.total_price / 100)}" %></h5>
+      <p>Card ending in: xxxx-xxxx-xxxx-<%= Order.last.last_four[12..16]%>
+      <p>Order placed on: <%= (Order.last.created_at.strftime("%b %d, %Y, at %H:%M%p")) %>. Status: <%= Order.last.status %></p>
+    </div>
+
+
+  </article>
+</section>

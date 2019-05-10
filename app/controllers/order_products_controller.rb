@@ -1,6 +1,8 @@
+
+
 class OrderProductsController < ApplicationController
-  skip_before_action :require_login
-  skip_before_action :auth_seller
+  skip_before_action :require_login, except: [:mark_as_shipped]
+  skip_before_action :auth_seller, except: [:mark_as_shipped]
 
   def create
     @order = current_order
@@ -34,6 +36,13 @@ class OrderProductsController < ApplicationController
       flash[:success] = "Quantity successfuly updated."
       redirect_to cart_path
     end
+  end
+
+  def mark_as_shipped
+    order_product = OrderProduct.find_by(id: params[:order_product_id])
+    order_product.shipped = true
+    order_product.save
+    redirect_to seller_order_products_path
   end
 
   def destroy

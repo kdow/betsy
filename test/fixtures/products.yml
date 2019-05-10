@@ -12,6 +12,14 @@ bouquet:
   name: Bouquet of flowers
   description: A bouquet of flowers for your favorite pal
   price: 2000
-  quantity: 10
+  quantity: 30
   photo_url: https://live.staticflickr.com/65535/47745224121_36f9a5ce73_q.jpg
   seller: sarah
+
+new_product:
+  name: new sellers first product
+  description: catnip
+  price: 2000
+  quantity: 30
+  photo_url: https://live.staticflickr.com/65535/47745224121_36f9a5ce73_q.jpg
+  seller: catnip_seller

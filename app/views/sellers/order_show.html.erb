@@ -1,10 +1,14 @@
-<h2 class="btm-boarder">Order Purchase Details</h2>
+<section class="container">
+  <article class="card purchase-details text-center">
+    <h2 class="btm-boarder">Order Purchase Details</h2>
 
-<h3>Customer information:</h3>
-<ul>
-  <li>Name: <%= @order.name %></li>
-  <li>Email: <%= @order.email %></li>
-  <li>Address: <%= "#{@order.address}, #{@order.city}, #{@order.state}, #{@order.zip} " %></li>
-  <li>Credit Card: xxxx-xxxx-xxxx-<%= @order.last_four %></li>
-  <li>Expiration date: <%= @order.cc_exp %></li>
-</ul>
+    <h3 >Customer information:</h3>
+    <ul>
+      <li>Name: <%= @order.name %></li>
+      <li>Email: <%= @order.email %></li>
+      <li>Address: <%= "#{@order.address}, #{@order.city}, #{@order.state}, #{@order.zip} " %></li>
+      <li>Credit Card: xxxx-xxxx-xxxx-<%= @order.last_four %></li>
+      <li>Expiration date: <%= @order.cc_exp %></li>
+    </ul>
+  </article>
+</section>

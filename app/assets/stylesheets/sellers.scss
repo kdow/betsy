@@ -35,9 +35,9 @@ h2 {
 .stat-item {
   width: 200px;
   text-align: center;
-  padding: 1rem 1rem;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
+  padding: 1.5rem;
+  margin-right: 3rem;
+  // margin-top: 2rem;
   background-color: rgb(198, 229, 230) ;
 }
 .stat-item:last-child {
@@ -45,4 +45,6 @@ h2 {
 }
 .stat-title {
   height: 50px;
+  margin: 0;
 }
+
