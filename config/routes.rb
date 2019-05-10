@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     patch "/products/:id/categories", to: "sellers#product_categories_update"
     get "/order_products/", to: "sellers#order_product_index"
     get "/order/:order_id", to: "sellers#order_show", as: "order"
-    patch "/order_products/:order_product_id", to: "order_products#mark_as_shipped"
+    patch "/order_products/:order_product_id", to: "order_products#mark_as_shipped", as: "mark_as_shipped"
   end
 
   resources :categories do

@@ -46,6 +46,7 @@
             <th>Product</th>
             <th>Quantity</th>
             <th>Subtotal</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -56,6 +57,11 @@
             <td><%= link_to order_product.product.name, product_path(order_product.product) %></td>
             <td><%= order_product.quantity %></td>
             <td>$<%= "#{'%.2f' % (order_product.line_item_subtotal / 100.00)}"%></td>
+            <% if order_product.shipped == true %>
+              <td>Shipped</td>
+            <% else %>
+              <td><%= link_to "Mark as Shipped", seller_mark_as_shipped_path(@seller, order_product), method: :patch, class: "btn btn-primary" %></td>
+            <% end %>
           </tr>
         <% end %>
       <% end %>
