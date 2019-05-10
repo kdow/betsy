@@ -6,6 +6,30 @@ describe Review do
   # it "must be valid" do
   #   value(review).must_be :valid?
   # end
+  describe "validations" do
+    let(:review) {reviews(:one)}
+    it "must have a rating" do
+      review.rating = nil
+      result = review.valid?
+      expect(result).must_equal false
+    end
+    it "must have an integer rating" do
+      review.rating = "string"
+      result = review.valid?
+      expect(result).must_equal false
+    end
+    it "cant have a rating less than 1" do
+      review.rating = 0
+      result = review.valid?
+      expect(result).must_equal false
+    end
+    it "cant have a rating more than 5" do
+      review.rating = 6
+      result = review.valid?
+      expect(result).must_equal false
+    end
+
+  end
 
   describe "avg_rating" do
     let(:product) { products(:crown) }
