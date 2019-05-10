@@ -17,7 +17,7 @@
 .rating:not(:checked) > label {
     float: right;
     width: 1.2em;
-    padding: 0 .1em;
+    padding: 0 .25em;
     overflow: hidden;
     white-space: nowrap;
     cursor: pointer;
@@ -31,7 +31,7 @@
 }
 
 .rating > input:checked ~ label {
-  color: #007bff;
+  color: #3e8dc9;
 }
 
 .rating:not(:checked) > label:hover,
