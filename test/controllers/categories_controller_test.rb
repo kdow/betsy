@@ -40,6 +40,28 @@ describe CategoriesController do
         must_respond_with :bad_request
       end
     end
+    describe "show" do
+      it "should get show" do
+        get category_path(Category.first.id)
+
+        must_respond_with :success
+      end
+
+      it "will respond with 404 if the category is not found" do
+        get category_path(-1)
+
+        must_respond_with :not_found
+      end
+    end
+    describe "brows category" do
+      it "can show the selected category" do
+        @category = Category.last
+        get category_path(@category.id)
+
+        must_respond_with :success
+      end
+ 
+    end
   end
   describe "Guest user" do
     describe "index" do
