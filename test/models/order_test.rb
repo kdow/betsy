@@ -41,12 +41,12 @@ describe Order do
       expect(kitcat.errors.messages).must_include :cc_exp
       expect(kitcat.errors.messages[:cc_exp]).must_equal ["can't be blank"]
     end
-    # it "requires a cvv number" do
-    #   kitcat.cvv = nil
-    #   kitcat.valid?.must_equal false
-    #   expect(kitcat.errors.messages).must_include :cvv
-    #   expect(kitcat.errors.messages[:cvv]).must_equal ["can't be blank"]
-    # end
+    it "requires a cvv number" do
+      kitcat.cvv = nil
+      kitcat.valid?.must_equal false
+      expect(kitcat.errors.messages).must_include :cvv
+      expect(kitcat.errors.messages[:cvv]).must_equal ["can't be blank"]
+    end
     it "requires a city" do
       kitcat.city = nil
       kitcat.valid?.must_equal false
