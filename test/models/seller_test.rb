@@ -5,11 +5,68 @@ describe Seller do
   let(:kelly) { sellers(:sarah) }
   let(:new_seller) { sellers(:new_seller) }
 
-  it "can add a product through .products" do
-    prod = Product.new(name: "mousie", price: 300)
-    seller_one = sellers(:kelly)
-    seller_one.products << prod
-    expect(seller_one.products).must_include prod
+  describe "relationships" do
+    it "can add a product through .products" do
+      prod = Product.new(name: "mousie", price: 300)
+      seller_one = sellers(:kelly)
+      seller_one.products << prod
+      expect(seller_one.products).must_include prod
+    end
+
+    it "can get an list of orders through .orders" do
+      orders = seller.orders
+      expect(orders.first).must_be_instance_of Order
+      expect(orders).must_include orders(:completed)
+    end
+
+    it "can get a list of order_products through .order_products" do
+      order_products = seller.order_products
+      expect(order_products.first).must_be_instance_of OrderProduct
+      expect(order_products.first.product.seller).must_equal seller
+      expect(order_products).must_include order_products("completed-3")
+    end
+  end
+
+  describe "validations" do
+    before do
+      @another_seller = Seller.new(
+        {
+          username: "Fluffer Nutter",
+          email: "fluffy@kitties.com",
+          uid: 3447584,
+          provider: "Github",
+        }
+      )
+    end
+    it "is valid when all fields are valid" do
+      result = @another_seller.valid?
+
+      expect(result).must_equal true
+    end
+    it "Is invalid when a username is blank" do
+      @another_seller.username = nil
+      result = @another_seller.valid?
+
+      expect(result).must_equal false
+    end
+    it "Is invalid when a username is not unique" do
+      @another_seller.username = seller.username
+      result = @another_seller.valid?
+
+      expect(result).must_equal false
+    end
+    it "Is invalid when an email is blank" do
+      @another_seller.email = nil
+      result = @another_seller.valid?
+
+      expect(result).must_equal false
+    end
+    it "Is invalid when an email is not unique" do
+      @another_seller.email = seller.email
+      result = @another_seller.valid?
+
+      expect(result).must_equal false
+    end
   end
 
   describe "get_unique_orders" do
@@ -48,8 +105,23 @@ describe Seller do
       expect(seller.total_revenue_by_status("in progress")).must_equal 12000
     end
 
-    it "returns 0 if there are no order with given status" do
-      expect(seller.total_revenue_by_status("shipped")).must_equal 0
+    it "returns 0 if there are no orders with given status" do
+      expect(seller.total_revenue_by_status("paid")).must_equal 0
+    end
+    it "returns 0 if given a bogus status" do
+      expect(seller.total_revenue_by_status("fake status")).must_equal 0
+    end
+  end
+  describe "total_items_sold" do
+    it "returns the correct number of items" do
+      expect(seller.total_items_sold).must_equal 4
+    end
+    it "returns 0 if the seller has no orders" do
+      expect(new_seller.total_items_sold).must_equal 0
+    end
+    it "returns 0 if the seller has no complete orders" do
+      catnip_seller = sellers(:catnip_seller)
+      expect(catnip_seller.total_items_sold).must_equal 0
     end
   end
 end

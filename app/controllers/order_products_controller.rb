@@ -36,6 +36,10 @@ class OrderProductsController < ApplicationController
     end
   end
 
+  # def mark_as_shipped
+
+  # end
+
   def destroy
     @order = current_order
     @item = @order.order_products.find_by(id: params[:id])

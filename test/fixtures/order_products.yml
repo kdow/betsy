@@ -53,3 +53,23 @@ sarah-6:
   quantity: 1
   order: new_order_dup
   product: bouquet
+
+completed-1:
+  quantity: 1
+  order: completed
+  product: crown
+
+completed-2:
+  quantity: 3
+  order: completed
+  product: bouquet
+
+completed-3: 
+  quantity: 1
+  order: completed
+  product: bouquet
+
+catnip:
+  quantity: 10
+  order: in progress
+  product: catnip
