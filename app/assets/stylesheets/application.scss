@@ -12,6 +12,9 @@
  *
  */
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
+
+@import "font-awesome";
+
 button.btn.dropdown-toggle {
   background-color: transparent;
   color: rgba(255,255, 255, 0.5);
@@ -26,7 +29,11 @@ a.button {
   font-size: 4.25rem;
   letter-spacing: 4px;
   font-style: bold;
-  margin: 0
+  margin: 0;
+}
+
+.logo a {
+  color: white;
 }
 
 main {
@@ -89,9 +96,27 @@ a.seller-nav-btn {
 
 }
 
+a.category-nav-btn {
+  display: inline-block; 
+  padding-top: .75rem ;
+  padding-right: 3rem;
+  padding-left: 1rem;
+  font-size: 1.1rem;
+}
+
 .sidebar {
   background-color: rgb(204, 218, 217);
+  min-height: 100vh;
 }
+
+.banner {
+  border-bottom: inset;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 
 
 
@@ -102,3 +127,7 @@ a.seller-nav-btn {
 //   margin: 2rem;
 //   padding: 2rem;
 // }
+
+.empty-paw {
+  color: #ccc;
+}

@@ -1,10 +1,13 @@
-<section>
-  <h2>Reviews</h2>
+<section class="reviews">
+  <h2 class="btm-boarder">Reviews</h2>
+  <h3><%= link_to @product.name, product_path(@product)%></h3>
   <% rating = (Review.avg_rating(@product)) %>
   <% if rating %>
-    <p>Average rating: <%=link_to rating.round(1), product_reviews_path(@product) %> out of 5 paws</p>
+    <p>Average rating: </p>
+    <%= render partial: "reviews/paws", locals: { paws: rating.round } %>
+    <span> | <%= rating.round(1) %> out of 5 paws</span>
   <% end %>
-  <table class="table table-bordered table-hover">
+  <table class="table mt-3">
     <thead>
       <tr>
         <th>Rating</th>
@@ -14,7 +17,7 @@
     <tbody>
       <% @reviews.each do |review| %>
         <tr>
-          <td><%= review.rating%></td>
+          <td><%= render partial: "reviews/paws", locals: { paws: review.rating } %></td>
           <td><%=review.description%></td>
         </tr>
       <% end %>

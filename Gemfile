@@ -87,3 +87,5 @@ gem 'faker'
 gem "omniauth"
 gem "omniauth-github"
 
+gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 5.8.1'
