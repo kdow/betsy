@@ -2,10 +2,10 @@
   <%= image_tag(@product.large_photo_url, class: "pt-10", :alt => "Photo of ""#{@product.name}") %>
   <div>
     <h2><%= @product.name %></h2>
-
     <% rating = (Review.avg_rating(@product)) %>
     <% if rating %>
-      <p><%=link_to rating.round(1), product_reviews_path(@product) %> out of 5 paws</p>
+      <%= render partial: "reviews/paws", locals: { paws: rating.round } %>
+      <span> | <%=link_to rating.round(1), product_reviews_path(@product) %> out of 5 paws</span>
     <% end %>
 
     <p><%= @product.description %></p>

@@ -1,0 +1,7 @@
+<% paw_icon = fa_icon('paw') %>
+<% paws.times do %>
+  <span class="paw"><%= paw_icon %></span>
+<% end %>
+<% (5 - paws).times do %>
+  <span class="empty-paw"><%= paw_icon %></span>
+<% end %>
