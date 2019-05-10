@@ -20,5 +20,12 @@ describe Category do
       expect(category.errors.messages).must_include :name
       expect(category.errors.messages[:name]).must_equal ["can't be blank"]
     end
+    it "requires a unique name" do
+      category = Category.new(name: "Toys")
+      result = category.valid?
+
+      expect(result).must_equal false
+      expect(category.errors.messages).must_include :name
+    end
   end
 end
