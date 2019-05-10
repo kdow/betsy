@@ -4,7 +4,7 @@
     <div class="form-group rating">
       <%# <%= f.label :rating, "Rating" %> 
       <%# <%= f.select :rating, [ 1, 2, 3, 4, 5 ], class: "form-control" %>
-      <%= f.radio_button(:rating, 5) %> <%= f.label(:rating.to_s + "_5") %>
+      <%= f.radio_button(:rating, 5) %> <%= f.label(" " + :rating.to_s + "_5") %>
       <%= f.radio_button(:rating, 4) %> <%= f.label(:rating.to_s + "_4") %>
       <%= f.radio_button(:rating, 3) %> <%= f.label(:rating.to_s + "_3") %>
       <%= f.radio_button(:rating, 2) %> <%= f.label(:rating.to_s + "_2") %>

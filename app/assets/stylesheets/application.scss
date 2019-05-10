@@ -98,7 +98,7 @@ a.seller-nav-btn {
   display: inline-block; 
   padding-top: .75rem ;
   padding-left: 1rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 
 }
 
@@ -107,7 +107,7 @@ a.category-nav-btn {
   padding-top: .75rem ;
   padding-right: 3rem;
   padding-left: 1rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .sidebar {
@@ -125,19 +125,13 @@ a.category-nav-btn {
 
 .form-control.qty {
   width: 3rem;
+}
+
+.form-control.qty.cart {
+  width: 3rem;
   display: inline;
   vertical-align: middle;
 }
-
-
-
-
-// .card {
-//   width: 100%;
-//   height: 100%;
-//   margin: 2rem;
-//   padding: 2rem;
-// }
 
 .empty-paw {
   color: #ccc;
@@ -148,6 +142,30 @@ a.category-nav-btn {
   font-size: 1.5rem;
 }
 
+p a, h2 a, h3 a, h4 a, table a, li a {
+  color: #3e8dc9;
+}
+
+p a:hover, h2 a:hover, h3 a:hover, h4 a:hover,  table a:hover, li a:hover {
+  color: #155a8f;
+}
+
+.btn-primary {
+  background-color: #3e8dc9;
+ }
+ .btn-success {
+  background-color: #2fc282;
+ }
+ .btn-primary:hover {
+   background-color: #155a8f;
+ }
+ .btn-success:hover {
+  background-color: #198a59;
+ }
+
+ td, p {
+   font-size: 1.1rem;
+ }
 section article {
   padding: 2rem 2rem 1rem 1rem;
 }

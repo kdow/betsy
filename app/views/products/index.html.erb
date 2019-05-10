@@ -1,31 +1,5 @@
 <section class="cards">
   <% Product.active(@products).each do |product| %>
-    <article>
-      <div class="card">
-        <%= link_to(image_tag(product.photo_url, class: "card-img-top", :alt => "Photo of ""#{product.name}"), product_path(product)) %>
-        <div class="card-body">
-          <h4 class="card_title">
-            <%= link_to product.name, product_path(product) %>
-          </h4>
-          <div class="card_body">
-            <%= "$""#{'%.2f' % (product.price / 100.00)}" %>
-          </div>
-          <div class="card_body">
-            <%= form_for @order_product do |f| %>
-              <% if product.quantity.nil? || product.quantity < 1 %>
-                <% "Sorry, this item is out of stock." %>
-              <% else %>
-                <p class="card_link">
-                  <%= f.hidden_field :product_id, value: product.id %>
-                  <%= f.number_field :quantity, value: 1, max: product.quantity, class: "form-control qty" %>
-                </p>
-                <p class="card_link">
-                  <%= f.submit "Add to cart", class: "btn btn-primary" %>
-                </p>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </article>
-    <% end %>
-  </section>
+    <%= render partial: "shared/card", locals: { product: product } %>
+  <% end %>
+</section>
