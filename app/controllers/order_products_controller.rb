@@ -2,7 +2,7 @@
 
 class OrderProductsController < ApplicationController
   skip_before_action :require_login, except: [:mark_as_shipped]
-  skip_before_action :auth_seller
+  skip_before_action :auth_seller, except: [:mark_as_shipped]
 
   def create
     @order = current_order

@@ -105,22 +105,41 @@ describe OrderProductsController do
     before do
       @seller = sellers(:sarah)
       @order_product = @seller.order_products.first
+      @new_seller = sellers(:kelly)
     end
     it "changes status to shipped" do
-      perform_login
+      perform_login(@seller)
       expect(@order_product.shipped).must_be_nil
       patch seller_mark_as_shipped_path(@seller, @order_product.id)
 
       @order_product.reload
       expect(@order_product.shipped).must_equal true
 
-      must_redirect_to seller_order_products_path
+      must_redirect_to seller_order_products_path(@seller)
     end
 
     it "will redirect to products path for guest user" do
       patch seller_mark_as_shipped_path(@seller, @order_product.id)
 
       must_redirect_to products_path
+    end
+
+    it "will redirect for a logged in user using a bad seller id" do
+      perform_login(@seller)
+      patch seller_mark_as_shipped_path(@new_seller, @order_product.id)
+
+      must_respond_with :redirect
+    end
+
+    it "will redirect if given a order-product that does not beloing to the seller" do
+      perform_login(@seller)
+      new_seller_op = @new_seller.order_products.first
+      before_status = new_seller_op.shipped
+
+      patch seller_mark_as_shipped_path(@seller, new_seller_op)
+
+      expect(new_seller_op.shipped).must_equal before_status
+      must_respond_with :redirect
     end
   end
 end
