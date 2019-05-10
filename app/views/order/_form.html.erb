@@ -35,10 +35,12 @@
         <%= f.label :city %>
         <%= f.text_field :city, placeholder: "Redmond", class:"form-control" %>
       </div>
+      
       <div class="form-group col-md-4">
         <%= f.label :state, "State" %>
-        <%= f.select :state, Order::STATES, class:"form-control" %>
+        <%= f.select :state, Order::STATES, {}, class:"form-control" %>
       </div>
+      
       <div class="form-group col-md-4">
         <%= f.label :zip, "Zip code" %>
         <%= f.text_field :zip, placeholder: "98052", class:"form-control" %>
