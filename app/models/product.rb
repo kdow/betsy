@@ -30,4 +30,10 @@ class Product < ApplicationRecord
   def self.active(products)
     return products.select { |product| product.is_active != false }
   end
+
+  def self.most_popular
+    products = OrderProduct.group(:product_id).count
+    ids = products.sort_by {|k,v| v}.reverse.map(&:first)
+    where(id: ids)
+  end
 end
