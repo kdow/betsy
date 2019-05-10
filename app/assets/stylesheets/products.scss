@@ -17,7 +17,7 @@
 }
 .card_link {
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: .5rem;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: baseline;
@@ -26,3 +26,8 @@
 .prod-show {
   padding-top: 7.5%;
 } 	
+
+.cat-card-title {
+  display: block;
+  height: 4.3rem;
+}
