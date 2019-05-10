@@ -13,7 +13,7 @@
 
 <section class="top-sellers">
   <div class="banner"><h3>Our Top Sellers</3></div>
-  <% products = Product.most_popular.sample(6) %>
+  <% products = Product.most_popular.sample(5) %>
   <section class="cards">
     <% products.each do |product| %>
      <%= render partial: "shared/card", locals: { product: product } %>
