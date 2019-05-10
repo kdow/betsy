@@ -123,6 +123,11 @@ a.category-nav-btn {
   margin-bottom: 2rem;
 }
 
+.form-control.qty {
+  width: 3rem;
+  display: inline;
+  vertical-align: middle;
+}
 
 
 
@@ -141,5 +146,9 @@ a.category-nav-btn {
 .header-icon {
   color: white;
   font-size: 1.5rem;
+}
+
+section article {
+  padding: 2rem 2rem 1rem 1rem;
 }
 
