@@ -5,6 +5,31 @@ describe Seller do
   let(:kelly) { sellers(:sarah) }
   let(:new_seller) { sellers(:new_seller) }
 
+  describe "validations" do
+    it "should have a username" do
+      seller.username = nil
+      result = seller.valid?
+      expect(result).must_equal false
+    end
+    it "must have unique username" do
+      new_seller.username = "sarah"
+      result = new_seller.valid?
+      expect(result).must_equal false
+      expect(new_seller.errors.messages).must_include :username
+    end
+    it "must have an email" do
+      seller.email = nil
+      result = seller.valid?
+      expect(result).must_equal false
+    end
+    it "must have a unique email" do
+      new_seller.email = "sarah@cats.com"
+      result = new_seller.valid?
+      expect(result).must_equal false
+      expect(new_seller.errors.messages).must_include :email
+    end
+  end
+
   it "can add a product through .products" do
     prod = Product.new(name: "mousie", price: 300)
     seller_one = sellers(:kelly)
