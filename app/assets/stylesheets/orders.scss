@@ -1,3 +1,23 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card.order-details {
+  width: 40rem;
+  height: auto;
+  padding: 3rem;
+  margin: 0 auto; /* Added */
+  margin-top: 10%;
+  margin-bottom: 20%; /* Added */
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+.container {
+  min-height: fit-content;
+}
+
+.order-details > * {
+  padding: 1.5rem 0;
+}

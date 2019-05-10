@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get "categories/browse", to: "categories#browse_category", as: "browse_category"
   get "categories/:category_id", to: "categories#browse_category", as: "show_category"
   # get "categories", to: "categories#index", as: "categories"
-  
 
   resources :order_products
   resource :cart, only: [:show]
@@ -16,11 +15,8 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
 
-  
   get "products/seller/:seller_id", to: "sellers#seller_products", as: "products_by_seller"
   patch "products/:id/retire", to: "products#retire", as: "product_retire"
-  
-
 
   resources :sellers, only: [:show]
 
@@ -32,6 +28,7 @@ Rails.application.routes.draw do
     patch "/products/:id/categories", to: "sellers#product_categories_update"
     get "/order_products/", to: "sellers#order_product_index"
     get "/order/:order_id", to: "sellers#order_show", as: "order"
+    patch "/order_products/:order_product_id", to: "order_products#mark_as_shipped", as: "mark_as_shipped"
   end
 
   resources :categories do

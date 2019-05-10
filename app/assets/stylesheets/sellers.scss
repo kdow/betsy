@@ -20,22 +20,24 @@ h2 {
 
 .order-flex {
   display: flex;
-  flex-wrap: wrap;
   padding: 1rem 0;
+}
+.order-flex.stat-box {
+  flex-wrap: flex;
 }
 .order-info {
   padding: 2rem;
   margin-right: 3rem;
   background-color: rgb(198, 229, 230) ;
-  width: 350px;
+  width: 250px;
   height: 225px;
 }
 .stat-item {
   width: 200px;
   text-align: center;
-  padding: 1rem 1rem;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
+  padding: 1.5rem;
+  margin-right: 3rem;
+  // margin-top: 2rem;
   background-color: rgb(198, 229, 230) ;
 }
 .stat-item:last-child {
@@ -43,4 +45,6 @@ h2 {
 }
 .stat-title {
   height: 50px;
+  margin: 0;
 }
+

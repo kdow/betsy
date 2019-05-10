@@ -1,3 +1,5 @@
+
+
 class ProductsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   before_action :auth_seller, only: [:create, :edit, :update]
@@ -36,6 +38,7 @@ class ProductsController < ApplicationController
     if @successful
       @product.seller_id = session[:seller_id]
       @product.is_active = true
+      @product.large_photo_url = @product.photo_url
       @successful = @product.save
       flash[:success] = "Successfully created product #{@product.name}"
       redirect_to product_path(@product.id)
@@ -55,6 +58,8 @@ class ProductsController < ApplicationController
     # end
     successful = @product.update(product_params)
     if successful
+      @product.large_photo_url = @product.photo_url if @product.large_photo_url == nil
+      @product.save
       flash[:success] = "Successfully updated product #{@product.name}"
       redirect_to product_path(@product)
     else

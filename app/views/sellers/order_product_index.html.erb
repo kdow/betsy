@@ -5,26 +5,29 @@
   <section class="grid-body">
     <h2 class="btm-boarder">Order Dashboard</h2>
 
-      <section class="order-flex">
+      <section class="order-flex stat-box">
         <div class="stat-item">
-          <p class="stat-title">Revenue for Complete Orders: </p>
-          <h4><%= format_dollars(@seller.total_revenue_by_status("completed")) %></h5>
+
+          <h3><%= format_dollars(@seller.total_revenue_by_status("completed")) %></h3>
+          <p class="stat-title">Revenue in Complete Orders </p>
          </div> 
          <div class="stat-item">
-          <p class="stat-title">Revenue for Pending Orders: </p>
-          <h4><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h5>
+          <h3><%= format_dollars(@seller.total_revenue_by_status("in progress")) %></h3>
+          <p class="stat-title">Revenue in Pending Orders </p>
         </div>
         <div class="stat-item">
-          <p class="stat-title">Total Revenue: </p>
-          <h4><%= format_dollars(@seller.total_revenue_by_status("in progress") + @seller.total_revenue_by_status("completed")) %></h5>
+
+          <h3><%= format_dollars(@seller.total_revenue_by_status("in progress") + @seller.total_revenue_by_status("completed")) %></h3>
+          <p class="stat-title">Total Revenue </p>
         </div>
         <div class="stat-item">
-          <p class="stat-title">Total Items Sold: </p>
-          <h4><%= %></h5>
+          <h3><%= @seller.total_items_sold %></h3>
+          <p class="stat-title">Items Sold </p>
+
         </div>
       </section>
 
-    <h4>Your Orders</h4>
+    <h3>Your Orders</h3>
     <% @orders.each do |order| %>
     <section class="order-flex">
       <div class="order-info">
@@ -43,6 +46,7 @@
             <th>Product</th>
             <th>Quantity</th>
             <th>Subtotal</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -53,6 +57,11 @@
             <td><%= link_to order_product.product.name, product_path(order_product.product) %></td>
             <td><%= order_product.quantity %></td>
             <td>$<%= "#{'%.2f' % (order_product.line_item_subtotal / 100.00)}"%></td>
+            <% if order_product.shipped == true %>
+              <td>Shipped</td>
+            <% else %>
+              <td><%= link_to "Mark as Shipped", seller_mark_as_shipped_path(@seller, order_product), method: :patch, class: "btn btn-primary" %></td>
+            <% end %>
           </tr>
         <% end %>
       <% end %>
