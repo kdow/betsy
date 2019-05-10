@@ -1,3 +1,4 @@
+
 <% if @order.errors.messages.any? %>
   <section class="alert alert-danger">
     <ul>
@@ -11,46 +12,52 @@
     </ul>
   </section>
 <% end %>
-<p>Payment Details</p>
-<%= form_with model: @order do |f| %>
-  <div>
-    <%= f.label :name, "Name on credit card" %>
-    <%= f.text_field :name, placeholder: "Cat lover" %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email, placeholder: "Cat_lover@catsy.com" %>
-  </div>
-  <div>
-    <%= f.label :address, "address" %>
-    <%= f.text_field :address, placeholder: "12th ne" %>
-  </div>
-</div>
-<div>
-  <div>
-    <%= f.label :city %>
-    <%= f.text_field :city, placeholder: "Redmond" %>
-  </div>
-  <div>
-    <%= f.label :state, "State" %>
-    <%= f.select :state, Order::STATES %>
-  </div>
-  <div>
-    <%= f.label :zip, "Zip code" %>
-    <%= f.text_field :zip, placeholder: "98052" %>
-  </div>
-</div>
-<div>
-  <%= f.label :last_four, "Credit card number" %>
-  <%= f.text_field :last_four, placeholder: "1234123412341234", minlength: 16, maxlength: 16 %>
-</div>
-<div>
-  <%= f.label :cc_exp %>
-  <%= f.text_field :cc_exp, placeholder: "1020" %>
-</div>
-<div>
-  <%= f.label :ccv %>
-  <%= f.text_field :ccv, placeholder: "000" %>
-</div>
-<%= f.submit button_text, class: "btn btn-success" %>
-<% end %>
+<main>
+  <section class="grid-body">
+    <p>
+      <h2 class="btm-boarder">Checkout</h2>
+    </p>
+    <%= form_with model: @order do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "Name on credit card" %>
+        <%= f.text_field :name, placeholder: "Cat lover", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "Email address" %>
+        <%= f.text_field :email, placeholder: "Cat_lover@catsy.com", class:"form-control" %>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <%= f.label :address, "Address" %>
+        <%= f.text_field :address, placeholder: "12th ne", class:"form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label :city %>
+        <%= f.text_field :city, placeholder: "Redmond", class:"form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label :state, "State" %>
+        <%= f.select :state, Order::STATES, class:"form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label :zip, "Zip code" %>
+        <%= f.text_field :zip, placeholder: "98052", class:"form-control" %>
+      </div>
+      <div class="form-row col-md-6">
+        <div class="form-group">
+          <%= f.label :last_four, "Credit card number" %>
+          <%= f.text_field :last_four, placeholder: "1234123412341234", minlength: 16, maxlength: 16, class:"form-control" %>
+        </div>
+        <div class="form-group col-md-4">
+          <%= f.label :cc_exp, "CC-exp" %>
+          <%= f.text_field :cc_exp, placeholder: "1020", class:"form-control" %>
+        </div>
+        <div class="form-group col-md-2">
+          <%= f.label :cvv, "CVV" %>
+          <%= f.text_field :cvv, placeholder: "000", class:"form-control" %>
+        </div>
+      </div>
+      <%= f.submit button_text, class: "btn btn-success" %>
+    <% end %>
+  </section>
+</main>

@@ -33,7 +33,7 @@ class SellersController < ApplicationController
       head :not_found
     end
     
-    @seller_products = Product.where(seller_id: @seller.id)
+    @seller_products = Product.(@active).where(seller_id: @seller.id)
     unless @seller_products.nil?
       return @seller_products
     end

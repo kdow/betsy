@@ -147,6 +147,23 @@ describe ProductsController do
       end
     end
 
+    describe "most popular" do
+      it "identifies the top selling products" do
+        skip
+        order_product_data = {
+          product_id: 5,
+          order_id: Order.first.id,
+          quantity: 10000
+        }
+  
+        post order_products_path, params: {order_product: order_product_data}
+
+        expect(Product.most_popular.first.id).must_equal 5
+      end
+    end
+
+
+
     describe "retire" do
       it "updates is_active to false" do
         expect(product.is_active).must_equal true

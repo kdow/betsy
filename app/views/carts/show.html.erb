@@ -15,7 +15,7 @@
           <% @order_products.each do |item| %>
             <tr>
               <td></td>
-              <td><%= item.product.name %></td>
+              <td><%= link_to item.product.name, product_path(item) %></td>
               <td><%= "$""#{(item.product.price/100.00).round(2)}" %></td>
               <td>
                 <%= form_for item do |f| %>
@@ -37,11 +37,13 @@
           </tbody>
         </table>
       </section>
-      <% if @order.order_products.any? %>
-        <%= link_to "Proceed to checkout", edit_order_path(@order), class: "btn btn-success" %>
-        <%= link_to "Continue shopping", products_path, class: "btn btn-success" %>
-      <% else %>
-        <%= link_to "Continue shopping", products_path, class: "btn btn-success" %>
-      <% end %>
+      <section class="cart-buttons">
+        <% if @order.order_products.any? %>
+          <%= link_to "Proceed to checkout", edit_order_path(@order), class: "btn btn-success" %>
+          <%= link_to "Continue shopping", products_path, class: "btn btn-success" %>
+        <% else %>
+          <%= link_to "Continue shopping", products_path, class: "btn btn-success" %>
+        <% end %>
+      </section>
     </main>
 
