@@ -1,3 +1,4 @@
+
 <% if @order.errors.messages.any? %>
   <section class="alert alert-danger">
     <ul>
@@ -12,9 +13,9 @@
   </section>
 <% end %>
 <main>
-  <section>
+  <section class="grid-body">
     <p>
-      <h2>Checkout</h2>
+      <h2 class="btm-boarder">Checkout</h2>
     </p>
     <%= form_with model: @order do |f| %>
       <div class="form-group">
@@ -27,22 +28,20 @@
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
-        <%= f.label :address, "address" %>
+        <%= f.label :address, "Address" %>
         <%= f.text_field :address, placeholder: "12th ne", class:"form-control" %>
       </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <%= f.label :city %>
-          <%= f.text_field :city, placeholder: "Redmond", class:"form-control" %>
-        </div>
-        <div class="form-group col-md-4">
-          <%= f.label :state, "State" %>
-          <%= f.select :state, Order::STATES, class:"form-control" %>
-        </div>
-        <div class="form-group col-md-2">
-          <%= f.label :zip, "Zip code" %>
-          <%= f.text_field :zip, placeholder: "98052", class:"form-control" %>
-        </div>
+      <div class="form-group col-md-4">
+        <%= f.label :city %>
+        <%= f.text_field :city, placeholder: "Redmond", class:"form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label :state, "State" %>
+        <%= f.select :state, Order::STATES, class:"form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label :zip, "Zip code" %>
+        <%= f.text_field :zip, placeholder: "98052", class:"form-control" %>
       </div>
       <div class="form-row col-md-6">
         <div class="form-group">
@@ -50,11 +49,11 @@
           <%= f.text_field :last_four, placeholder: "1234123412341234", minlength: 16, maxlength: 16, class:"form-control" %>
         </div>
         <div class="form-group col-md-4">
-          <%= f.label :cc_exp %>
+          <%= f.label :cc_exp, "CC-exp" %>
           <%= f.text_field :cc_exp, placeholder: "1020", class:"form-control" %>
         </div>
         <div class="form-group col-md-2">
-          <%= f.label :ccv %>
+          <%= f.label :ccv, "CCV" %>
           <%= f.text_field :ccv, placeholder: "000", class:"form-control" %>
         </div>
       </div>
@@ -62,4 +61,3 @@
     <% end %>
   </section>
 </main>
-
