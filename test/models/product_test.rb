@@ -1,3 +1,5 @@
+
+
 require "test_helper"
 
 describe Product do
@@ -22,6 +24,7 @@ describe Product do
       product_one.order_products << order_prod
       expect(product_one.order_products).must_include order_prod
     end
+
   end
 
   describe "custome method adjust quantity" do
