@@ -27,6 +27,48 @@ describe Seller do
     end
   end
 
+  describe "validations" do
+    before do
+      @another_seller = Seller.new(
+        {
+          username: "Fluffer Nutter",
+          email: "fluffy@kitties.com",
+          uid: 3447584,
+          provider: "Github",
+        }
+      )
+    end
+    it "is valid when all fields are valid" do
+      result = @another_seller.valid?
+
+      expect(result).must_equal true
+    end
+    it "Is invalid when a username is blank" do
+      @another_seller.username = nil
+      result = @another_seller.valid?
+
+      expect(result).must_equal false
+    end
+    it "Is invalid when a username is not unique" do
+      @another_seller.username = seller.username
+      result = @another_seller.valid?
+
+      expect(result).must_equal false
+    end
+    it "Is invalid when an email is blank" do
+      @another_seller.email = nil
+      result = @another_seller.valid?
+
+      expect(result).must_equal false
+    end
+    it "Is invalid when an email is not unique" do
+      @another_seller.email = seller.email
+      result = @another_seller.valid?
+
+      expect(result).must_equal false
+    end
+  end
+
   describe "get_unique_orders" do
     it "returns an array of orders " do
       orders = seller.get_unique_orders
