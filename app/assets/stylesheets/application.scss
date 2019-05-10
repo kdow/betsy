@@ -26,7 +26,11 @@ a.button {
   font-size: 4.25rem;
   letter-spacing: 4px;
   font-style: bold;
-  margin: 0
+  margin: 0;
+}
+
+.logo a {
+  color: white;
 }
 
 main {
@@ -100,6 +104,15 @@ a.category-nav-btn {
 .sidebar {
   background-color: rgb(204, 218, 217);
 }
+
+.banner {
+  border-bottom: inset;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 
 
 
