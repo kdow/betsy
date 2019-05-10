@@ -3,7 +3,10 @@
 <% if @seller.products.count == 0 %>
   <p>Sorry. This seller has no items available at the moment.</p>
 <% else %>
-  <% @seller.products.each do |product| %>
+
+ <% @seller.products.each do |product| %>
+  <%= render partial: "shared/card", locals: { product: product } %>
+
     <%= link_to(image_tag(product.photo_url, :alt => "Photo of ""#{product.name}"), product_path(product)) %>
       <li><%= link_to product.name, product_path(product) %> | <%= "$""#{'%.2f' % (product.price / 100.00)}" %></li>
       <%= form_for OrderProduct.new do |f| %>
@@ -15,5 +18,7 @@
         <%= f.submit "Add to cart" %>
         <% end %>
       <% end %>
+
+
   <% end %>
 <% end %>
