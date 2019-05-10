@@ -5,11 +5,26 @@ describe Seller do
   let(:kelly) { sellers(:sarah) }
   let(:new_seller) { sellers(:new_seller) }
 
-  it "can add a product through .products" do
-    prod = Product.new(name: "mousie", price: 300)
-    seller_one = sellers(:kelly)
-    seller_one.products << prod
-    expect(seller_one.products).must_include prod
+  describe "relationships" do
+    it "can add a product through .products" do
+      prod = Product.new(name: "mousie", price: 300)
+      seller_one = sellers(:kelly)
+      seller_one.products << prod
+      expect(seller_one.products).must_include prod
+    end
+
+    it "can get an list of orders through .orders" do
+      orders = seller.orders
+      expect(orders.first).must_be_instance_of Order
+      expect(orders).must_include orders(:completed)
+    end
+
+    it "can get a list of order_products through .order_products" do
+      order_products = seller.order_products
+      expect(order_products.first).must_be_instance_of OrderProduct
+      expect(order_products.first.product.seller).must_equal seller
+      expect(order_products).must_include order_products("completed-3")
+    end
   end
 
   describe "get_unique_orders" do
